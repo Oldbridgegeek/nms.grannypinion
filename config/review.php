@@ -13,4 +13,18 @@ return [
     */
 
 	'max_stars' => 10,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Minimum Feedback
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the default amount of characters which have
+    | to be given in a review, if a character is entered into the 
+    | feedback text field. If no character is entered the amount
+    | of characters to enter defaults to 0.
+    |
+    */
+
+    'minimum_feedback' => 150,
 ];

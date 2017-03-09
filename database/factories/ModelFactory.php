@@ -16,9 +16,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastName,
+        'city' => $faker->city,
         'email' => $faker->unique()->safeEmail,
+        'verified' => $faker->boolean,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Message::class, function (Faker\Generator $faker) {
+    return [
+    	'conversation_id' => 1,
+        'body' => $faker->paragraph,
     ];
 });

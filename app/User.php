@@ -26,4 +26,34 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the users reviews.
+     * 
+     * @return [type] [description]
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    /**
+     * Get all user conversations.
+     * 
+     * @return [type] [description]
+     */
+    public function receivedConversations()
+    {
+        return $this->hasMany(Conversation::class, 'receiver_id');
+    }
+
+    /**
+     * Get all user conversations.
+     * 
+     * @return [type] [description]
+     */
+    public function startedConversations()
+    {
+        return $this->hasMany(Conversation::class, 'sender_id');
+    }
 }

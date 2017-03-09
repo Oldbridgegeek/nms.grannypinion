@@ -15,24 +15,25 @@ Route::name('welcome')->get('/', function () {
 	return view('guest/welcome');
 });
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 	// Logged-In and Dashboard
 	Route::get('/home', 'HomeController@index');
 
 	// User
-	Route::get('/searchuser', 'UserController@search');
-	Route::get('/{user}', 'UserController@profile'); //show
-	Route::get('/{user}/feedback', 'UserController@feedback');
+	Route::get('/search/user', 'SearchController@search')->name('user.search');
+	Route::get('/{user}', 'UsersController@show')->name('user.show');
+	Route::get('/{user}/feedback', 'FeedbackController@index')->name('feedback');
+	Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
 
-	// Messaging and Conversations
-	Route::get('/{user}/message', 'MessageController@message');
-	Route::get('/{user}/myconversations', 'ConversationController@view_conversations');
-	Route::get('/conversation/{conversation}', 'ConversationController@view_messages');
-	Route::post('/message', 'MessageController@store');
+	// Conversations and Messages
+	Route::get('/{user}/conversations', 'ConversationsController@index')->name('conversations');
+	Route::get('/conversation/{conversation}', 'ConversationsController@show')->name('conversation.show');
+	Route::post('/conversation', 'ConversationsController@store')->name('conversation.store');
+	Route::get('{user}/message', 'ConversationsController@create')->name('conversation.create');
 
 	// Reviews
 	Route::post('/feedback', 'ReviewsController@store');
-});
+// });
 
 Auth::routes();
 

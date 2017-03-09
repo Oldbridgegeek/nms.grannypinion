@@ -23,7 +23,6 @@ class CreateReviewsTable extends Migration
             $table->integer('stars_honesty');
             $table->integer('stars_intelligence');
             $table->integer('stars_fun');
-            $table->integer('starsFun');
             $table->text('feedback');
             $table->timestamps();
         });
