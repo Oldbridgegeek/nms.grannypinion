@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <h2> {{$user->firstname}} {{$user->lastname}} </h2>
-            <img src="/storage/app/{{$user->profilePicture}}" style="width:20em;height:20em;">
+            <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
             </img>
+            <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             <div class="panel-heading"> <h2> Bewertungen </h2> </div>
             <div class="panel-body">
                 <ul class="list-group">

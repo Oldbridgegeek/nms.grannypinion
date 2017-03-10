@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
 			$table->string('lastname');
 			$table->string('city')->default('');
 			$table->string('email')->unique();
-			$table->boolean('verified')->default('0');
+			$table->boolean('public')->default(0);
 			$table->string('password');
 			$table->string('avatar')->default('default.jpg');
 			$table->rememberToken();
