@@ -34,15 +34,17 @@
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
+                    @if(!Auth::guest())
                     <div class="col-sm-3 col-md-3">
-                        <form class="navbar-form" role="search">
+                        <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                                <input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname">
+                                <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname">
                                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
                         </form>
                     </div>
+                    @endif
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
