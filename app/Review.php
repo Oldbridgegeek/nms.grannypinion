@@ -12,6 +12,8 @@ class Review extends Model {
 	 */
 	protected $guarded = [];
 
+	protected $table = 'reviews';
+
 	/**
 	 * Get the subject of this review.
 	 *
