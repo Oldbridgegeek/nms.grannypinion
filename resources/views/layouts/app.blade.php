@@ -10,6 +10,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
         <!-- Scripts -->
         <script>
         window.Laravel = {!! json_encode([
@@ -86,6 +87,23 @@
             @yield('content')
         </div>
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
+        <script>
+            var visible = true;
+            document.getElementById('feedbackTextOnly').onclick = function(event){
+                if(visible == true){
+                    document.getElementById('starRating').style.visibility = 'hidden';
+                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte eine Feedback Hilfe";
+                    document.getElementById('feedbackString').rows = 30;
+                    visible = false;
+                }
+                else {
+                    document.getElementById('starRating').style.visibility = 'visible';
+                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte nur einen Feedback Text schreiben.";
+                    document.getElementById('feedbackString').rows = 5;
+                    visible = true;
+                }
+            }
+        </script>
     </body>
 </html>
