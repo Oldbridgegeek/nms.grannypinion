@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\ReviewStoreRequest;
+use App\Review;
 use Illuminate\Http\Request;
 
 class ReviewsController extends Controller {
@@ -29,7 +29,7 @@ class ReviewsController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(ReviewStoreRequest $request) {
+	public function store(Request $request) {
 		$review = new Review([
 			'stars_average' => $request->starsAverage,
 			'stars_kindness' => $request->starsKindness,
@@ -41,7 +41,7 @@ class ReviewsController extends Controller {
 			'feedback' => $request->feedback,
 		]);
 
-		$review->addSubject($request->user_id);
+		$review->addSubject(intval($request->user_id));
 		$review->save();
 
 		return redirect('/home');

@@ -23,8 +23,6 @@ class Message extends Model {
 		return $this->belongsTo(Conversation::class);
 	}
 
-	protected $table = 'messages';
-
 	/**
 	 * Link message with a conversation.
 	 *

@@ -14,8 +14,6 @@ class Conversation extends Model {
 		'sending_user_id', 'receiving_user_id',
 	];
 
-	protected $table = 'conversations';
-
 	/**
 	 * Get all messages from this conversation.
 	 *
