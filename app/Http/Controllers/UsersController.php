@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Image;
 
 class UsersController extends Controller {
 	/**
@@ -76,6 +77,17 @@ class UsersController extends Controller {
 	}
 
 	public function settings(User $user) {
+		return view('user.setting', compact('user'));
+	}
+
+	public function update_avatar(User $user, Request $request) {
+		if ($request->hasFile('avatar')) {
+			$avatar = $request->file('avatar');
+			$filename = time() . '.' . $avatar->getClientOriginalExtension();
+			Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+			$user->avatar = $filename;
+			$user->save();
+		}
 		return view('user.setting', compact('user'));
 	}
 }
