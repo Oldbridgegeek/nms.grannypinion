@@ -42,7 +42,7 @@ class ReviewsController extends Controller {
 			'feedback' => $request->feedback,
 		]);
 
-		$review->addSubject(intval($request->user_id_writer));
+		$review->addSubject(intval($request->user_id));
 		$review->save();
 
 		return redirect('/home');

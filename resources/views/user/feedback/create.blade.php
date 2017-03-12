@@ -3,8 +3,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-7">
             <h3> Anonymes Feedback für {{$user->firstname}} {{$user->lastname}} </h3>
+            </div>
+            <div class="col-md-3">
+            <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
+            </img>
+            </div>
             <button id="feedbackTextOnly"> Ich möchte nur einen Feedback Text schreiben.</button>
+            <p style="color:red;">* Mindestens ein Feld muss ausgefüllt werden.</p>
             <form class="form-horizontal" role="form" method="POST" action="/feedback">
                 {{ csrf_field() }}
                 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
