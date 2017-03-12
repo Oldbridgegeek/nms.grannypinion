@@ -25,6 +25,7 @@ Route::get('/search/user', 'SearchController@search')->name('user.search');
 Route::get('/{user}', 'UsersController@show')->name('user.show');
 Route::get('/{user}/feedback', 'FeedbackController@index')->name('feedback');
 Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
+Route::get('/{user}/settings', 'UsersController@settings')->name('user.setting');
 
 // Conversations and Messages
 Route::get('/{user}/conversations', 'ConversationsController@index')->name('conversations');

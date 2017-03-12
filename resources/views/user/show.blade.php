@@ -6,6 +6,10 @@
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
+            @if($user->id == Auth::user()->id)
+                <a href="{{route('user.setting',['user' => Auth::user()])}}" >Einstellungen</a>
+            @endif
+
             <div class="panel-heading"> <h2> Bewertungen </h2> </div>
             <div class="panel-body">
                 <ul class="list-group">
