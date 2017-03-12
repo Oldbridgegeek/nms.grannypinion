@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->boolean('public')->default(0);
 			$table->string('password');
 			$table->string('avatar')->default('default.jpg');
+			$table->boolean('email_notifications')->default(1);
 			$table->rememberToken();
 			$table->timestamps();
 		});

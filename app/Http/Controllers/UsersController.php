@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Image;
 
@@ -62,8 +63,14 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
+	public function update(Request $request) {
+		$user = Auth::user();
+		$user->firstname = $request->firstname;
+		$user->lastname = $request->lastname;
+		$user->email = $request->email;
+		$user->email_notifications = !$request->email_notification;
+		$user->save();
+		return view('user.setting', compact('user'));
 	}
 
 	/**
