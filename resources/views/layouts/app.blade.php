@@ -10,6 +10,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
         <!-- Scripts -->
         <script>
         window.Laravel = {!! json_encode([
@@ -38,9 +39,7 @@
                     <div class="col-sm-3 col-md-3">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname">
-                                <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;">
                             </div>
                         </form>
                     </div>
@@ -86,6 +85,37 @@
             @yield('content')
         </div>
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
+        <script>
+            var visible = true;
+            document.getElementById('feedbackTextOnly').onclick = function(event){
+                if(visible == true){
+                    document.getElementById('starRating').style.visibility = 'hidden';
+                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte eine Feedback Hilfe";
+                    visible = false;
+                    var children = document.getElementsByClassName('form-control');
+                    for (var i=0; i<children.length ; i++){
+                        var ratingChild = children[i];
+                        ratingChild.value = "";
+                    }
+                }
+                else {
+                    document.getElementById('starRating').style.visibility = 'visible';
+                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte nur einen Feedback Text schreiben.";
+                    visible = true;
+                }
+            }
+
+            function toggleCheckbox(element, idStars)
+            {
+                if(element.checked == true){
+                    document.getElementById(idStars).disabled = true;
+                    document.getElementById(idStars).value = "";
+                }
+                if(element.checked == false){
+                    document.getElementById(idStars).disabled = false;
+                }
+            }
+        </script>
     </body>
 </html>

@@ -1,30 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
-use Illuminate\Http\Request;
-
-class FeedbackController extends Controller
-{
+class FeedbackController extends Controller {
 	/**
 	 * Display all feedback of a user.
-	 * 
+	 *
 	 * @param  User   $user [description]
 	 * @return [type]       [description]
 	 */
-    public function index(User $user)
-    {
-        return view('user.feedback.index', compact('user'));
-    }
+	public function index(User $user) {
+		return view('user.feedback.index', compact('user'));
+	}
 
-    /**
+	/**
 	 * Display feedback form for a user.
-	 * 
+	 *
 	 * @param  User   $user [description]
 	 * @return [type]       [description]
 	 */
-    public function create(User $user)
-    {
-        return view('user.feedback.index', compact('user'));
-    }
+	public function create(User $user) {
+		return view('user.feedback.create', compact('user'));
+	}
 }
