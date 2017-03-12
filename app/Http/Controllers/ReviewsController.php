@@ -31,6 +31,7 @@ class ReviewsController extends Controller {
 	 */
 	public function store(Request $request) {
 		$review = new Review([
+			'user_id' => $request->user_id,
 			'stars_average' => $request->starsAverage,
 			'stars_kindness' => $request->starsKindness,
 			'stars_attractiveness' => $request->starsAttractiveness,
@@ -41,7 +42,7 @@ class ReviewsController extends Controller {
 			'feedback' => $request->feedback,
 		]);
 
-		$review->addSubject(intval($request->user_id));
+		$review->addSubject(intval($request->user_id_writer));
 		$review->save();
 
 		return redirect('/home');

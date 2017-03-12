@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <ul class="list-group">
                     @if(!empty($user->reviews))
-                    @foreach( $user->reviews as $review )
+                    @foreach( $user->reviews() as $review )
                     <li class="list-group-item">
                         Gesamteindruck: {{$review->stars_average}} von {{ config('review.max_stars') }}
                     </li>

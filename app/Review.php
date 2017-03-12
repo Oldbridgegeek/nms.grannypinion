@@ -11,7 +11,7 @@ class Review extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		stars_average, stars_kindness, stars_attractiveness, satrs_reliability, stars_honesty, stars_intelligence, stars_fun, subject_id, user_id, feedback,
+		'stars_average', 'stars_kindness', 'stars_attractiveness', 'stars_reliability', 'stars_honesty', 'stars_intelligence', 'stars_fun', 'subject_id', 'user_id', 'feedback',
 	];
 
 	protected $guarded = [];

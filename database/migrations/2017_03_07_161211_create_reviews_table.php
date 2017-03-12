@@ -14,15 +14,15 @@ class CreateReviewsTable extends Migration {
 		Schema::create('reviews', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
-			$table->integer('stars_average');
-			$table->integer('stars_kindness');
-			$table->integer('stars_attractiveness');
-			$table->integer('stars_reliability');
-			$table->integer('stars_honesty');
-			$table->integer('stars_intelligence');
-			$table->integer('stars_fun');
+			$table->integer('stars_average')->nullable();
+			$table->integer('stars_kindness')->nullable();
+			$table->integer('stars_attractiveness')->nullable();
+			$table->integer('stars_reliability')->nullable();
+			$table->integer('stars_honesty')->nullable();
+			$table->integer('stars_intelligence')->nullable();
+			$table->integer('stars_fun')->nullable();
 			$table->integer('subject_id');
-			$table->text('feedback');
+			$table->text('feedback')->nullable();
 			$table->timestamps();
 		});
 	}

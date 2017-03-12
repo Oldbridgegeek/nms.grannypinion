@@ -8,6 +8,7 @@
             <form class="form-horizontal" role="form" method="POST" action="/feedback">
                 {{ csrf_field() }}
                 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
+                <input type="hidden" name="user_id_writer" id="user_id_writer" value="{{ Auth::user()->id}}">
                 <div id="starRating">
                     <div class="col-md-7">
                         <div class="form-group">
@@ -73,16 +74,21 @@
                         <input type="checkbox" id="checkAverage" onchange="toggleCheckbox(this,'starsAverage')"> Keine Angabe<br>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-7">
                     <div class="form-group">
-                        <label for="feedbackString" class="control-label">Feedback</label>
-                        <textarea class="form-control" rows="5" name="feedbackString" id="feedbackString"></textarea>
+                        <label for="feedback" class="control-label">Feedback</label>
+                        <textarea class="form-control" rows="5" name="feedback" id="feedback"></textarea>
                     </div>
-
-                <button type="submit" class="btn btn-primary"> Bestätigen </button>
                 </div>
-            </form>
-        </div>
+                <div class="col-md-3">
+                    <input type="checkbox" id="checkFeedback" onchange="toggleCheckbox(this,'feedback')"> Keine Angabe<br>
+                </div>
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary"> Bestätigen </button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 </div>
 @endsection
