@@ -13,8 +13,8 @@
             <div class="panel-heading"> <h2> Bewertungen </h2> </div>
             <div class="panel-body">
                 <ul class="list-group">
-                    @if(!empty($user->reviews()))
-                    @foreach( $user->reviews() as $review )
+                    @if(!empty($user->reviews))
+                    @foreach( $user->reviews as $review )
                     <li class="list-group-item">
                     @if($review->stars_average != NULL)
                         Gesamteindruck: {{$review->stars_average}} von {{ config('review.max_stars') }}

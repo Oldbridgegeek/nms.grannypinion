@@ -20,8 +20,9 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top">
+            <nav class="navbar navbar-default navbar-static-top" style="background-color:#042551;">
                 <div class="container">
+                <div class="col-md-5">
                     <div class="navbar-header">
                         <!-- Collapsed Hamburger -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -35,8 +36,9 @@
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
+                    </div>
                     @if(!Auth::guest())
-                    <div class="col-sm-3 col-md-3">
+                    <div class="col-md-5">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;">
