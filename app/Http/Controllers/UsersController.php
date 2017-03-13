@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 use Image;
 
@@ -69,6 +70,13 @@ class UsersController extends Controller {
 		$user->lastname = $request->lastname;
 		$user->email = $request->email;
 		$user->email_notifications = !$request->email_notification;
+		if ($request->password == $request->password_confirmation) {
+			if (!Hash::check($request->password, $user->password)) {
+				if ($request->password != $user->password) {
+					$user->password = bcrypt($request->password);
+				}
+			}
+		}
 		$user->save();
 		return view('user.setting', compact('user'));
 	}
