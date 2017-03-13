@@ -203,59 +203,122 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
-                                    <div class="form-group">
-                                        <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Passwort">
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                        <label for="remember"> Anmeldedaten speichern</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Anmelden">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Passwort vergessen?</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form class="form-horizontal" id="login-form" role="form" method="POST" style="display: block;" action="{{ route('login') }}">
+                                    {{ csrf_field() }}
+                                   <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Passwort</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Anmeldedaten speichern
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Anmelden
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Passwort vergessen?
+                                </a>
+                            </div>
+                        </div>
                                 </form>
+                            <form class="form-horizontal" id="register-form" role="form" method="POST" action="{{ route('register') }}" style="display: none;">
+                        {{ csrf_field() }}
 
 
-                                <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
-                                    <div class="form-group">
-                                        <input type="text" name="vorname" id="vorname" tabindex="1" class="form-control" placeholder="Vorname" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="Nachname" id="Nachname" tabindex="1" class="form-control" placeholder="Nachname" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Passwort">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Passwort Bestätigen">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Bestätigen">
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                 <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+
+                                <input id="firstname" type="text" class="form-control" name="firstname" value="{{ old('firstname') }}" placeholder="Vorname"required autofocus>
+
+                                @if ($errors->has('firstname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" placeholder="Nachname" required autofocus>
+
+                                @if ($errors->has('lastname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Passwort" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        <div class="form-group">
+
+
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Passwort Bestätigen" required>
+                            </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Bestätigen
+                                </button>
+                            </div>
+                        </div>
+
                                 </form>
                             </div>
                         </div>
