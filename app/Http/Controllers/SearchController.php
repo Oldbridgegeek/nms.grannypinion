@@ -29,8 +29,12 @@ class SearchController extends Controller {
 	 */
 	private function filterThroughUserNames($request) {
 		return User::all()->filter(function ($user) use ($request) {
-			return $this->inFirstName($user->firstname, $request->firstname)
-			|| $this->inLastName($user->lastname, $request->lastname);
+			return $this->inName($user->firstname, $request->firstname)
+			|| $this->inName($user->lastname, $request->lastname);
 		});
+	}
+
+	private function inName($name, $nameMatch) {
+		return str_contains(strtolower($name), strtolower($nameMatch));
 	}
 }

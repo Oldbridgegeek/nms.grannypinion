@@ -8,20 +8,20 @@
                 <div class="post">
                     <div class="col-md-8">
                         <h3>
-                            Name: {{$user->firstname}} {{$user->lastname}}
+                            {{$user->firstname}} {{$user->lastname}}
                         </h3>
                         <a href="/{{$user->id}}">
                             <button class="btnnew lgnew ghost">
                                 Profil sehen
                             </button>
                         </a>
-                        <a href="/{{$user->id}}/feedback">
+                        <a href="/{{$user->id}}/feedback/create">
                             <button class="btnnew lgnew ghost">
-                                Feedback
+                                Bewerten
                             </button>
                         </a>
                         <a href="/{{$user->id}}/message">
-                            <button class="btnnew lgnew ghost">
+                            <button class="btnnew lgnew ghost" disabled style="color:grey;">
                                 Anonyme Nachricht schicken
                             </button>
                         </a>

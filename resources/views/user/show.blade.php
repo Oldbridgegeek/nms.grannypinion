@@ -7,20 +7,29 @@
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
-                <a href="{{route('user.setting',['user' => Auth::user()])}}" >Einstellungen</a>
+            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button>Einstellungen</button></a>
+            @else
+            <a href="/{{$user->id}}/feedback/create">
+                <button class="btnnew lgnew ghost">
+                Bewerten
+                </button>
+            </a>
+            <a href="/{{$user->id}}/message">
+                <button class="btnnew lgnew ghost" disabled style="color:grey;">
+                Anonyme Nachricht schicken
+                </button>
+            </a>
             @endif
-
             <div class="panel-heading"> <h2> Bewertungen </h2> </div>
             <div class="panel-body">
                 <ul class="list-group">
                     @if(!empty($user->reviews))
                     @foreach( $user->reviews as $review )
                     <li class="list-group-item">
-                    @if($review->stars_average != NULL)
+                        @if($review->stars_average != NULL)
                         Gesamteindruck: {{$review->stars_average}} von {{ config('review.max_stars') }}
-                    @endif
+                        @endif
                     </li>
-
                     @if($review->stars_honesty != NULL)
                     <li class="list-group-item">
                         Ehrlichkeit: {{$review->stars_honesty}} von {{ config('review.max_stars') }}
