@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
+use Auth;
 
 class HomeController extends Controller {
 	/**
@@ -18,6 +20,7 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('home');
+		$user_id = Auth::user()->id;
+		return redirect('/'+$user_id);
 	}
 }
