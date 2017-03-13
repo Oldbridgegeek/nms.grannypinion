@@ -13,7 +13,7 @@
 Auth::routes();
 
 Route::name('welcome')->get('/', function () {
-	return view('guest/welcome2');
+	return view('guest/welcome');
 });
 
 // Route::middleware('auth')->group(function () {
