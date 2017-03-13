@@ -98,8 +98,9 @@
             </div>
         </form>
     </div>
-    @endif
+    @else
     <h2>Du darfst dich selber nicht bewerten.</h2>
+    @endif
 </div>
 @else
 <div class="col-md-10 col-md-offset-2">
