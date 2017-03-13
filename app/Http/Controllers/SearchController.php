@@ -12,10 +12,10 @@ class SearchController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function search(Request $request) {
-		$users = $this->filterThroughUserNames($request);
+		$users = $this->filterThroughUserNamesExtended($request);
 
 		if ($users->count() == 0) {
-			return "Kein Treffer für Vorname: $request->firstname und Nachname: $request->lastname.";
+			return "Kein Treffer für Name: $request->name";
 		}
 
 		return view('user.search', compact('users'));
@@ -34,7 +34,37 @@ class SearchController extends Controller {
 		});
 	}
 
+	private function filterThroughUserNamesExtended($request) {
+		$counter = substr_count($request->name, " ");
+		if ($counter == 0) {
+			$request->firstname = $request->name;
+			$request->lastname = "";
+			$users1 = $this->filterThroughUserNames($request);
+			$request->firstname = "";
+			$request->lastname = $request->name;
+			$users2 = $this->filterThroughUserNames($request);
+			return $users1->merge($users2);
+		} else if ($counter == 1) {
+			list($name1, $name2) = explode(" ", $request->name);
+			$request->firstname = $name1;
+			$request->lastname = $name2;
+			$users1 = $this->filterThroughUserNames($request);
+			$request->firstname = $name2;
+			$request->lastname = $name1;
+			$users2 = $this->filterThroughUserNames($request);
+			return $users1->merge($users2);
+		} else {
+			dd('To many names');
+		}
+
+	}
+
 	private function inName($name, $nameMatch) {
 		return str_contains(strtolower($name), strtolower($nameMatch));
+	}
+
+	private function countNames($name) {
+		$count = substr_count($name, " ");
+		return $count;
 	}
 }
