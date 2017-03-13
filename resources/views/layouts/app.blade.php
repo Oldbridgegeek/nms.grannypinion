@@ -31,6 +31,9 @@
                 background-color: #b1b1b1;
                 border: 1.5px solid #000;
             }
+            body {
+                color: black;
+            }
         </style>
     </head>
     <body>
