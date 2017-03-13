@@ -21,7 +21,7 @@ class CreateReviewsTable extends Migration {
 			$table->integer('stars_honesty')->nullable();
 			$table->integer('stars_intelligence')->nullable();
 			$table->integer('stars_fun')->nullable();
-			$table->integer('subject_id');
+			$table->integer('subject_id')->nullable();
 			$table->text('feedback')->nullable();
 			$table->timestamps();
 		});
