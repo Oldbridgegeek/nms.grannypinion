@@ -30,7 +30,7 @@
         <div class="col-md-4">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <b>Feedback erstellt am: {{$review->created_at}}</b>
+                    <b>Feedback erstellt am: {{$review->created_at->format('d.m.Y')}}</b>
                 </li>
                 @if($review->stars_average != NULL)
                 <li class="list-group-item">
