@@ -38,5 +38,3 @@ Route::get('{user}/message', 'ConversationsController@create')->name('conversati
 // Reviews
 Route::post('/feedback', 'ReviewsController@store');
 // });
-
-Route::get('/home', 'HomeController@index');
