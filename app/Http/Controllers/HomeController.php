@@ -20,7 +20,10 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$user_id = Auth::user()->id;
-		return redirect('/'+$user_id);
+		if (Auth::check()) {
+			$user_id = Auth::user()->id;
+			return redirect('/'+$user_id);
+		}
+		return view('guest/welcome');
 	}
 }

@@ -17,6 +17,21 @@
         'csrfToken' => csrf_token(),
         ]) !!};
         </script>
+
+        <style>
+            .list-group-item:first-child {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            .list-group-item {
+                position: relative;
+                display: block;
+                padding: 10px 15px;
+                margin-bottom: -1px;
+                background-color: #b1b1b1;
+                border: 1.5px solid #000;
+            }
+        </style>
     </head>
     <body>
         <div id="app">

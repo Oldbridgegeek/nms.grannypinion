@@ -16,6 +16,8 @@ Route::name('welcome')->get('/', function () {
 	return view('guest/welcome');
 });
 
+//Route::get('/', 'HomeController@index')->name('welcome');
+
 // Route::middleware('auth')->group(function () {
 // Logged-In and Dashboard
 Route::get('/home', 'HomeController@index');
