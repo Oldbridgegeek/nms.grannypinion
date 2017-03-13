@@ -189,29 +189,23 @@
                                         <form class="form-horizontal" id="login-form" role="form" method="POST" style="display: block;" action="{{ route('login') }}">
                                             {{ csrf_field() }}
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                                <label for="email" class="col-md-4 control-label">E-Mail</label>
-                                                <div class="col-md-6">
-                                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                                    @if ($errors->has('email'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
+                                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                                                @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label for="password" class="col-md-4 control-label">Passwort</label>
-                                                <div class="col-md-6">
-                                                    <input id="password" type="password" class="form-control" name="password" required>
-                                                    @if ($errors->has('password'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
+                                                <input id="password" type="password" class="form-control" name="password" placeholder="Passwort" required>
+                                                @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-6 col-md-offset-4">
+                                                <div class="col-md-8 col-md-offset-2">
                                                     <div class="checkbox">
                                                         <label>
                                                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Anmeldedaten speichern
@@ -285,20 +279,20 @@
         </div>
         <script>
         $(function() {
-            $('#login-form-link').click(function(e) {
-                $("#login-form").delay(100).fadeIn(100);
-                $("#register-form").fadeOut(100);
-                $('#register-form-link').removeClass('active');
-                $(this).addClass('active');
-                e.preventDefault();
-            });
-            $('#register-form-link').click(function(e) {
-                $("#register-form").delay(100).fadeIn(100);
-                $("#login-form").fadeOut(100);
-                $('#login-form-link').removeClass('active');
-                $(this).addClass('active');
-                e.preventDefault();
-            });
+        $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+        });
         });
         </script>
     </body>
