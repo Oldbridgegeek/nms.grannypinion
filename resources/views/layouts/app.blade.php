@@ -41,7 +41,8 @@
                     <div class="col-md-5">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;">
+                                <input type="text" class="form-control" placeholder="Suche" name="firstName" id="firstName" style="text-align:center;">
+                                <input type="hidden" class="form-control" name="lastname" id="lastname" value="" style="text-align:center;">
                             </div>
                         </form>
                     </div>

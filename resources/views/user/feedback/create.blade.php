@@ -15,7 +15,7 @@
             <form class="form-horizontal" role="form" method="POST" action="/feedback">
                 {{ csrf_field() }}
                 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
-                <input type="hidden" name="user_id_writer" id="user_id_writer" value="{{ Auth::user()->id}}">
+                <input type="hidden" name="subject_id" id="subject_id" value="{{ Auth::user()->id}}">
                 <div id="starRating">
                     <div class="col-md-7">
                         <div class="form-group">
