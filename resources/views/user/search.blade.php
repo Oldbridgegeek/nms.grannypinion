@@ -3,7 +3,7 @@
 @section('content')
     @foreach ($users as $user)
     <div class="container">
-    <li class="list-group-item" style="margin-top:2em;box-shadow: 5px 5px grey;">
+    <li class="list-group-item" style="margin-top:2em;box-shadow: 2px 2px grey;">
         <div class="row" style="margin-top:0em;">
             <div class="col-md-12" style="margin-top:0em;">
                 <div class="post" style="background-color:#c1c2c3;">

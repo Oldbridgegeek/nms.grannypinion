@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
@@ -11,12 +11,12 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.com/' .urlencode($user_id).'/feedback/create&display=popup"> <button> Frage auf Facebook nach Feedback </button> </a>
             @else
             <a href="/{{$user->id}}/feedback/create">
-                <button class="btnnew lgnew ghost">
+                <button class="btn btn-primary btn-md">
                 Bewerten
                 </button>
             </a>
             <a href="/{{$user->id}}/message">
-                <button class="btnnew lgnew ghost" disabled style="color:grey;">
+                <button class="btn btn-primary btn-md disabled">
                 Anonyme Nachricht schicken
                 </button>
             </a>
