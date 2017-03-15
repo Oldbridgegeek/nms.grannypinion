@@ -2,34 +2,36 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
-            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button>Einstellungen</button></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.com/' .urlencode($user_id).'/feedback/create&display=popup"> <button> Frage auf Facebook nach Feedback </button> </a>
+            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">Einstellungen</button></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.com/' .urlencode($user_id).'/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> Frage auf Facebook nach Feedback </button> </a>
             @else
             <a href="/{{$user->id}}/feedback/create">
-                <button class="btnnew lgnew ghost">
+                <button class="btn btn-primary btn-md">
                 Bewerten
                 </button>
             </a>
             <a href="/{{$user->id}}/message">
-                <button class="btnnew lgnew ghost" disabled style="color:grey;">
+                <button class="btn btn-primary btn-md disabled">
                 Anonyme Nachricht schicken
                 </button>
             </a>
             @endif
+            </div>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="col-md-10 col-md-offset-1">
+<div class="col-md-12" style="margin-top:0em;">
         @if(!empty($user->reviews))
         @foreach( $user->reviews as $review )
-        <div class="col-md-4">
-            <ul class="list-group">
+            <ul class="list-group" style="margin-top:2em;box-shadow: 5px 5px grey;">
+                <div class="post" style="background-color:#c1c2c3;">
+
                 <li class="list-group-item">
                     <b>Feedback erstellt am: {{$review->created_at->format('d.m.Y')}}</b>
                 </li>
@@ -73,10 +75,13 @@
                     Feedback: {{$review->feedback}}
                 </li>
                 @endif
+                </div>
+
             </ul>
-        </div>
         @endforeach
         @endif
-    </div>
+        </div>
+                </div>
+
 </div>
 @endsection

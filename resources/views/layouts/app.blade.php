@@ -10,6 +10,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
 
         <!-- Scripts -->
         <script>
@@ -28,17 +29,34 @@
                 display: block;
                 padding: 10px 15px;
                 margin-bottom: -1px;
-                background-color: #b1b1b1;
-                border: 1.5px solid #000;
+                background-color: #ddd;
+                border: 0px solid #000;
             }
             body {
-                color: black;
+                color: #292929;
+                font-family: "Roboto",serif;
+                background-color:rgb(233,235,238);
             }
+            button {
+                box-shadow: 0.5px 0.5px grey;
+            }
+            .navbar-default .navbar-nav>li>a {
+                color: #d8d8d8;
+            }
+            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+                color: #d8d8d8;
+                background-color: #252839;
+            }
+            .btn-primary{
+                background-color: #607D8B;
+                color: #f0f0f0;
+            }
+
         </style>
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top" style="background-color:#042551;">
+            <nav class="navbar navbar-default navbar-static-top" style="background-color:#252839;">
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">
@@ -50,7 +68,7 @@
                         <span class="icon-bar"></span>
                         </button>
                         <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        <a class="navbar-brand" href="{{ url('/') }}" style="color:#d8d8d8;">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
@@ -59,7 +77,7 @@
                     <div class="col-md-5">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;">
+                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;border-radius:15px;">
                             </div>
                         </form>
                     </div>
