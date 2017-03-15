@@ -62,7 +62,7 @@
                     <div class="col-md-5">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;">
+                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;border-radius:15px;">
                             </div>
                         </form>
                     </div>

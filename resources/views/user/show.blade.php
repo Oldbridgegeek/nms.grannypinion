@@ -21,6 +21,7 @@
                 </button>
             </a>
             @endif
+            </div>
         </div>
     </div>
 </div>
