@@ -25,11 +25,12 @@
     </div>
 </div>
 <div class="container">
-    <div class="col-md-10 col-md-offset-1">
+<div class="col-md-12" style="margin-top:0em;">
         @if(!empty($user->reviews))
         @foreach( $user->reviews as $review )
-        <div class="col-md-4">
-            <ul class="list-group">
+            <ul class="list-group" style="margin-top:2em;box-shadow: 5px 5px grey;">
+                <div class="post" style="background-color:#c1c2c3;">
+
                 <li class="list-group-item">
                     <b>Feedback erstellt am: {{$review->created_at->format('d.m.Y')}}</b>
                 </li>
@@ -73,10 +74,13 @@
                     Feedback: {{$review->feedback}}
                 </li>
                 @endif
+                </div>
+
             </ul>
-        </div>
         @endforeach
         @endif
-    </div>
+        </div>
+                </div>
+
 </div>
 @endsection

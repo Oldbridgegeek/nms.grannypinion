@@ -10,6 +10,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
 
         <!-- Scripts -->
         <script>
@@ -28,17 +29,19 @@
                 display: block;
                 padding: 10px 15px;
                 margin-bottom: -1px;
-                background-color: #b1b1b1;
-                border: 1.5px solid #000;
+                background-color: #677077;
+                border: 0px solid #000;
             }
             body {
                 color: black;
+                font-family: "Roboto",serif;
+                background-color:rgb(233,235,238);
             }
         </style>
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top" style="background-color:#042551;">
+            <nav class="navbar navbar-default navbar-static-top" style="background-color:#f2bd32;">
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">

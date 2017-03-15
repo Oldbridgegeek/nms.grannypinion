@@ -22,7 +22,7 @@ class HomeController extends Controller {
 	public function index() {
 		if (Auth::check()) {
 			$user_id = Auth::user()->id;
-			return redirect('/'+$user_id);
+			return redirect($user_id);
 		}
 		return view('guest/welcome');
 	}

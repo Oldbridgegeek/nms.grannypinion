@@ -2,11 +2,14 @@
 
 @section('content')
     @foreach ($users as $user)
-    <li class="list-group-item">
+    <div class="container">
+    <li class="list-group-item" style="margin-top:2em;box-shadow: 5px 5px grey;">
         <div class="row" style="margin-top:0em;">
             <div class="col-md-12" style="margin-top:0em;">
-                <div class="post">
+                <div class="post" style="background-color:#c1c2c3;">
                     <div class="col-md-8">
+                        <img src="/uploads/avatars/{{$user->avatar}}" style="width:100px; height:100px;float:left;margin-right:25px">
+                        </img>
                         <h3>
                             {{$user->firstname}} {{$user->lastname}}
                         </h3>
@@ -30,5 +33,6 @@
             </div>
         </div>
     </li>
+    </div>
     @endforeach
 @endsection
