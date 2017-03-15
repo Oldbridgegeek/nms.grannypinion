@@ -47,6 +47,10 @@
                 color: #d8d8d8;
                 background-color: #252839;
             }
+            .btn-primary{
+                background-color: #607D8B;
+                color: #f0f0f0;
+            }
 
         </style>
     </head>

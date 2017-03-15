@@ -14,17 +14,17 @@
                             {{$user->firstname}} {{$user->lastname}}
                         </h3>
                         <a href="/{{$user->id}}">
-                            <button class="btnnew lgnew ghost">
+                            <button class="btn btn-primary btn-md">
                                 Profil sehen
                             </button>
                         </a>
                         <a href="/{{$user->id}}/feedback/create">
-                            <button class="btnnew lgnew ghost">
+                            <button class="btn btn-primary btn-md">
                                 Bewerten
                             </button>
                         </a>
                         <a href="/{{$user->id}}/message">
-                            <button class="btnnew lgnew ghost" disabled style="color:grey;">
+                            <button class="btn btn-primary btn-md disabled">
                                 Anonyme Nachricht schicken
                             </button>
                         </a>

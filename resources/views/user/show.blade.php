@@ -7,8 +7,8 @@
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
-            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button>Einstellungen</button></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.com/' .urlencode($user_id).'/feedback/create&display=popup"> <button> Frage auf Facebook nach Feedback </button> </a>
+            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">Einstellungen</button></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.com/' .urlencode($user_id).'/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> Frage auf Facebook nach Feedback </button> </a>
             @else
             <a href="/{{$user->id}}/feedback/create">
                 <button class="btn btn-primary btn-md">
