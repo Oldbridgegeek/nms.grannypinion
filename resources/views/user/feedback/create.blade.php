@@ -5,27 +5,27 @@
         @if(Auth::check())
         <div class="col-md-10 col-md-offset-2">
             @if(Auth::user()->id != $user->id)
+            <div class="row">
             <div class="col-md-7">
                 <h3> Anonymes Feedback für {{$user->firstname}} {{$user->lastname}} </h3>
+                <button id="feedbackTextOnly"> Ich möchte nur einen Feedback Text schreiben.</button>
+                <p style="color:red;">* Mindestens ein Feld muss ausgefüllt werden.</p>
             </div>
+
             <div class="col-md-3">
                 <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
                 </img>
             </div>
-            <button id="feedbackTextOnly"> Ich möchte nur einen Feedback Text schreiben.</button>
-            <p style="color:red;">* Mindestens ein Feld muss ausgefüllt werden.</p>
-            <form class="form-horizontal" role="form" method="POST" action="/feedback">
+            </div>
+            <form class="form-horizontal" role="form" method="POST" action="/feedback" style="margin-top:2em;">
                 {{ csrf_field() }}
                 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
                 <input type="hidden" name="subject_id" id="subject_id" value="{{ Auth::user()->id}}">
                 <div id="starRating">
                     <div class="col-md-7">
-                    
-                    <input type="hidden" class="rating" disabled="disabled" value="3"/> 
-
                         <div class="form-group">
-                            <label for="starsHonesty" class="control-label">Ehrlichkeit</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsHonesty" id="starsHonesty">
+                            <label for="starsHonesty" class="control-label" name="starsHonesty" >Ehrlichkeit</label>
+                            <input type="hidden" class="rating" name="starsHonesty" id="starsHonesty"/> 
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -34,7 +34,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsAttractiveness" class="control-label">Attraktivität</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsAttractiveness" id="starsAttractiveness">
+                            <input type="hidden" class="rating" name="starsAttractiveness" id="starsAttractiveness"/>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -43,7 +43,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsReliability" class="control-label">Zuverlässigkeit</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsReliability" id="starsReliability">
+                            <input type="hidden" class="rating" name="starsReliability" id="starsReliability"/>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -52,7 +52,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsFun" class="control-label">Witzigkeit und Spaß</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsFun" id="starsFun">
+                            <input type="hidden" class="rating" name="starsFun" id="starsFun"/>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -61,7 +61,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsIntelligence" class="control-label">Intelligenz</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsIntelligence" id="starsIntelligence">
+                            <input type="hidden" class="rating" name="starsIntelligence" id="starsIntelligence"/>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -70,7 +70,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsKindness" class="control-label">Freundlichkeit</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsKindness" id="starsKindness">
+                            <input type="hidden" class="rating" name="starsKindness" id="starsKindness"/>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -79,7 +79,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             <label for="starsAverage" class="control-label">Gesamteindruck</label>
-                            <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsAverage" id="starsAverage">
+                            <input type="hidden" class="rating" name="starsAverage" id="starsAverage"/>
                         </div>
                     </div>
                     <div class="col-md-3">

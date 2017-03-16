@@ -163,6 +163,7 @@
             {
                 if(element.checked == true){
                     document.getElementById(idStars).disabled = true;
+                    document.getElementById(idStars).style.textDecoration = "overline";
                     document.getElementById(idStars).value = "";
                 }
                 if(element.checked == false){
