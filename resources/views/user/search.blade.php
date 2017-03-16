@@ -3,12 +3,10 @@
 @section('content')
     @foreach ($users as $user)
     <div class="container">
-    <li class="list-group-item" style="margin-top:2em;box-shadow: 2px 2px grey;">
-        <div class="row" style="margin-top:0em;">
-            <div class="col-md-12" style="margin-top:0em;">
-                <div class="post" style="background-color:#c1c2c3;">
-                    <div class="col-md-8">
-                        <img src="/uploads/avatars/{{$user->avatar}}" style="width:100px; height:100px;float:left;margin-right:25px">
+        <div class="row" style="margin-top:2em;">
+            <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
+                <div class="row" style="border-style: solid; border-width: 0.5px; box-shadow: 0.5px 0.5px 0.5px 0.5px grey; background-color: #fdfdfd;">
+                    <img src="/uploads/avatars/{{$user->avatar}}" style="width:100px; height:100px;float:left;margin-right:25px">
                         </img>
                         <h3>
                             {{$user->firstname}} {{$user->lastname}}
@@ -28,11 +26,12 @@
                                 Anonyme Nachricht schicken
                             </button>
                         </a>
-                    </div>
+
+
                 </div>
             </div>
         </div>
-    </li>
     </div>
     @endforeach
+
 @endsection
