@@ -29,23 +29,24 @@
                 display: block;
                 padding: 10px 15px;
                 margin-bottom: -1px;
-                background-color: #ddd;
+                background-color: #fbfbfb;
                 border: 0px solid #000;
             }
             body {
                 color: #292929;
                 font-family: "Roboto",serif;
-                background-color:rgb(233,235,238);
+                background-color:white;
             }
             button {
                 box-shadow: 0.5px 0.5px grey;
             }
             .navbar-default .navbar-nav>li>a {
                 color: #d8d8d8;
+                background-color: #303F9F;
             }
             .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
                 color: #d8d8d8;
-                background-color: #252839;
+                background-color: #303F9F;
             }
             .btn-primary{
                 background-color: #607D8B;
@@ -56,7 +57,7 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top" style="background-color:#252839;">
+            <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">

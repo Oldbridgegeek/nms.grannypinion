@@ -3,7 +3,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
-            <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
+            <div class="row" style="border-style: solid; border-width: 0.5px; box-shadow: 1px 1px grey;">
+            <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:0%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
@@ -23,13 +24,14 @@
             @endif
             </div>
         </div>
+        </div>
     </div>
 </div>
 <div class="container">
 <div class="col-md-12" style="margin-top:0em;">
         @if(!empty($user->reviews))
         @foreach( $user->reviews as $review )
-            <ul class="list-group" style="margin-top:2em;box-shadow: 5px 5px grey;">
+            <ul class="list-group" style="margin-top:2em;box-shadow: 1px 3px 2px 2px grey;">
                 <div class="post" style="background-color:#c1c2c3;">
 
                 <li class="list-group-item">
