@@ -23,12 +23,14 @@ Route::name('welcome')->get('/', function () {
 Route::get('/home', 'HomeController@index');
 
 // User
+Route::name('user.setting')->get('/settings' , function() {
+	return view('user.setting');
+});
 Route::get('/search/user', 'SearchController@search')->name('user.search');
 Route::get('/{user}', 'UsersController@show')->name('user.show');
 Route::get('/{user}/feedback', 'FeedbackController@index')->name('feedback');
 Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
-Route::get('/{user}/settings', 'UsersController@settings')->name('user.setting');
-Route::post('/{user}/settings/avatar', 'UsersController@update_avatar')->name('user.avatar');
+Route::post('/settings/avatar', 'UsersController@update_avatar')->name('user.avatar');
 Route::post('/update', 'UsersController@update')->name('user.update');
 
 // Conversations and Messages

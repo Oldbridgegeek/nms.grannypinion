@@ -5,9 +5,9 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-10">
                 <h2>Einstellungen</h2>
-                <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
+                <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
                 </img>
-                <form enctype="multipart/form-data" action="{{ route('user.avatar',['user' => Auth::user()]) }}" method="POST">
+                <form enctype="multipart/form-data" action="{{ route('user.avatar') }}" method="POST">
                     <label>Lade ein neues Profilbild hoch.</label>
                     <input type="file" name="avatar">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
