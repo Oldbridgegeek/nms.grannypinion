@@ -20,6 +20,9 @@
                 <input type="hidden" name="subject_id" id="subject_id" value="{{ Auth::user()->id}}">
                 <div id="starRating">
                     <div class="col-md-7">
+                    
+                    <input type="hidden" class="rating" disabled="disabled" value="3"/> 
+
                         <div class="form-group">
                             <label for="starsHonesty" class="control-label">Ehrlichkeit</label>
                             <input class="form-control" placeholder="Wert von 1 bis 10" type="number" name="starsHonesty" id="starsHonesty">
