@@ -41,16 +41,16 @@
                 box-shadow: 0.5px 0.5px grey;
             }
             .navbar-default .navbar-nav>li>a {
-                color: #d8d8d8;
+                color: #fbfbfb;
                 background-color: #303F9F;
             }
             .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-                color: #d8d8d8;
+                color: #fbfbfb;
                 background-color: #303F9F;
             }
             .btn-primary{
-                background-color: #607D8B;
-                color: #f0f0f0;
+                background-color: #3F51B5;
+                color: #fbfbfb;
             }
 
         </style>
@@ -69,7 +69,7 @@
                         <span class="icon-bar"></span>
                         </button>
                         <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}" style="color:#d8d8d8;">
+                        <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb;">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>

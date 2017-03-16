@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
-            <div class="row" style="border-style: solid; border-width: 0.5px; box-shadow: 1px 1px grey;">
+            <div class="row" style="border-style: solid; border-width: 0.2px; box-shadow: 1px 1px grey; background-color: #fdfdfd;">
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:0%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
