@@ -60,11 +60,23 @@
             }
             .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
                 color: #fbfbfb;
-                background-color: #303F9F;
+                
             }
             .btn-primary{
                 background-color: #3F51B5;
                 color: #fbfbfb;
+            }
+
+            .btn-primary:hover{
+                background-color: #0000cc;
+            }
+            .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+                color: #fbfbfb;
+                background-color: #303F9F;
+            }
+
+            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+                background-color: #303F9F;
             }
 
         </style>
@@ -75,13 +87,6 @@
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">
-                        <!-- Collapsed Hamburger -->
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb;">
                             {{ config('app.name', 'Laravel') }}
@@ -106,11 +111,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Anmelden</a></li>
+                            <li><a href="{{ route('register') }}">Registrieren</a></li>
                             @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
                                     {{ Auth::user()->firstname }} {{ Auth::user()->lastname }} <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
@@ -122,7 +127,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Abmelden
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

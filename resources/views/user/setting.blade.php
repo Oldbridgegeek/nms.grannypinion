@@ -2,10 +2,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="col-md-10">
-                <h2>Einstellungen</h2>
-                <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width:150px;height:150px; float:left; border-radius:50%; margin-right:25px">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="text-align: center;">Einstellungen</div>
+                <div class="panel-body">
+                <div class="col-md-12">
+                <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width:150px;height:150px; float:left; border-width: 0.3px; margin-right:25px">
                 </img>
                 <form enctype="multipart/form-data" action="{{ route('user.avatar') }}" method="POST">
                     <label>Lade ein neues Profilbild hoch.</label>
@@ -13,8 +15,8 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="submit" class="pull-right btn btn-sm btn-primary">
                 </form>
-            </div>
-            <div class="col-md-10">
+                </div>
+                <div class="col-md-12" style="margin-top:2em;">
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('user.update') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -82,6 +84,10 @@
                         </div>
                     </div>
                 </form>
+                </div>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
