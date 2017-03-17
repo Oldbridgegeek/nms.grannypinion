@@ -13,7 +13,7 @@
 Auth::routes();
 
 Route::name('welcome')->get('/', function () {
-	return view('guest/welcome');
+	return view('landing');
 });
 
 //Route::get('/', 'HomeController@index')->name('welcome');
@@ -21,6 +21,10 @@ Route::name('welcome')->get('/', function () {
 // Route::middleware('auth')->group(function () {
 // Logged-In and Dashboard
 Route::get('/home', 'HomeController@index');
+Route::get('/landing', function() {
+	return view('landing');
+});
+
 
 // User
 Route::name('user.setting')->get('/settings' , function() {

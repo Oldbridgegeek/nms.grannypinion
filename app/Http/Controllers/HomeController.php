@@ -24,6 +24,6 @@ class HomeController extends Controller {
 			$user_id = Auth::user()->id;
 			return redirect($user_id);
 		}
-		return view('guest/welcome');
+		return view('landing');
 	}
 }
