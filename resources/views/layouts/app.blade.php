@@ -8,7 +8,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
+          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
 
         <!-- Bootstrap -->
@@ -24,7 +26,9 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+ 
 
         <!-- Scripts -->
         <script>
@@ -50,6 +54,7 @@
                 color: #292929;
                 font-family: "Roboto",serif;
                 background-color:white;
+                height:100%;
             }
             button {
                 box-shadow: 0.5px 0.5px grey;
@@ -177,4 +182,22 @@
             }
         </script>
     </body>
+    <footer>
+    <div class="container">
+        <div class="row" style="margin-top:4em;">
+          <div class="col-sm-8">
+            <ul class="list-inline social">
+              <li>Gemeinsam sind wir stark <3 </li>
+              <li><a href="https://www.facebook.com/Grannypinion-284201705342315/"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/grannypinion/"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          
+          <div class="col-sm-4 text-right">
+            <p><small>Copyright &copy; 2017. All rights reserved. <br>
+                Erstellt von <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
+          </div>
+        </div>
+        </div>
+    </footer>
 </html>

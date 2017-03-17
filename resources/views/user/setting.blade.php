@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password-confirm" class="col-md-4 control-label">Passwort Bestästigen</label>
+                        <label for="password-confirm" class="col-md-4 control-label">Passwort Bestätigen</label>
                         <div class="col-md-6">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="{{ Auth::user()->password }}" required>
                        </div>

@@ -58,7 +58,7 @@
             <a href="index.html"><img src="img/logo2.png" alt="Logo" style="height:150px;width:190px;"></a>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
-            <a href="{{route('login')}}" class="scroll">Anmelden</a>&nbsp; &nbsp;<a href="{{route('register')}}">Registrieren</a>
+            <a href="{{route('login')}}">Anmelden</a> &nbsp; &nbsp; <a href="{{route('register')}}">Registrieren</a>
           </div>
         </div>
         
@@ -173,10 +173,9 @@
         <div class="row">
           <div class="col-sm-8 margin-20">
             <ul class="list-inline social">
-              <li>Connect with us on</li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li>Gemeinsam sind wir stark <3 </li>
+              <li><a href="https://www.facebook.com/Grannypinion-284201705342315/"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/grannypinion/"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
           

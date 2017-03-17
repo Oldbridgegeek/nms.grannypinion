@@ -13,12 +13,12 @@
             @else
             <a href="/{{$user->id}}/feedback/create">
                 <button class="btn btn-primary btn-md">
-                Bewerten
+                Feedback
                 </button>
             </a>
             <a href="/{{$user->id}}/message">
                 <button class="btn btn-primary btn-md disabled">
-                Anonyme Nachricht schicken
+                Anonyme Nachricht
                 </button>
             </a>
             @endif
