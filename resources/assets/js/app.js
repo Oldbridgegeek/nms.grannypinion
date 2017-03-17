@@ -7,8 +7,9 @@
 
 require('./stars');
 
-new Vue({
+
+/*new Vue({
   el: '#app'
 });
-
+*/
 

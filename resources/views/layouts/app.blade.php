@@ -26,10 +26,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
  
-
         <!-- Scripts -->
         <script>
         window.Laravel = {!! json_encode([
@@ -83,6 +80,12 @@
             .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
                 background-color: #303F9F;
             }
+            .glyphicon {
+                font-size: 20px;
+                color: #ff0000;
+            }
+
+
 
         </style>
     </head>
@@ -149,38 +152,7 @@
         </div>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}"></script>
-        <script>
-            var visible = true;
-            document.getElementById('feedbackTextOnly').onclick = function(event){
-                if(visible == true){
-                    document.getElementById('starRating').style.visibility = 'hidden';
-                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte eine Feedback Hilfe";
-                    visible = false;
-                    var children = document.getElementsByClassName('form-control');
-                    for (var i=0; i<children.length ; i++){
-                        var ratingChild = children[i];
-                        ratingChild.value = "";
-                    }
-                }
-                else {
-                    document.getElementById('starRating').style.visibility = 'visible';
-                    document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte nur einen Feedback Text schreiben.";
-                    visible = true;
-                }
-            }
-
-            function toggleCheckbox(element, idStars)
-            {
-                if(element.checked == true){
-                    document.getElementById(idStars).disabled = true;
-                    document.getElementById(idStars).style.textDecoration = "overline";
-                    document.getElementById(idStars).value = "";
-                }
-                if(element.checked == false){
-                    document.getElementById(idStars).disabled = false;
-                }
-            }
-        </script>
+        
     </body>
     <footer>
     <div class="container">

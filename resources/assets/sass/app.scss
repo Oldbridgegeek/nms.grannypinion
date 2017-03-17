@@ -9,6 +9,9 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Buttons from Font Awesome
+@import "font-awesome.min";
+
 .jumbovidtext {
     /*width: 50%;*/
     height: 100%;
@@ -33,3 +36,4 @@
     background-size: cover;
     overflow: hidden;
 }
+

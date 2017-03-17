@@ -79,9 +79,10 @@
 
 __webpack_require__(2);
 
-new Vue({
+/*new Vue({
   el: '#app'
 });
+*/
 
 /***/ }),
 /* 1 */

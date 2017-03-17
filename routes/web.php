@@ -32,7 +32,6 @@ Route::name('user.setting')->get('/settings' , function() {
 });
 Route::get('/search/user', 'SearchController@search')->name('user.search');
 Route::get('/{user}', 'UsersController@show')->name('user.show');
-Route::get('/{user}/feedback', 'FeedbackController@index')->name('feedback');
 Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
 Route::post('/settings/avatar', 'UsersController@update_avatar')->name('user.avatar');
 Route::post('/update', 'UsersController@update')->name('user.update');
