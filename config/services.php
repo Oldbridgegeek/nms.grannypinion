@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain' => 'https://api.mailgun.net/v3/grannypinion.de',
+        'secret' => 'key-95ee225306e513f9710de57293fd4ca6',
     ],
 
     'ses' => [
