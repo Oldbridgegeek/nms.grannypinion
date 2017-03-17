@@ -77,6 +77,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="email_notification" class="col-md-4 control label"> Profil Öffentlich</label>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="profile_public" name="profile_public" @if(Auth::user()->public) checked @endif> Profil Öffentlich<br>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
                             Ändern

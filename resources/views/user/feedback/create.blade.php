@@ -22,71 +22,108 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
                 <input type="hidden" name="subject_id" id="subject_id" value="{{ Auth::user()->id}}">
-                <div id="starRating">
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsHonesty" class="control-label" name="starsHonesty" >Ehrlichkeit</label>
-                            <input type="hidden" class="rating" name="starsHonesty" id="starsHonesty"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" onchange="toggleCheckbox(this,'starsHonesty')" id="starsHonesty"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsAttractiveness" class="control-label">Attraktivität</label>
-                            <input type="hidden" class="rating" name="starsAttractiveness" id="starsAttractiveness"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkAttractiveness" onchange="toggleCheckbox(this,'starsAttractiveness')"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsReliability" class="control-label">Zuverlässigkeit</label>
-                            <input type="hidden" class="rating" name="starsReliability" id="starsReliability"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkReliability" onchange="toggleCheckbox(this,'starsReliability')"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsFun" class="control-label">Witzigkeit und Spaß</label>
-                            <input type="hidden" class="rating" name="starsFun" id="starsFun"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkFun" onchange="toggleCheckbox(this,'starsFun')"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsIntelligence" class="control-label">Intelligenz</label>
-                            <input type="hidden" class="rating" name="starsIntelligence" id="starsIntelligence"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkIntelligence" onchange="toggleCheckbox(this,'starsIntelligence')"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsKindness" class="control-label">Freundlichkeit</label>
-                            <input type="hidden" class="rating" name="starsKindness" id="starsKindness"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkKindness" onchange="toggleCheckbox(this,'starsKindness')"> Keine Angabe<br>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="starsAverage" class="control-label">Gesamteindruck</label>
-                            <input type="hidden" class="rating" name="starsAverage" id="starsAverage"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="checkbox" id="checkAverage" onchange="toggleCheckbox(this,'starsAverage')"> Keine Angabe<br>
+        <div id="starRating">
+
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                <div class="form-group">
+                    <label for="starsHonesty" class="control-label" name="starsHonesty" >Ehrlichkeit</label>
+                </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="starsHonesty" id="starsHonesty" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" onchange="toggleCheckbox(this,'starsHonesty')" id="starsHonesty"> Keine Angabe<br>
+            </div>
+
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsAttractiveness" class="control-label">Attraktivität</label>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="starsAttractiveness" id="starsAttractiveness"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkAttractiveness" onchange="toggleCheckbox(this,'starsAttractiveness')"> Keine Angabe<br>
+            </div>
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="checkReliability" class="control-label">Zuverlässigkeit</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="checkReliability" id="checkReliability"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkReliability" onchange="toggleCheckbox(this,'checkReliability')"> Keine Angabe<br>
+            </div>
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsFun" class="control-label">Witzigkeit und Spaß</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="starsFun" id="starsFun"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkFun" onchange="toggleCheckbox(this,'starsFun')"> Keine Angabe<br>
+            </div>
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsIntelligence" class="control-label">Intelligenz</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="starsIntelligence" id="starsIntelligence"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkIntelligence" onchange="toggleCheckbox(this,'starsIntelligence')"> Keine Angabe<br>
+            </div>
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsKindness" class="control-label">Freundlichkeit</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="starsKindness" id="starsKindness"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkKindness" onchange="toggleCheckbox(this,'starsKindness')"> Keine Angabe<br>
+            </div>
+
+            <div class="col-md-7">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="checkAverage" class="control-label">Insgesamt</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="checkAverage" id="checkAverage"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="checkAverage" onchange="toggleCheckbox(this,'checkAverage')"> Keine Angabe<br>
+            </div>
+        </div>
                 <div class="col-md-9">
                     <div class="form-group">
                         <label for="feedback" class="control-label">Feedback</label>
@@ -187,70 +224,108 @@
         <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
         <input type="hidden" name="subject_id" id="subject_id" value="0">
         <div id="starRating">
+
+
             <div class="col-md-7">
+                <div class="col-md-3">
                 <div class="form-group">
                     <label for="starsHonesty" class="control-label" name="starsHonesty" >Ehrlichkeit</label>
+                </div>
+                </div>
+                <div class="col-md-4">
                     <input type="hidden" class="rating" name="starsHonesty" id="starsHonesty" />
                 </div>
             </div>
             <div class="col-md-3">
                 <input type="checkbox" onchange="toggleCheckbox(this,'starsHonesty')" id="starsHonesty"> Keine Angabe<br>
             </div>
+
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsAttractiveness" class="control-label">Attraktivität</label>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsAttractiveness" class="control-label">Attraktivität</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <input type="hidden" class="rating" name="starsAttractiveness" id="starsAttractiveness"/>
                 </div>
             </div>
             <div class="col-md-3">
                 <input type="checkbox" id="checkAttractiveness" onchange="toggleCheckbox(this,'starsAttractiveness')"> Keine Angabe<br>
             </div>
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsReliability" class="control-label">Zuverlässigkeit</label>
-                    <input type="hidden" class="rating" name="starsReliability" id="starsReliability"/>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="checkReliability" class="control-label">Zuverlässigkeit</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="checkReliability" id="checkReliability"/>
                 </div>
             </div>
             <div class="col-md-3">
-                <input type="checkbox" id="checkReliability" onchange="toggleCheckbox(this,'starsReliability')"> Keine Angabe<br>
+                <input type="checkbox" id="checkReliability" onchange="toggleCheckbox(this,'checkReliability')"> Keine Angabe<br>
             </div>
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsFun" class="control-label">Witzigkeit und Spaß</label>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsFun" class="control-label">Witzigkeit und Spaß</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <input type="hidden" class="rating" name="starsFun" id="starsFun"/>
                 </div>
             </div>
             <div class="col-md-3">
                 <input type="checkbox" id="checkFun" onchange="toggleCheckbox(this,'starsFun')"> Keine Angabe<br>
             </div>
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsIntelligence" class="control-label">Intelligenz</label>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsIntelligence" class="control-label">Intelligenz</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <input type="hidden" class="rating" name="starsIntelligence" id="starsIntelligence"/>
                 </div>
             </div>
             <div class="col-md-3">
                 <input type="checkbox" id="checkIntelligence" onchange="toggleCheckbox(this,'starsIntelligence')"> Keine Angabe<br>
             </div>
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsKindness" class="control-label">Freundlichkeit</label>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="starsKindness" class="control-label">Freundlichkeit</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <input type="hidden" class="rating" name="starsKindness" id="starsKindness"/>
                 </div>
             </div>
             <div class="col-md-3">
                 <input type="checkbox" id="checkKindness" onchange="toggleCheckbox(this,'starsKindness')"> Keine Angabe<br>
             </div>
+
             <div class="col-md-7">
-                <div class="form-group">
-                    <label for="starsAverage" class="control-label">Gesamteindruck</label>
-                    <input type="hidden" class="rating" name="starsAverage" id="starsAverage"/>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="checkAverage" class="control-label">Insgesamt</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" class="rating" name="checkAverage" id="checkAverage"/>
                 </div>
             </div>
             <div class="col-md-3">
-                <input type="checkbox" id="checkAverage" onchange="toggleCheckbox(this,'starsAverage')"> Keine Angabe<br>
+                <input type="checkbox" id="checkAverage" onchange="toggleCheckbox(this,'checkAverage')"> Keine Angabe<br>
             </div>
         </div>
+
         <div class="col-md-9">
             <div class="form-group">
                 <label for="feedback" class="control-label">Feedback</label>

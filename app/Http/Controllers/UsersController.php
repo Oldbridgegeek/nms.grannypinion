@@ -77,6 +77,7 @@ class UsersController extends Controller {
 				}
 			}
 		}
+		$user->public = $request->profile_public;
 		$user->save();
 		return view('user.setting');
 	}

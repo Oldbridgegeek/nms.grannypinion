@@ -81,7 +81,7 @@
                 background-color: #303F9F;
             }
             .glyphicon {
-                font-size: 20px;
+                font-size: 22px;
                 color: #ff0000;
             }
 

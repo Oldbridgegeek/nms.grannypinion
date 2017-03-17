@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row" style="margin-top:2em;">
             <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
-                <div class="row" style="border-style: solid; border-width: 0.5px; box-shadow: 0.5px 0.5px 0.5px 0.5px grey; background-color: #fdfdfd;">
+                <div class="row" style="border-style: solid; border-width: 0px; box-shadow: 0.2px 0.2px 0.2px 0.2px grey; background-color: #fdfdfd;">
                     <img src="/uploads/avatars/{{$user->avatar}}" style="width:100px; height:100px;float:left;margin-right:25px">
                         </img>
                         <h3>

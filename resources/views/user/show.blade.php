@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if( $user->id == Auth::user()->id or !$user->public )
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1" style="border-style: solid;border-width: 0px;">
-            <div class="row" style="border-style: solid; border-width: 0.2px; box-shadow: 1px 1px grey; background-color: #fdfdfd;">
+        <div class="col-md-9 col-md-offset-2" style="border-style: solid;border-width: 0px;">
+            <div class="row" style="border-style: solid; border-width: 0px; box-shadow: 1px 1px grey; background-color: #fdfdfd;">
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-radius:0%; margin-right:25px">
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
@@ -32,44 +33,44 @@
 <div class="col-md-12" style="margin-top:0em;">
         @if(!empty($user->reviews))
         @foreach( $user->reviews as $review )
-            <ul class="list-group" style="margin-top:2em;box-shadow: 1px 3px 2px 2px grey;">
+            <ul class="list-group" style="margin-top:2em;box-shadow: 0.3px 0.3px 0.3px 0.3px grey;">
                 <div class="post" style="background-color:#c1c2c3;">
+                <b>{{$review->created_at->format('d.m.Y')}}</b>
+                
 
-
-                    <b>{{$review->created_at->format('d.m.Y')}}</b>
                 @if($review->stars_average != NULL)
                 <li class="list-group-item">
-                    Gesamteindruck: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_average}}"/> 
+                    Gesamteindruck <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_average}}"/> 
                 </li>
                 @endif
                 @if($review->stars_honesty != NULL)
                 <li class="list-group-item">
-                    Ehrlichkeit: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_honesty}}"/>
+                    Ehrlichkeit <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_honesty}}"/>
                 </li>
                 @endif
                 @if($review->stars_reliability != NULL)
                 <li class="list-group-item">
-                    Zuverlässigkeit: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_reliability}}"/>
+                    Zuverlässigkeit <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_reliability}}"/>
                 </li>
                 @endif
                 @if($review->stars_attractiveness != NULL)
                 <li class="list-group-item">
-                    Attraktivität: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_attractiveness}}"/>
+                    Attraktivität <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_attractiveness}}"/>
                 </li>
                 @endif
                 @if($review->stars_fun != NULL)
                 <li class="list-group-item">
-                    Humor und Spaß: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_fun}}"/>
+                    Humor und Spaß <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_fun}}"/>
                 </li>
                 @endif
                 @if($review->stars_kindness != NULL)
                 <li class="list-group-item">
-                    Freundlichkeit: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_kindness}}"/>
+                    Freundlichkeit <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_kindness}}"/>
                 </li>
                 @endif
                 @if($review->stars_intelligence != NULL)
                 <li class="list-group-item">
-                    Intelligenz: <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_intelligence}}"/>
+                    Intelligenz <input type="hidden" class="rating" disabled="disabled" value="{{$review->stars_intelligence}}"/>
                 </li>
                 @endif
                 @if($review->feedback != NULL)
@@ -86,4 +87,10 @@
                 </div>
 
 </div>
+@else
+<div class="col-md-7 col-md-offset-5">
+<h2>Dieses Profil ist privat.</h2>
+</div>
+
+@endif
 @endsection
