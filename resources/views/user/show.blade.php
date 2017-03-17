@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@if( $user->id == Auth::user()->id or !$user->public )
+@if( $user->id == Auth::user()->id or $user->public )
 <div class="container">
     <div class="row">
         <div class="col-md-9 col-md-offset-2" style="border-style: solid;border-width: 0px;">
