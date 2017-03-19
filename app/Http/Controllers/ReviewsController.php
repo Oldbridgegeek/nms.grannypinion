@@ -5,6 +5,8 @@ use App\Http\Requests\ReviewStoreRequest;
 use App\Review;
 use Auth;
 use App\User;
+use Mail;
+use Illuminate\Mail\Mailer;
 use Illuminate\Http\Request;
 
 class ReviewsController extends Controller {
