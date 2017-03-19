@@ -36,7 +36,7 @@
         </script>
 
         <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script>
-        <script>tinymce.init({ selector:'textarea_t' });</script>
+        <script>tinymce.init({ selector:'textarea' });</script>
 
         <style>
             .list-group-item:first-child {
