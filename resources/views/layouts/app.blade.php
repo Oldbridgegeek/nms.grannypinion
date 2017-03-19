@@ -22,6 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -33,6 +34,9 @@
         'csrfToken' => csrf_token(),
         ]) !!};
         </script>
+
+        <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script>
+        <script>tinymce.init({ selector:'textarea_t' });</script>
 
         <style>
             .list-group-item:first-child {
@@ -96,7 +100,7 @@
                 <div class="col-md-5">
                     <div class="navbar-header">
                         <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb;">
+                        <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb; font-family: 'Dancing Script', cursive; font-size:2em;">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
@@ -130,6 +134,9 @@
                                     <li>
                                         <a href="{{ route('user.show' , ['user' => Auth::user()])}}"> Mein Profil
                                         </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> Meine Meinungsumfragen </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
