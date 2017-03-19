@@ -41,7 +41,7 @@ class PolLController extends Controller {
 		]);
 		$poll->save();
 
-		return redirect('/polls'+$poll->id);
+		return redirect()->route('poll.index');
 	}
 
 	/**
