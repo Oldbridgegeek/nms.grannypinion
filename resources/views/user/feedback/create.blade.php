@@ -201,7 +201,7 @@
     
     </script>
     @else
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-6 col-md-offset-3" style="margin-top: 3em;margin-bottom: 3em;">
     <h2>Du darfst dich selber nicht bewerten.</h2>
     </div>
     @endif
