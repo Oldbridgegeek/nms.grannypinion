@@ -55,7 +55,12 @@ class ReplyController extends Controller {
 
 		$reply->save();
 
-		return redirect('/'+Auth::user()->id);
+		if(Auth::check()){
+			return redirect('/'+Auth::user()->id);
+		}
+		else {
+			return redirect()->route('welcome');
+		}
 
 	}
 
