@@ -52,4 +52,8 @@ class User extends Authenticatable {
 	public function startedConversations() {
 		return $this->hasMany(Conversation::class, 'sender_id');
 	}
+
+	public function polls() {
+		return $this->hasMany(Poll::class,'user_id');
+	}
 }
