@@ -53,7 +53,7 @@ class ReviewsController extends Controller {
 		$review->save();
 
 		Mail::send('email.feedback', ['user' =>  $user], function ($message) use ($user) {
-			$message->from('witwitenes@gmail.com', 'Grannypinion - Bewertung');
+			$message->from('postmaster@grannypinion.de', 'Neue Bewertung');
 			$message->to( $user->email );
 		});
 

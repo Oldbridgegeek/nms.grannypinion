@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Reply;
-use App\Poll;
+use App\User;
 use Auth;
-use User;
-use Illuminate\Http\Request;
+use Hash;
 use Mail;
+use Illuminate\Http\Request;
+use App\Subcriber;
 
-class ReplyController extends Controller {
+class SubcribersController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -24,12 +24,6 @@ class ReplyController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create(Poll $poll) {
-		//$link = (string)$link;
-		//$poll = DB::table('polls')->where('link','=',$link)->get();
-		return view('poll.reply',compact('poll'));
-		
-	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -38,29 +32,20 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-	 	$poll = Poll::find($request->poll_id);
-	 	$user = $poll->user;
+		$subcriber = new Subcriber([
+			'email' => $request->email,
 
-		$reply = new Reply([
-			'user_id' => $request->user_id,
-			'poll_id' => $request->poll_id,
-			'text' => $request->text,
-	
 		]);
-		Mail::send('email.reply', ['poll' => $poll ,'user' =>  $user], function ($message) use ($user) {
-			$message->from('postmaster@grannypinion.de', 'Neue Antwort');
-			$message->to( $user->email );
+
+		$subcriber->save();
+
+		$email = $request->email;
+
+		Mail::send('email.subscribe', ['email' =>  $email], function ($message) use ($email) {
+			$message->from('postmaster@grannypinion.de', 'Grannypinion - Abonnent');
+			$message->to( $email );
 		});
-
-
-		$reply->save();
-
-		if(Auth::check()){
-			return redirect('/'+Auth::user()->id);
-		}
-		else {
-			return view('guest.thankyou');
-		}
+		return redirect()->route('welcome');
 
 	}
 
@@ -70,9 +55,7 @@ class ReplyController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id) {
-		//
-	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -91,9 +74,7 @@ class ReplyController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
-	}
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -104,4 +85,5 @@ class ReplyController extends Controller {
 	public function destroy($id) {
 		//
 	}
+
 }

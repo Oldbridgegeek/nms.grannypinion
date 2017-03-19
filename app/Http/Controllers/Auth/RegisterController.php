@@ -64,7 +64,7 @@ class RegisterController extends Controller {
 		$input = Input::only('email');
 	 	$email = $data['email'];	
 		Mail::send('email.welcome', $data, function ($message) {
-			$message->from('witwitenes@gmail.com', 'Grannypinion - Willkommen');
+			$message->from('postmaster@grannypinion.de', 'Willkommen');
 			$message->to( Input::get('email'));
 		});
 

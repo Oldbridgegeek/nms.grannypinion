@@ -146,9 +146,10 @@
                 
                 <div class="row">
                   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                    <form role="form">
+                    <form role="form" method="POST" action="{{route('subscribe')}}">
+                    {{ csrf_field() }}
                       <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email eintragen">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email eintragen">
                       </div>
                       <button type="submit" class="btn btn-primary btn-lg">Newsletter abonnieren</button>
                     </form>

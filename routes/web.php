@@ -55,4 +55,6 @@ Route::get('/polls/{poll}','PollController@show')->name('poll.show');
 Route::get('/reply/{poll}', 'ReplyController@create');
 Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
+//Subscriber
+Route::post('/subscribe', 'SubcribersController@store')->name('subscribe');
 
