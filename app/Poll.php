@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +10,10 @@ class Poll extends Model
 		'text','link','user_id','name',
 	];
     public function replies(){
-    	return $this->hasMany(Reply::class , 'poll_id');
+    	return $this->hasMany('App\Reply');
+    }
+
+    public function user() {
+    	return $this->belongsTo('App\User');
     }
 }

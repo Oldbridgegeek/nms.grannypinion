@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Reply;
 use App\Poll;
 use Auth;
+use User;
 use Illuminate\Http\Request;
+use Mail;
+use Illuminate\Support\Facades\Input;
 
 class ReplyController extends Controller {
 	/**
@@ -38,12 +41,22 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
+		$input = Input::only('email');
+	 	$poll = Poll::find($request->poll_id);
+	 	$user = $poll->user;
+	 	$email = $user->email;
+
 		$reply = new Reply([
 			'user_id' => $request->user_id,
 			'poll_id' => $request->poll_id,
 			'text' => $request->text,
 	
 		]);
+		Mail::send('email.reply', ['poll' => $poll ,'user' =>  $user], function ($message) use ($user) {
+			$message->from('witwitenes@gmail.com', 'Grannypinion - Neue Antwort');
+			$message->to( $user->email );
+		});
+
 
 		$reply->save();
 

@@ -75,7 +75,7 @@
                 @endif
                 @if($review->feedback != NULL)
                 <li class="list-group-item">
-                    {{$review->feedback}}
+                    {!!$review->feedback!!}
                 </li>
                 @endif
                 </div>

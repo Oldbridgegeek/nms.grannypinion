@@ -39,7 +39,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{route('login')}}" class="scroll">Anmelden</a></li>
-          <li><a href="{{route('register')}}">Registrieren</a></li>
+          <li><a href="#invite">Registrieren</a></li>
         </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -52,7 +52,7 @@
             <a href="index.html"><img src="img/logo2.png" alt="Logo" style="height:150px;width:190px;"></a>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
-            <a href="{{route('login')}}">Anmelden</a> &nbsp; &nbsp; <a href="{{route('register')}}">Registrieren</a>
+            <a href="{{route('login')}}">Anmelden</a> &nbsp; &nbsp; <a href="#invite">Registrieren</a>
           </div>
         </div>
         

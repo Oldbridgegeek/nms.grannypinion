@@ -29,7 +29,7 @@
                 <div class="panel-heading" style="text-align: center;">Anonyme Zuschrift</div>
                 <div class="panel-body">
                     <div class="col-md-10">
-                        {{$reply->text}}
+                        {!!$reply->text!!}
                     </div>
 
                 </div>
