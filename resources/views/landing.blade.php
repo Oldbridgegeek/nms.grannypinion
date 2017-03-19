@@ -38,7 +38,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{route('login')}}" class="scroll">Anmelden</a></li>
+          <li><a href="{{route('login')}}">Anmelden</a></li>
           <li><a href="#invite">Registrieren</a></li>
         </ul>
         </div><!--/.navbar-collapse -->
