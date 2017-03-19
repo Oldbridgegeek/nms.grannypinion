@@ -29,7 +29,7 @@
                             <label for="text" class="col-md-4 control-label">Was möchtest du von deinen Freunden und Bekannten wissen?</label>
 
                             <div class="col-md-8">
-                                <textarea class="form-control" rows="10" name="text" id="text"></textarea>
+                                <textarea_t class="form-control" rows="10" name="text" id="text"></textarea_t>
 
                                 @if ($errors->has('text'))
                                     <span class="help-block">

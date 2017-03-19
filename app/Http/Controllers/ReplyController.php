@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 use App\Reply;
 use App\Poll;
 use Auth;
@@ -21,8 +24,11 @@ class ReplyController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create() {
-		//
+	public function create(Poll $poll) {
+		//$link = (string)$link;
+		//$poll = DB::table('polls')->where('link','=',$link)->get();
+		return view('poll.reply',compact('poll'));
+		
 	}
 
 	/**
@@ -31,7 +37,7 @@ class ReplyController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Reply $request) {
+	public function store(Request $request) {
 		$reply = new Reply([
 			'user_id' => $request->user_id,
 			'poll_id' => $request->poll_id,

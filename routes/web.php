@@ -52,3 +52,7 @@ Route::get('/{user}/polls', 'PollController@index')->name('poll.index');
 Route::get('/poll/create', function() { return view('poll.create') ;} )->name('poll.create') ;
 Route::post('/poll/store', 'PollController@store')->name('poll.store');
 Route::get('/polls/{poll}','PollController@show')->name('poll.show');
+Route::get('/reply/{poll}', 'ReplyController@create');
+Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
+
+

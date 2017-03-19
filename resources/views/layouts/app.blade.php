@@ -36,7 +36,7 @@
         </script>
 
         <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>
+        <script>tinymce.init({ selector:'textarea_t' });</script>
 
         <style>
             .list-group-item:first-child {
@@ -136,7 +136,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> Meinungsumfragen </a>
+                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> Meine Meinungsumfragen </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
