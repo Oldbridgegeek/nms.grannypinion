@@ -51,4 +51,4 @@ Route::post('/feedback', 'ReviewsController@store');
 Route::get('/{user}/polls', 'PollController@index')->name('poll.index');
 Route::get('/poll/create', function() { return view('poll.create') ;} )->name('poll.create') ;
 Route::post('/poll/store', 'PollController@store')->name('poll.store');
-Route::get('/{poll}','PollController@show')->name('poll.show');
+Route::get('/polls/{poll}','PollController@show')->name('poll.show');

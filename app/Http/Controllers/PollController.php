@@ -41,7 +41,7 @@ class PolLController extends Controller {
 		]);
 		$poll->save();
 
-		return redirect('/'+Auth::user()->id);
+		return redirect('/polls'+$poll->id);
 	}
 
 	/**
@@ -50,8 +50,8 @@ class PolLController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id) {
-		//
+	public function show(Poll $poll) {
+		return view('poll.details',compact('poll'));
 	}
 
 	/**

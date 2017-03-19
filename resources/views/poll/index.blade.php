@@ -16,7 +16,7 @@
                         {{$poll->created_at->format('d.m.Y')}}
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary btn-md"> Details </button>
+                        <a href="{{route('poll.show', ['poll' => $poll] )}}" class="btn btn-primary btn-md"> Details </a>
                     </div>
                 </div>
                 @endforeach
