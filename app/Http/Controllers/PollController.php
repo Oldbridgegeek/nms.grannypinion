@@ -41,7 +41,7 @@ class PolLController extends Controller {
 		]);
 		$poll->save();
 
-		return redirect()->route('poll.index');
+		return redirect()->route('poll.index', [Auth::user()]);
 	}
 
 	/**
