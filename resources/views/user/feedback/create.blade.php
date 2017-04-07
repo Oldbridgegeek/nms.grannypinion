@@ -11,9 +11,9 @@
                     </img>
                 </div>
                 <div class="col-md-6">
-                    <h3> Anonymes Feedback für {{$user->firstname}} {{$user->lastname}} </h3>
-                    <button id="feedbackTextOnly"> Ich möchte nur einen Feedback Text schreiben.</button>
-                    <p style="color:red;">* Mindestens ein Feld muss ausgefüllt werden.</p>
+                    <h3> Anonymous Feedback for {{$user->firstname}} {{$user->lastname}} </h3>
+                    <button id="feedbackTextOnly"> I just want to write a Feedback Text.</button>
+                    <p style="color:red;">* At least one field is required.</p>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="col-md-7">
                 <div class="col-md-3">
                 <div class="form-group">
-                    <label for="starsHonesty" class="control-label" name="starsHonesty" >Ehrlichkeit</label>
+                    <label for="starsHonesty" class="control-label" name="starsHonesty" >Honesty</label>
                 </div>
                 </div>
                 <div class="col-md-4">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <input type="checkbox" onchange="toggleCheckbox(this,'starsHonesty')" id="starsHonesty"> Keine Angabe<br>
+                <input type="checkbox" onchange="toggleCheckbox(this,'starsHonesty')" id="starsHonesty"> No specification<br>
             </div>
 
 
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="col-md-10">
-                    <button type="submit" class="btn btn-primary"> Bestätigen </button>
+                    <button type="submit" class="btn btn-primary"> Submit</button>
                 </div>
             </div>
         </form>
@@ -145,7 +145,7 @@
                 var starRating = starsRating[i];
                 starRating.disabled = true;
             }
-            document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte eine Feedback Hilfe";
+            document.getElementById('feedbackTextOnly').innerHTML = "I need help with the feedback";
             visible = false;
 
             var el = document.getElementsByTagName('input');
@@ -169,7 +169,7 @@
                 var starRating = starsRating[i];
                 starRating.disabled = false;
             }
-            document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte nur einen Feedback Text schreiben.";
+            document.getElementById('feedbackTextOnly').innerHTML = "I just want to write a feedback text.";
             visible = true;
             var el = document.getElementsByTagName('input');
             for (var i = 0; i < el.length; i++) {
@@ -202,7 +202,7 @@
     </script>
     @else
     <div class="col-md-6 col-md-offset-3" style="margin-top: 3em;margin-bottom: 3em;">
-    <h2>Du darfst dich selber nicht bewerten.</h2>
+    <h2>You are not allowd to write yourself a feedback.</h2>
     </div>
     @endif
 </div>
@@ -214,9 +214,9 @@
             </img>
         </div>
         <div class="col-md-6">
-            <h3> Anonymes Feedback für {{$user->firstname}} {{$user->lastname}} </h3>
-            <button id="feedbackTextOnly"> Ich möchte nur einen Feedback Text schreiben.</button>
-            <p style="color:red;">* Mindestens ein Feld muss ausgefüllt werden.</p>
+            <h3> Anonymous Feedback for {{$user->firstname}} {{$user->lastname}} </h3>
+            <button id="feedbackTextOnly"> I just want to write a Feedback Text.</button>
+            <p style="color:red;">* At least one field is required.</p>
         </div>
     </div>
 </div>
@@ -335,7 +335,7 @@
             </div>
         </div>
         <div class="col-md-10">
-            <button type="submit" class="btn btn-primary"> Bestätigen </button>
+            <button type="submit" class="btn btn-primary"> Submit </button>
         </div>
     </div>
 </form>
@@ -349,7 +349,7 @@
                 var starRating = starsRating[i];
                 starRating.disabled = true;
             }
-            document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte eine Feedback Hilfe";
+            document.getElementById('feedbackTextOnly').innerHTML = "I need help for the Feedback.";
             visible = false;
 
             var el = document.getElementsByTagName('input');
@@ -373,7 +373,7 @@
                 var starRating = starsRating[i];
                 starRating.disabled = false;
             }
-            document.getElementById('feedbackTextOnly').innerHTML = "Ich möchte nur einen Feedback Text schreiben.";
+            document.getElementById('feedbackTextOnly').innerHTML = "I just want to write a Feedback Text.";
             visible = true;
             var el = document.getElementsByTagName('input');
             for (var i = 0; i < el.length; i++) {

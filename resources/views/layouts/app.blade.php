@@ -166,7 +166,7 @@
         <div class="row" style="margin-top:4em;">
           <div class="col-sm-8">
             <ul class="list-inline social">
-              <li>Gemeinsam sind wir stark <3 </li>
+              <li>Together we are strong <3 </li>
               <li><a href="https://www.facebook.com/Grannypinion-284201705342315/"><i class="fa fa-facebook"></i></a></li>
               <li><a href="https://www.instagram.com/grannypinion/"><i class="fa fa-instagram"></i></a></li>
             </ul>
@@ -174,7 +174,7 @@
           
           <div class="col-sm-4 text-right">
             <p><small>Copyright &copy; 2017. All rights reserved. <br>
-                Erstellt von <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
+                Created by <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
           </div>
         </div>
         </div>

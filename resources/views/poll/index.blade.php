@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">Meine Meinungsumfragen</div>
+                <div class="panel-heading" style="text-align: center;">My surveys</div>
                 @if(!empty( $user->polls ))
                 @foreach( $user->polls as $poll)
                 <div class="panel-body">
@@ -23,7 +23,7 @@
                 @endif
             </div>
 
-            <a href="{{route('poll.create')}}" class="btn btn-success btn-md" style="display: block; width: 100%;"> Meinungsumfrage erstellen </a>
+            <a href="{{route('poll.create')}}" class="btn btn-success btn-md" style="display: block; width: 100%;"> Create survey </a>
         </div>
     </div>
 </div>

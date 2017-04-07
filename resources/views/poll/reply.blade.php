@@ -5,7 +5,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align:center;">
-                    Ein Freund wünscht sich deine anonyme Meinung
+                    A friend wants to know your anonymous opinion.
                 </div>
                 <div class="panel-body">
                     {!! $poll->text !!}
@@ -22,9 +22,9 @@
                 @endif
                 <input type="hidden" name="poll_id" id="poll_id" value="{{$poll->id}}">
                 <div class="form-group">
-                    <textarea class="form-control" rows="10" name="text" id="text"></textarea>
+                    <textarea class="form-control" rows="10" name="text" id="text" placeholder="Be honest. You'll stay anonymous"></textarea>
                 </div>
-                <button type="submit" class="btn btn-success btn-md" style="display: block; width: 100%;"> Anonym antworten </button>
+                <button type="submit" class="btn btn-success btn-md" style="display: block; width: 100%;"> Reply anonymously </button>
             </form>
         </div>
         

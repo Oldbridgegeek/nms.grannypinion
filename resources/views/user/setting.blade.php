@@ -4,13 +4,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">Einstellungen</div>
+                <div class="panel-heading" style="text-align: center;">Settings</div>
                 <div class="panel-body">
                     <div class="col-md-12">
                         <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width:150px;height:150px; float:left; border-width: 0.3px; margin-right:25px">
                         </img>
                         <form enctype="multipart/form-data" action="{{ route('user.avatar') }}" method="POST">
-                            <label>Lade ein neues Profilbild hoch.</label>
+                            <label>Upload new profile picture.</label>
                             <input type="file" name="avatar">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="submit" class="pull-right btn btn-sm btn-primary">
@@ -20,7 +20,7 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('user.update') }}">
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
-                                <label for="firstname" class="col-md-4 control-label">Vorname</label>
+                                <label for="firstname" class="col-md-4 control-label">Firstname</label>
                                 <div class="col-md-6">
                                     <input id="firstname" type="text" class="form-control" name="firstname" value="{{ Auth::user()->firstname }}" required autofocus>
                                     @if ($errors->has('firstname'))
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                                <label for="lastname" class="col-md-4 control-label">Nachname</label>
+                                <label for="lastname" class="col-md-4 control-label">Lastname</label>
                                 <div class="col-md-6">
                                     <input id="lastname" type="text" class="form-control" name="lastname" value="{{ Auth::user()->lastname }}" required autofocus>
                                     @if ($errors->has('lastname'))
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Passwort</label>
+                                <label for="password" class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" value="{{ Auth::user()->password }}" required>
                                     @if ($errors->has('password'))
@@ -64,27 +64,22 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Passwort Bestätigen</label>
+                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="{{ Auth::user()->password }}" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="email_notification" class="col-md-4 control label"> Email Benachrichtigung</label>
+                                <label for="email_notification" class="col-md-4 control label"> Email Notifications</label>
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="email_notification" name="email_notification" @if(!Auth::user()->email_notifications) checked @endif> Email Benachrichtigung abstellen<br>
+                                    <input type="checkbox" id="email_notification" name="email_notification" @if(!Auth::user()->email_notifications) checked @endif> Email Notifications Off<br>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email_notification" class="col-md-4 control label"> Profil Öffentlich</label>
-                                <div class="col-md-6">
-                                    <input type="checkbox" id="profile_public" name="profile_public" @if(Auth::user()->public) checked @endif> Profil Öffentlich<br>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                    Ändern
+                                    Submit
                                     </button>
                                 </div>
                             </div>

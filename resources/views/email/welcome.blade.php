@@ -1,16 +1,14 @@
 
-<h4>Willkommen auf Grannypinion - dein Portal für anonymes Feedback.</h4>
+<h4>Welcome at Grannypinion - your Plattform for anonymous Feedback.</h4>
 
-<p>Ich bin Enes Witwit, der Ersteller der Plattform. Falls du Fragen oder Anregungen hast, kannst du dich gerne 
-an mich wenden. Meine Email Adresse lautet: witwitenes@gmail.com</p>
 
 <p>
-Ich danke Dir für dein Vertrauen und wünsche Dir viel Spaß auf der Plattform.
+Thank your for your trust. I wish you a lot of fun on our plattform.
 </p>
 
 <p>
-Viele Grüße,
-Enes
+Lovely greetings,
+Enes Witwit
 </p>
 
 <p>

@@ -1,9 +1,9 @@
-<h4> Neue Antwort </h4>
+<h4> You got a reply </h4>
 
-<p>Du hast eine neue Antwort bei deiner Umfrage <?php echo $poll->name ?> erhalten.</p>
-<p>Klicke hier um die Antwort zu sehen: www.grannypinion.de/polls/<?php echo $poll->id ?>.</p>
+<p>You got a new reply on the survey <?php echo $poll->name ?> erhalten.</p>
+<p>Click here to see the reply: www.grannypinion.de/polls/<?php echo $poll->id ?>.</p>
 
-<p> Liebe Grüße, </p>
+<p> Lovely Greetings, </p>
 <p> Enes Witwit. </p>
-<p> Admin von grannypinion.de </p>
+<p> grannypinion.de </p>
 

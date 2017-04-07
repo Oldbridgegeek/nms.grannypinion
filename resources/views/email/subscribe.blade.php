@@ -1,16 +1,9 @@
 
-<h4>Danke für dein Vertrauen.</h4>
-
-<p>Ich bin Enes Witwit, der Ersteller der Plattform. Falls du Fragen oder Anregungen hast, kannst du dich gerne 
-an mich wenden. Meine Email Adresse lautet: witwitenes@gmail.com</p>
+<h4>Thank your for your trust.</h4>
 
 <p>
-Sobald es Informationen zum Ende der Beta Phase gibt, wirst du sie als erstes erfahren.
-</p>
-
-<p>
-Viele Grüße,
-Enes
+Lovely Greetings,
+Enes Witwit
 </p>
 
 <p>

@@ -9,9 +9,9 @@
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
-            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">Einstellungen</button></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> Frage auf Facebook nach Feedback </button> </a>
-            <p style="margin-top:1em;">Teile den Link mit deinen Freunden, damit du Feedback bekommst: <b style="color:blue;"> www.grannypinion.de/{{Auth::user()->id}}/feedback/create </b></p>
+            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">Settings</button></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> Ask on Facebook for Feedback </button> </a>
+            <p style="margin-top:1em;">Share the link with your friends, so you get Feedback: <b style="color:blue;"> www.grannypinion.de/{{Auth::user()->id}}/feedback/create </b></p>
             @else
             <a href="/{{$user->id}}/feedback/create">
                 <button class="btn btn-primary btn-md">
@@ -20,7 +20,7 @@
             </a>
             <a href="/{{$user->id}}/message">
                 <button class="btn btn-primary btn-md disabled">
-                Anonyme Nachricht
+                Anonymous Message
                 </button>
             </a>
             @endif
@@ -89,7 +89,7 @@
 </div>
 @else
 <div class="col-md-7 col-md-offset-5">
-<h2>Dieses Profil ist privat.</h2>
+<h2>This profile is private.</h2>
 </div>
 
 @endif

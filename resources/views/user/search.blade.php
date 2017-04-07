@@ -13,7 +13,7 @@
                         </h3>
                         <a href="/{{$user->id}}">
                             <button class="btn btn-primary btn-md">
-                                Profil
+                                Profile
                             </button>
                         </a>
                         <a href="/{{$user->id}}/feedback/create">
@@ -23,7 +23,7 @@
                         </a>
                         <a href="/{{$user->id}}/message">
                             <button class="btn btn-primary btn-md disabled">
-                                Anonyme Nachricht
+                                Anonymous Message
                             </button>
                         </a>
 

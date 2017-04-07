@@ -8,14 +8,15 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
             <h4>
-            Teile den Link mit deinen Freunden, damit sie dir anonym ihre Meinung mitteilen können.
+            Share the link with your friends so they can give you their anonymous opinion.
+
             <p>
                 <b style="color:blue;"> grannypinion.de/reply/{{$poll->id}} </b>
             </p>
             </h4>
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align:center;"> 
-                    Meine Nachricht
+                    My message
                 </div>
                 <div class="panel-body">
                     {!! $poll->text !!}
@@ -26,7 +27,7 @@
         @foreach( $poll->replies as $reply)
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">Anonyme Zuschrift</div>
+                <div class="panel-heading" style="text-align: center;">Anonymous replies</div>
                 <div class="panel-body">
                     <div class="col-md-10">
                         {!!$reply->text!!}
