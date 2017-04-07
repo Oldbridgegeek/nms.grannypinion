@@ -109,7 +109,7 @@
                     <div class="col-md-5">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Suche" name="name" id="name" style="text-align:center;border-radius:15px;">
+                                <input type="text" class="form-control" placeholder="Search" name="name" id="name" style="text-align:center;border-radius:15px;">
                             </div>
                         </form>
                     </div>
@@ -124,7 +124,7 @@
                             <!-- Authentication Links -->
                             @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Log In</a></li>
-                            <li><a href="{{ route('welcome') }}">Sign Up</a></li>
+                            <li><a href="{{ route('register') }}">Sign Up</a></li>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
