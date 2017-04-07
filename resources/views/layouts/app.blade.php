@@ -123,8 +123,8 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Anmelden</a></li>
-                            <li><a href="{{ route('welcome') }}">Registrieren</a></li>
+                            <li><a href="{{ route('login') }}">Log In</a></li>
+                            <li><a href="{{ route('welcome') }}">Sign Up</a></li>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
@@ -132,17 +132,17 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"> Mein Profil
+                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"> My Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> Meine Meinungsumfragen </a>
+                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> My Surveys </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            Abmelden
+                                            Log Out
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
