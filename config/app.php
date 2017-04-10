@@ -168,6 +168,8 @@ return [
 			         * Package Service Providers...
 		*/
 		Laravel\Tinker\TinkerServiceProvider::class,
+		Dimsav\Translatable\TranslatableServiceProvider::class,
+		ied3vil\LanguageSwitcher\Providers\LanguageSwitcherProvider::class,
 
 		/*
 			         * Application Service Providers...

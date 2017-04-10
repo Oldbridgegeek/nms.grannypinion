@@ -10,7 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 Auth::routes();
+
+Route::get('/email/confirmation/{token}', 
+	'Auth\EmailConfirmationController@confirm')
+		->name('email.confirmation');
+
 
 Route::name('welcome')->get('/', function () {
 	return view('landing');

@@ -4,9 +4,13 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Auth;
 
 class User extends Authenticatable {
 	use Notifiable;
+
+	const EMAIL_CONFIRMED = 1;
+	const TOKEN_EXPIRED = null;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -14,7 +18,16 @@ class User extends Authenticatable {
 	 * @var array
 	 */
 	protected $fillable = [
-		'firstname', 'lastname', 'city', 'email', 'password', 'avatar', 'public', 'email_notifications',
+		'firstname', 
+		'lastname', 
+		'city', 
+		'email', 
+		'password', 
+		'avatar', 
+		'public', 
+		'token',
+		'email_notifications',
+
 	];
 
 	/**
@@ -25,6 +38,27 @@ class User extends Authenticatable {
 	protected $hidden = [
 		'password', 'remember_token',
 	];
+
+	public static function registerAndLogin($user)
+	{
+		$user = self::create([
+			'firstname'	=>	$user['firstname'],
+			'lastname'	=>	$user['lastname'],
+			'email'		=>	$user['email'],
+			'password'	=>	bcrypt($user['password']),
+			'token'		=>	str_random(30)
+		]);
+		Auth::login($user);
+		
+		return $user;
+	}
+
+	public function emailConfirm()
+    {
+    	$this->token = self::TOKEN_EXPIRED;
+    	$this->verified = self::EMAIL_CONFIRMED;
+    	return $this->save();
+    }
 
 	/**
 	 * Get the users reviews.

@@ -6,6 +6,8 @@
 Thank your for your trust. I wish you a lot of fun on our plattform.
 </p>
 
+<a href="{{ route('email.confirmation', ['token'=>$user->token]) }}">Confirm your email</a>
+
 <p>
 Lovely greetings,
 Enes Witwit

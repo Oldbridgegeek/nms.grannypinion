@@ -94,6 +94,7 @@
         </style>
     </head>
     <body>
+    {{App::getLocale()}}
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
                 <div class="container">
@@ -121,6 +122,9 @@
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
+                            <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
+                            
                             <!-- Authentication Links -->
                             @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Log In</a></li>

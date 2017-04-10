@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use Mail;
 use Illuminate\Support\Facades\Input;
+use App\Mail\Welcome;
 
 class RegisterController extends Controller {
 	/*
@@ -60,20 +61,13 @@ class RegisterController extends Controller {
 	 * @param  array  $data
 	 * @return User
 	 */
-	protected function create(array $data) {
-		$input = Input::only('email');
-	 	$email = $data['email'];	
-		Mail::send('email.welcome', $data, function ($message) {
-			$message->from('postmaster@grannypinion.de', 'Willkommen');
-			$message->to( Input::get('email'));
-		});
+	protected function create(array $data) 
+	{
+		$user = User::registerAndLogin(array_except($data, ['_token']));
 
-		return User::create([
-			'firstname' => $data['firstname'],
-			'lastname' => $data['lastname'],
-			'email' => $data['email'],
-			'password' => bcrypt($data['password']),
+        \Mail::to($user)->send(new Welcome($user));
 
-		]);
+        return $user;
 	}
+
 }
