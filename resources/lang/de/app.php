@@ -2,6 +2,7 @@
 
 return [
 	'my_profile'				=>		'My profile',
+	'profile_updated'			=>		'Your profile has been updated',
 	'my_surveys'				=>		'My surveys',
 	'survey_create'				=>		'Create survey',
 	'survey_create_anon'		=>		'Create anonymous survey',

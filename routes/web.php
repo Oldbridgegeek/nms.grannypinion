@@ -22,8 +22,6 @@ Route::name('welcome')->get('/', function () {
 	return view('landing');
 });
 
-//Route::get('/', 'HomeController@index')->name('welcome');
-
 // Route::middleware('auth')->group(function () {
 // Logged-In and Dashboard
 Route::get('/home', 'HomeController@index');
@@ -33,12 +31,13 @@ Route::get('/landing', function() {
 
 
 // User
-Route::name('user.setting')->get('/settings' , function() {
-	return view('user.setting');
-});
+Route::get('/settings' , 'SettingsController@settings')->name('user.setting');
+Route::post('/settings/update' , 'SettingsController@update');
+
 Route::get('/search/user', 'SearchController@search')->name('user.search');
 Route::get('/{user}', 'UsersController@show')->name('user.show');
 Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
+
 Route::post('/settings/avatar', 'UsersController@update_avatar')->name('user.avatar');
 Route::post('/update', 'UsersController@update')->name('user.update');
 

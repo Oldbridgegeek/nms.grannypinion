@@ -27,7 +27,7 @@ return [
     'last_name'                 =>          'Last Name',
     'email_address'             =>          'E-Mail Address',
     'password'                  =>          'Password',
-    'password_confirmation'     =>          'Password Confirmation'
+    'password_confirmation'     =>          'Password Confirmation',
     'remember_me'               =>          'Remember me',
     'forgot_password'           =>          'Forgot Password?',
     'password_link'             =>          'Send me the password link.',

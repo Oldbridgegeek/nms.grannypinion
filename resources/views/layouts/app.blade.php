@@ -88,13 +88,14 @@
                 font-size: 22px;
                 color: #ff0000;
             }
-
-
-
+            .form-horizontal .profile-inputs label
+            {
+                text-align: left !important;
+                padding-left: 30px !important;
+            }
         </style>
     </head>
     <body>
-    {{App::getLocale()}}
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
                 <div class="container">
@@ -107,7 +108,7 @@
                     </div>
                     </div>
                     @if(!Auth::guest())
-                    <div class="col-md-5">
+                    <div class="col-md-3">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search" name="name" id="name" style="text-align:center;border-radius:15px;">
@@ -122,8 +123,12 @@
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
-                            <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
+                            @if(App::getLocale() == 'en')
+                                <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
+                            @else
+                                <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
+                            @endif
+                            
                             
                             <!-- Authentication Links -->
                             @if (Auth::guest())
@@ -159,6 +164,17 @@
                     </div>
                 </div>
             </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
             @yield('content')
         </div>
         <!-- Scripts -->
