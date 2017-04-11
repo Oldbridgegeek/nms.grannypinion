@@ -12,7 +12,9 @@
  */
 
 Auth::routes();
-
+Route::get('test', function(){
+	factory(App\FeedbackComment::class, 2)->create();
+});
 Route::get('/email/confirmation/{token}', 
 	'Auth\EmailConfirmationController@confirm')
 		->name('email.confirmation');
@@ -30,13 +32,19 @@ Route::get('/landing', function() {
 });
 
 
-// User
+// User Settings
 Route::get('/settings' , 'SettingsController@settings')->name('user.setting');
 Route::post('/settings/update' , 'SettingsController@update');
 
+//User Profile
 Route::get('/search/user', 'SearchController@search')->name('user.search');
 Route::get('/{user}', 'UsersController@show')->name('user.show');
+
+//Feedback addition
 Route::get('/{user}/feedback/create', 'FeedbackController@create')->name('feedback.create');
+Route::post('/{user}/feedback/leave', 'FeedbackController@leave');
+Route::get('/feedback/success', 'FeedbackController@success');
+
 
 Route::post('/settings/avatar', 'UsersController@update_avatar')->name('user.avatar');
 Route::post('/update', 'UsersController@update')->name('user.update');

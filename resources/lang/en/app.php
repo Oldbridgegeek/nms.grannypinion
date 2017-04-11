@@ -21,6 +21,10 @@ return [
 	'email_notifications'		=>		'Enable E-Mail notifications',
 	'we_are_strong'				=>		'Together we are strong <3',
 	'copyright'					=>		'Copyright ©' . date('Y') . ' All rights reserved',
-	'created_by'				=>		'Created by'
+	'created_by'				=>		'Created by',
+	'leave_feedback'			=>		'Leave Anonymous Feedback for: ',
+	'feedback_added'			=>		'Thank you! Your feedback has been added! Your feedback has been added!',
+	'feedback_title'			=>		'Anonymous feedback',
+	'reply'						=>		'Reply',
 
 ];

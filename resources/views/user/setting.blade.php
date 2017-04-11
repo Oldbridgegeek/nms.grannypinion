@@ -14,7 +14,7 @@
                         )) }}
                     <div class="col-md-3">
 
-                        <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px;height:150px; float:left; border-width: 0.3px; margin-right:25px">
+                        <img src="{{$user->getImage()}}" style="width:150px;height:150px; float:left; border-width: 0.3px; margin-right:25px">
                         </img>
                         <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
                             <label>{{ trans('app.upload_picture') }}</label>

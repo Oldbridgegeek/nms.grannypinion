@@ -26,9 +26,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Message::class, function (Faker\Generator $faker) {
+$factory->define(App\Feedback::class, function (Faker\Generator $faker) {
     return [
-    	'conversation_id' => 1,
-        'body' => $faker->paragraph,
+        'user_id'=>3,
+    	'text' => $faker->paragraph,
+        'status' => 0,
+    ];
+});
+
+$factory->define(App\FeedbackComment::class, function (Faker\Generator $faker) {
+    return [
+        'feedback_id' => factory(App\Feedback::class)->create()->id,
+        'parent_id' => null,
+        'user_id'   =>  factory(App\User::class)->create()->id,
+        'text'=>    $faker->sentence
+
     ];
 });

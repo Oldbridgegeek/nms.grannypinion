@@ -9,6 +9,7 @@ use Hash;
 use Image;
 use Mail;
 use App\Mail\EmailConfirmation;
+use App\Feedback;
 
 
 class User extends Authenticatable {
@@ -116,18 +117,36 @@ class User extends Authenticatable {
 		
     }
 
-    public function getAvatarAttribute($value)
+    // public function getAvatarAttribute($value)
+    // {
+    // 	return $value === null ? 'default/default.jpg' : $value;
+    // }
+
+    public function getFullName()
     {
-    	return $value === null ? '/default/default.jpg' : $value;
+    	return $this->firstname . PHP_EOL . $this->lastname;
+    }
+
+    public function getFolder()
+    {
+    	return '/uploads/avatars/';
+    }
+
+    public function getImage()
+    {
+    	if ($this->avatar === null) {
+    		return $this->getFolder() . 'default/default.jpg';
+    	}
+    	return $this->getFolder() . $this->avatar;
     }
 
 	/**
-	 * Get the users reviews.
+	 * Get the users feedbacks.
 	 *
 	 * @return [type] [description]
 	 */
-	public function reviews() {
-		return $this->hasMany(Review::class, 'user_id');
+	public function feedbacks() {
+		return $this->hasMany(Feedback::class, 'user_id');
 	}
 
 	/**

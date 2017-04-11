@@ -1,3 +1,6 @@
+<?php
+use Carbon\Carbon;
+?>
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
@@ -9,9 +12,9 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Styles -->
         
-          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+          {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+        <link rel="stylesheet" href="/css/custom.css">
+        <link rel="stylesheet" href="/css/comment.css">
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -35,8 +38,8 @@
         ]) !!};
         </script>
 
-        <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>
+        {{-- <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script> --}}
+        <script>//tinymce.init({ selector:'textarea' });</script>
 
         <style>
             .list-group-item:first-child {
@@ -83,11 +86,11 @@
 
             .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
                 background-color: #303F9F;
-            }
+            }/*
             .glyphicon {
                 font-size: 22px;
                 color: #ff0000;
-            }
+            }*/
             .form-horizontal .profile-inputs label
             {
                 text-align: left !important;

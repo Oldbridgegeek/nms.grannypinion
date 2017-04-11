@@ -1,0 +1,17 @@
+div.user-review textarea
+{
+    resize: vertical;
+}
+div.user-review h3
+{
+    margin-top: 10px;
+}
+div.user-review button
+{
+    margin-top: 10px;
+    float: right;
+}
+div.user-review
+{
+    overflow: hidden;
+}

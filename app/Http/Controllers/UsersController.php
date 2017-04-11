@@ -7,6 +7,8 @@ use Auth;
 use Hash;
 use Illuminate\Http\Request;
 use Image;
+use Carbon\Carbon;
+use App;
 
 class UsersController extends Controller {
 	/**
@@ -43,8 +45,21 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show(User $user) {
-		return view('user.show', compact('user'));
+	public function show($user_id) {
+
+		$user = User::where('id',$user_id)
+				->with(['feedbacks' => function($query){
+					$query->with(['comments' => function($query){
+						$query->where('parent_id',null);
+						$query->with('children');
+					}]);
+				}])
+				->first();
+
+		return view('user.show', compact(
+			'user',
+			'feedbacks'
+		));
 	}
 
 	/**
