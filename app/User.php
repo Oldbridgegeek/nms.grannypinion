@@ -98,6 +98,16 @@ class User extends Authenticatable {
 		
     }
 
+    public function getAvatarAttribute($value)
+    {
+    	return $value === null ? '/default/default.jpg' : $value;
+    }
+
+    public function getImage()
+    {
+    	return $this->avatar;
+    }
+
 	/**
 	 * Get the users reviews.
 	 *

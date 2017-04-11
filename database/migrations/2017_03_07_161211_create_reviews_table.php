@@ -13,16 +13,18 @@ class CreateReviewsTable extends Migration {
 	public function up() {
 		Schema::create('reviews', function (Blueprint $table) {
 			$table->increments('id');
-			$table->integer('user_id')->unsigned()->index();
-			$table->integer('stars_average')->nullable();
-			$table->integer('stars_kindness')->nullable();
-			$table->integer('stars_attractiveness')->nullable();
-			$table->integer('stars_reliability')->nullable();
-			$table->integer('stars_honesty')->nullable();
-			$table->integer('stars_intelligence')->nullable();
-			$table->integer('stars_fun')->nullable();
-			$table->integer('subject_id')->nullable();
-			$table->text('feedback')->nullable();
+			$table->integer('user_id')->nullable();
+			$table->text('text');
+			$table->integer('status')->default(0);
+			$table->timestamps();
+		});
+
+		Schema::create('reviews_comments', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('review_id')->unsigned();
+			$table->integer('parent_id')->unsigned();
+			$table->integer('user_id')->unsigned();
+			$table->text('text');
 			$table->timestamps();
 		});
 	}
@@ -34,5 +36,6 @@ class CreateReviewsTable extends Migration {
 	 */
 	public function down() {
 		Schema::dropIfExists('reviews');
+		Schema::dropIfExists('reviews_comments');
 	}
 }
