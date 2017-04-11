@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">Sign Up</div>
+                <div class="panel-heading" style="text-align: center;">{{ trans('auth.sign_up') }}</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
-                            <label for="firstname" class="col-md-4 control-label">First Name</label>
+                            <label for="firstname" class="col-md-4 control-label">{{ trans('auth.first_name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" class="form-control" name="firstname" value="{{ old('firstname') }}" required autofocus>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                            <label for="lastname" class="col-md-4 control-label">Lastname</label>
+                            <label for="lastname" class="col-md-4 control-label">{{ trans('auth.last_name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Adress</label>
+                            <label for="email" class="col-md-4 control-label">{{ trans('auth.email_address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">{{ trans('auth.password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Password Confirmation</label>
+                            <label for="password-confirm" class="col-md-4 control-label">{{ trans('auth.password_confirmation') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Sign Up
+                                    {{ trans('auth.sign_up') }}
                                 </button>
                             </div>
                         </div>

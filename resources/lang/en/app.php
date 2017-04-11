@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'search'					=>		'Search',
 	'my_profile'				=>		'My profile',
 	'profile_updated'			=>		'Your profile has been updated',
 	'my_surveys'				=>		'My surveys',
@@ -17,7 +18,7 @@ return [
 	'share_facebook'			=>		'Share the link with your friends, so you get Feedback',
 	'upload_picture'			=>		'Upload new profile picture.',
 	'submit'					=>		'Submit',
-	'email_notifications_off'	=>		'E-Mail notifications off',
+	'email_notifications'		=>		'Enable E-Mail notifications',
 	'we_are_strong'				=>		'Together we are strong <3',
 	'copyright'					=>		'Copyright ©' . date('Y') . ' All rights reserved',
 	'created_by'				=>		'Created by'

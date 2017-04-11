@@ -20,16 +20,16 @@ return [
     /** 
         Custom fields
     **/
-    'log_in'                    =>          'Log In',
-    'log_out'                   =>          'Log out',
-    'sign_up'                   =>          'Sign Up',
-    'first_name'                =>          'First Name',
-    'last_name'                 =>          'Last Name',
-    'email_address'             =>          'E-Mail Address',
-    'password'                  =>          'Password',
-    'password_confirmation'     =>          'Password Confirmation',
-    'remember_me'               =>          'Remember me',
-    'forgot_password'           =>          'Forgot Password?',
-    'password_link'             =>          'Send me the password link.',
+    'log_in'                    =>          'd Log In',
+    'log_out'                   =>          'd Log out',
+    'sign_up'                   =>          'd Sign Up',
+    'first_name'                =>          'd First Name',
+    'last_name'                 =>          'd Last Name',
+    'email_address'             =>          'd E-Mail Address',
+    'password'                  =>          'd Password',
+    'password_confirmation'     =>          'd Password Confirmation',
+    'remember_me'               =>          'd Remember me',
+    'forgot_password'           =>          'd Forgot Password?',
+    'password_link'             =>          'd Send me the password link.',
 
 ];

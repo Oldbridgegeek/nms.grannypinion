@@ -9,9 +9,9 @@
             </img>
             <h2> {{$user->firstname}} {{$user->lastname}} </h2>
             @if($user->id == Auth::user()->id)
-            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">Settings</button></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> Ask on Facebook for Feedback </button> </a>
-            <p style="margin-top:1em;">Share the link with your friends, so you get Feedback: <b style="color:blue;"> www.grannypinion.de/{{Auth::user()->id}}/feedback/create </b></p>
+            <a href="{{route('user.setting',['user' => Auth::user()])}}" > <button class="btn btn-primary btn-md">{{ trans('app.settings') }}</button></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup"> <button class="btn btn-primary btn-md"> {{ trans('app.ask_facebook') }} </button> </a>
+            <p style="margin-top:1em;">{{ trans('app.share_facebook') }}: <b style="color:blue;"> www.grannypinion.de/{{Auth::user()->id}}/feedback/create </b></p>
             @else
             <a href="/{{$user->id}}/feedback/create">
                 <button class="btn btn-primary btn-md">

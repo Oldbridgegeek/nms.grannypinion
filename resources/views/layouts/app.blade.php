@@ -111,7 +111,7 @@
                     <div class="col-md-3">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="name" id="name" style="text-align:center;border-radius:15px;">
+                                <input type="text" class="form-control" placeholder="{{ trans('app.search') }}" name="name" id="name" style="text-align:center;border-radius:15px;">
                             </div>
                         </form>
                     </div>
@@ -132,8 +132,8 @@
                             
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Log In</a></li>
-                            <li><a href="{{ route('register') }}">Sign Up</a></li>
+                            <li><a href="{{ route('login') }}">{{ trans('auth.log_in') }}</a></li>
+                            <li><a href="{{ route('register') }}">{{ trans('auth.sign_up') }}</a></li>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
@@ -141,17 +141,17 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"> My Profile
+                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}">{{ trans('app.my_profile') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> My Surveys </a>
+                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}">{{ trans('app.my_surveys') }}</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            Log Out
+                                            {{ trans('auth.log_out') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -186,15 +186,15 @@
         <div class="row" style="margin-top:4em;">
           <div class="col-sm-8">
             <ul class="list-inline social">
-              <li>Together we are strong <3 </li>
+              <li>{{ trans('app.we_are_strong') }}</li>
               <li><a href="https://www.facebook.com/Grannypinion-284201705342315/"><i class="fa fa-facebook"></i></a></li>
               <li><a href="https://www.instagram.com/grannypinion/"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
           
           <div class="col-sm-4 text-right">
-            <p><small>Copyright &copy; 2017. All rights reserved. <br>
-                Created by <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
+            <p><small>{{ trans('app.copyright') }}<br>
+                {{ trans('app.created_by') }} <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
           </div>
         </div>
         </div>
