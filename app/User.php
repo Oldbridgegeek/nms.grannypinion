@@ -7,12 +7,15 @@ use Illuminate\Notifications\Notifiable;
 use Auth;
 use Hash;
 use Image;
+use Mail;
+use App\Mail\EmailConfirmation;
 
 
 class User extends Authenticatable {
 	use Notifiable;
 
 	const EMAIL_CONFIRMED = 1;
+	const EMAIL_NOT_CONFIRMED = 0;
 	const TOKEN_EXPIRED = null;
 
 	/**
@@ -67,7 +70,18 @@ class User extends Authenticatable {
     {
     	$this->assignNewInfo($data);
     	$this->uploadAvatar($data);
-    	return $this->save();
+    	$this->save();
+    }
+
+    //send email ONLY when email changed
+    private function sendEmailConfirmationMessage($email)
+    {
+    	if ($email != $this->email) {
+    		$this->verified = self::EMAIL_NOT_CONFIRMED;
+	    	$this->token = str_random(25);
+    		$this->email = $email;
+	    	\Mail::to($this)->send(new EmailConfirmation($this));
+    	}
     }
 
     private function assignNewInfo($data)
@@ -77,9 +91,13 @@ class User extends Authenticatable {
     		$this->password = bcrypt($password);
     	}
     	$this->firstname = $data['firstname'];
+
     	$this->lastname = $data['lastname'];
-    	$this->email = $data['email'];
+
     	$this->email_notifications = array_has($data, 'email_notifications');
+
+    	$this->sendEmailConfirmationMessage($data['email']);
+
     }
 
     private function uploadAvatar($data)
@@ -101,11 +119,6 @@ class User extends Authenticatable {
     public function getAvatarAttribute($value)
     {
     	return $value === null ? '/default/default.jpg' : $value;
-    }
-
-    public function getImage()
-    {
-    	return $this->avatar;
     }
 
 	/**
