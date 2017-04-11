@@ -39,14 +39,40 @@
     {
         margin-top: 20px;
     }
+    ul.feedback-settings
+    {
+      float:right;
+      list-style-type: none;
+      overflow: hidden;
+    }
+    ul.feedback-settings li
+    {
+      display: inline-block;
+      cursor: pointer;
+    }
+    ul.feedback-settings li:nth-child(2)
+    {
+      margin-left: 20px;
+    }
 </style>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         @forelse($user->feedbacks as $feedback)
             {{-- FEEDBACK START --}}
-            <div class="panel panel-default feedbacks">
-              <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})</div>
+            <div class="panel panel-default feedbacks" style="overflow:hidden;">
+              <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})
+                <ul class="feedback-settings">
+                  <li>
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    Make Public
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  </li>
+                </ul>
+                {{-- <div class="clearfix"></div> --}}
+              </div>
               <div class="panel-body">
                 <div class="feedback-content">
                     {{$feedback->text}}
