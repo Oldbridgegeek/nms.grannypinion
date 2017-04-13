@@ -60,7 +60,7 @@
         <div class="col-md-10 col-md-offset-1">
         @forelse($user->feedbacks as $feedback)
             {{-- FEEDBACK START --}}
-            <div class="panel panel-default feedbacks" style="overflow:hidden;">
+            <div data-id="{{$feedback->id}}" class="panel panel-default feedbacks" style="overflow:hidden;">
               <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})
                 <ul class="feedback-settings">
                   <li>
@@ -81,12 +81,12 @@
                 <div class="ui comments">
                   @each('user._comment', $feedback->comments, 'comment','user._no_comments')
                   <br> 
-                  <form class="ui reply form">
+                  <form class="ui reply form " id="comment-form">
                     <div class="field">
                       <textarea class="form-control"></textarea>
                     </div>
                     <br>
-                    <div class="btn btn-success">
+                    <div class="btn btn-success add-reply">
                       <i class="glyphicon glyphicon-comment"></i> Add Reply
                     </div>
                   </form>
@@ -103,4 +103,6 @@
 </div>
 
 @endif
+
+
 @endsection

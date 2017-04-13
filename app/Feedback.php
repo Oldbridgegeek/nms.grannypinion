@@ -4,6 +4,7 @@ namespace App;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use App\FeedbackComment;
+use Auth;
 
 class Feedback extends Model {
 	/**
@@ -34,5 +35,21 @@ class Feedback extends Model {
 	public function comments()
 	{
 		return $this->hasMany(FeedbackComment::class);
+	}
+
+	public static function addComment($data)
+	{
+		$comment_id = $data['comment_id'];
+		$text = $data['text'];
+		
+		$feedback = self::find($data['feedback_id']);
+		if ($feedback !== null) {
+			$comment = $feedback->comments()->create([
+				'parent_id' => $comment_id,
+				'text' => $text,
+				'user_id' => Auth::user()->id
+			]);
+		}
+		return $comment;
 	}
 }

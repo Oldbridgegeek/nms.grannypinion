@@ -1,4 +1,4 @@
-  <div class="comment">
+  <div class="comment" data-comment-id="{{$comment->id}}">
     <a class="avatar">
       <img src="{{$comment->user->getImage()}}">
     </a>
@@ -11,7 +11,9 @@
         {{$comment->text}}
       </div>
       <div class="actions">
-        <a class="reply">{{ trans('app.reply') }}</a>
+        @if(Auth::user()->id != $comment->user->id)
+          <a class="reply">{{ trans('app.reply') }}</a>
+        @endif
       </div>
     </div>
     @if(count($comment->children) && !empty($comment->children))

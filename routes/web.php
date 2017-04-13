@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+use Illuminate\Http\Request;
+use App\Feedback;
 
 Auth::routes();
 Route::get('test', function(){
@@ -18,6 +20,8 @@ Route::get('test', function(){
 Route::get('/email/confirmation/{token}', 
 	'Auth\EmailConfirmationController@confirm')
 		->name('email.confirmation');
+
+Route::post('/user/addComment', "FeedbackCommentsController@add");	
 
 
 Route::name('welcome')->get('/', function () {
