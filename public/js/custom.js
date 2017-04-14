@@ -1,16 +1,27 @@
-// взять айдишник фидбека
-// если нажал на реплай, то беру айдишник данного коммента
-// генерю хтмл, и вставляю в него текст
-// ищю айди фидбека и вставляю 
-// если есть айдишник коммента то вставляю под него
-
+//кликаю по реплай
+//скрол до первой текстаери
+//
 $(document).ready(function(){
 	var commentID = null;
 	$('a.reply').on('click', function(){
 		commentID = $(this).closest('.comment').data('comment-id');
 		commentNode = $(this).closest('.comment');
 		hasCommentsDiv = $(commentNode).children('.comments').length;
-		
+
+		comments = $(this).closest('.ui');
+		form = comments.find('.form');
+		$('html, body').animate({
+	        scrollTop: $(form).offset().top - 20
+	    }, 2000);
+	    author = $(this).closest('.content').children('.author').text();
+	    $(form).find('.comment-username').html(author + ' <i class="glyphicon glyphicon-remove"></i>');
+
+	});
+
+	$('.cancel-reply').on('click', function(e){
+		e.preventDefault();
+		$(form).find('.comment-username').html('');
+		commentID = null;
 	});
 
 	$('.add-reply').on('click', function(){
@@ -53,6 +64,8 @@ $(document).ready(function(){
 
 		  	commentID = null;
 		  	$(text).val('');
+		  	$(form).find('.comment-username').html('');
+
 		  });
 
 		

@@ -89,6 +89,9 @@
                     <div class="btn btn-success add-reply">
                       <i class="glyphicon glyphicon-comment"></i> Add Reply
                     </div>
+                    <div class="btn cancel-reply">
+                      <a href="#"><span class="comment-username"></span> </a>
+                    </div>
                   </form>
                 </div>
               </div>
