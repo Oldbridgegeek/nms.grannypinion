@@ -1,4 +1,4 @@
-  <div class="comment" data-comment-id="{{$comment->id}}">
+  <div class="comment" data-comment-id="{{$comment->id}}" name="comment{{$comment->id}}" id="comment{{$comment->id}}">
     <a class="avatar">
       <img src="{{$comment->user->getImage()}}">
     </a>

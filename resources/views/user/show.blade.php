@@ -45,7 +45,7 @@
                 <div class="user-stats">
                   <ul>
                     <li><i class="glyphicon glyphicon-comment"></i> 
-                    Feedbacks: {{'4'}}</li>
+                    Feedbacks: {{$feedbacksCount}}</li>
                   </ul>
                 </div>
                 @if($user->isAuthor())
@@ -169,7 +169,14 @@
                 @endif
               @endif
           @empty
-            {{ trans('app.no_feedbacks') }}
+          <br><br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="alert alert-info">
+                    {{ trans('app.no_feedbacks') }}
+                  </div>
+                </div>
+              </div>
           @endforelse
               
           </div>

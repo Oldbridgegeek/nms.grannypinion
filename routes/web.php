@@ -15,7 +15,8 @@ use App\Feedback;
 
 Auth::routes();
 Route::get('test', function(){
-	factory(App\FeedbackComment::class, 2)->create();
+	dd(route('user.show',['user'=>3]) . '/#' . 'comment108');
+	// factory(App\FeedbackComment::class, 2)->create();
 });
 Route::get('/email/confirmation/{token}', 
 	'Auth\EmailConfirmationController@confirm')
@@ -25,6 +26,7 @@ Route::post('/feedback/addComment', "FeedbackCommentsController@add");
 Route::post('/feedback/switch', "FeedbackController@toggleStatus");
 Route::post('/feedback/delete', "FeedbackController@deleteFeedback");
 
+Route::get('{user}/#comment{comment_id}', 'UsersController@show')->name('check.comment');
 
 Route::get('/profile/{id}', "ProfileViewerController@profile");
 

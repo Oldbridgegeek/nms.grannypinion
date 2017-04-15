@@ -178,8 +178,8 @@
   margin-top: 1em;
 }
 .ui.comments .reply.form textarea {
-  font-size: 1em;
-  height: 12em;
+    font-size: 1.5em;
+    height: 8em;
 }
 
 

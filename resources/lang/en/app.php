@@ -32,5 +32,6 @@ return [
 	'make_private'				=>		'Make Private',
 	'no_comments'				=>		'No comments. Be the first one!',
 	'no_feedbacks'				=>		'No Feedbacks Left',
-	'not_authorized_to_see'		=>		'Please sign up to see the content'
+	'not_authorized_to_see'		=>		'Please sign up to see the content',
+	'confirm_email'				=>		'Please confirm your email otherwise you will not get notifications'
 ];

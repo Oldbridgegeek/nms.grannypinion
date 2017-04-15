@@ -67,6 +67,11 @@ class User extends Authenticatable {
     	return $this->save();
     }
 
+    public function isEmailConfirmed()
+    {
+    	return (bool) $this->verified;
+    }
+
     public function updateProfile($data)
     {
     	$this->assignNewInfo($data);
@@ -116,11 +121,6 @@ class User extends Authenticatable {
     	}
 		
     }
-
-    // public function getAvatarAttribute($value)
-    // {
-    // 	return $value === null ? 'default/default.jpg' : $value;
-    // }
 
     public function getFullName()
     {
@@ -182,5 +182,27 @@ class User extends Authenticatable {
 	public function authorizedUser()
 	{
 		return Auth::check();
+	}
+
+	public static function getUser($user_id)
+	{
+		return User::where('id',$user_id)
+					->with(['feedbacks' => function($query){
+						$query->orderBy('created_at','desc');
+						$query->with(['comments' => function($query){
+							$query->where('parent_id',null);
+							$query->with('children');
+						}]);
+				}])->first();
+	}
+
+	public function getFeedbacksCount()
+	{
+		return $this->feedbacks()->where('status',1)->count();
+	}
+
+	public function canReceiveEmails()
+	{
+		return $this->email_notifications === 0 ? false : true;
 	}
 }

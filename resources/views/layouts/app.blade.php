@@ -96,9 +96,22 @@ use Carbon\Carbon;
                 text-align: left !important;
                 padding-left: 30px !important;
             }
+            div.check-email
+            {
+                background: #ec971f;
+                color: #fff;
+                padding:5px;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
+        @if(Auth::check() && !Auth::user()->isEmailConfirmed())
+            <div class="check-email">
+                {{ trans('app.confirm_email') }}
+            </div>
+            @else
+        @endif
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
                 <div class="container">

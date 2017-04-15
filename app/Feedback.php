@@ -5,6 +5,8 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use App\FeedbackComment;
 use Auth;
+use App\Mail\CommentAdded;
+use Mail;
 
 class Feedback extends Model {
 	/**
@@ -52,6 +54,16 @@ class Feedback extends Model {
 				'text' => $text,
 				'user_id' => Auth::user()->id
 			]);
+		}
+
+		$user = $feedback->user;
+		if ($user->isEmailConfirmed() && $user->canReceiveEmails()) {
+			\Mail::to($user)->send(new CommentAdded($user, $comment, Auth::user()));
+		}
+
+		if ($comment_id != null) 
+		{
+			
 		}
 		return $comment;
 	}
