@@ -56,18 +56,24 @@ class Feedback extends Model {
 			]);
 		}
 
-		$user = $feedback->user;
-		if ($user->isEmailConfirmed() && $user->canReceiveEmails()) {
-			\Mail::to($user)->send(new CommentAdded($user, $comment, Auth::user()));
-		}
-
-		if ($comment_id != null) 
-		{
-			
-		}
-		return $comment;
+		$parentComment = FeedbackComment::find($comment_id);
+		$data = [
+			'comment'	=>	$comment,
+			'feedback'	=>	$feedback,
+			'comment_parent'	=>	$parentComment
+		];
+		return $data;
 	}
 
+	public static function sendCommentAddedMail($feedback, $comment)
+	{
+		if ($feedback->user->isEmailConfirmed() && $feedback->user->canReceiveEmails()) {
+			if ($feedback->user->id != Auth::user()->id) {
+				\Mail::to($feedback->user)->send(new CommentAdded($feedback->user, $comment, Auth::user()));	
+			}
+			
+		}
+	}
 	public function toggleStatus()
 	{
 		if ($this->status == self::STATUS_PUBLIC) {
