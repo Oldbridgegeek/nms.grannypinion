@@ -26,5 +26,8 @@ return [
 	'feedback_added'			=>		'd Thank you! Your feedback has been added! Your feedback has been added!',
 	'feedback_title'			=>		'd Anonymous feedback',
 	'reply'						=>		'd Reply',
+	'make_public'				=>		'd Make Public',
+	'make_private'				=>		'd Make Private',
+	'no_comments'				=>		'd No comments. Be the first one!',
 
 ];

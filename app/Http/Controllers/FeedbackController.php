@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Mail;
 use App\Mail\FeedbackAdded;
 use App\Feedback;
+use Auth;
 
 class FeedbackController extends Controller {
 
@@ -14,7 +15,10 @@ class FeedbackController extends Controller {
 
 	public function __construct()
 	{
-		$this->middleware('interactingWithYourselfNotAllowed');
+		$this->middleware('interactingWithYourselfNotAllowed',['except'=>[
+			'toggleStatus',
+			'deleteFeedback'
+		]]);
 	}
 	/**
 	 * Display all feedback of a user.
@@ -53,5 +57,28 @@ class FeedbackController extends Controller {
 	public function success()
 	{
 		return view('user.feedback.thanks');
+	}
+
+	public function toggleStatus(Request $request)
+	{
+		$feedback_id = $request->get('feedback_id');
+
+		$feedback = Feedback::find($feedback_id);
+		if ($feedback->user_id != Auth::user()->id) {
+			return [false];
+		}
+		$feedback->toggleStatus();
+		return view('user.feedback.status',compact('feedback'));
+	}
+
+	public function deleteFeedback(Request $request)
+	{
+		$feedback_id = $request->get('feedback_id');
+
+		$feedback = Feedback::find($feedback_id);
+		if ($feedback->user_id != Auth::user()->id) {
+			return [false];
+		}
+		return ['status'=>$feedback->delete()];
 	}
 }

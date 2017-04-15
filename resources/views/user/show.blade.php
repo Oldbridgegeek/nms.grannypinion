@@ -30,30 +30,7 @@
 </div>
 {{-- </div> --}}
 <style>
-    div.feedback-content
-    {
-        margin: 15px 0px;
-        font-size: 20px;
-    }
-    div.feedbacks
-    {
-        margin-top: 20px;
-    }
-    ul.feedback-settings
-    {
-      float:right;
-      list-style-type: none;
-      overflow: hidden;
-    }
-    ul.feedback-settings li
-    {
-      display: inline-block;
-      cursor: pointer;
-    }
-    ul.feedback-settings li:nth-child(2)
-    {
-      margin-left: 20px;
-    }
+    
 </style>
 <div class="container">
     <div class="row">
@@ -63,11 +40,17 @@
             <div data-id="{{$feedback->id}}" class="panel panel-default feedbacks" style="overflow:hidden;">
               <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})
                 <ul class="feedback-settings">
-                  <li>
-                    <i class="glyphicon glyphicon-eye-open"></i>
-                    Make Public
+                  <li class="toggle-status" data-feedback-id="{{$feedback->id}}">
+                    @if($feedback->isPublic())
+                        <i class="glyphicon glyphicon-eye-close"></i>
+                        {{ trans('app.make_private') }}
+                    @else
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        {{ trans('app.make_public') }}
+                    @endif
+                    
                   </li>
-                  <li>
+                  <li class="delete-feedback">
                     <i class="glyphicon glyphicon-remove"></i>
                   </li>
                 </ul>

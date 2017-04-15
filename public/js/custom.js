@@ -11,7 +11,7 @@ $(document).ready(function(){
 		comments = $(this).closest('.ui');
 		form = comments.find('.form');
 		$('html, body').animate({
-	        scrollTop: $(form).offset().top - 20
+	        scrollTop: $(form).offset().top - 100
 	    }, 2000);
 	    author = $(this).closest('.content').children('.author').text();
 	    $(form).find('.comment-username').html(author + ' <i class="glyphicon glyphicon-remove"></i>');
@@ -30,7 +30,7 @@ $(document).ready(function(){
 		var lastElement = 	$(this).closest('.comments').children('.comment').last();
 		$.ajax({
 		  method: "POST",
-		  url: "/user/addComment",
+		  url: "/feedback/addComment",
 		  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 		  data: { 
 		  	feedback_id: feedbackID, 
@@ -69,5 +69,32 @@ $(document).ready(function(){
 		  });
 
 		
+	});
+
+	$('li.toggle-status').on('click', function(){
+		var status = $(this);
+		feedback_id = $(this).data('feedback-id');
+		$.ajax({
+		  method: "POST",
+		  url: "/feedback/switch",
+		  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		  data: { feedback_id: feedback_id }
+		})
+		  .done(function( data ) {
+		  	status.html(data);
+		  });
+	});
+
+	$('li.delete-feedback').on('click', function(){
+		feedback_id = $(this).closest('.feedbacks').data('id');
+		$.ajax({
+		  method: "POST",
+		  url: "/feedback/delete",
+		  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		  data: { feedback_id: feedback_id }
+		})
+		  .done(function( data ) {
+	  		$('.feedbacks[data-id='+feedback_id+']').fadeOut();
+		  });
 	});
 });

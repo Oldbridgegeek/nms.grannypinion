@@ -21,7 +21,12 @@ Route::get('/email/confirmation/{token}',
 	'Auth\EmailConfirmationController@confirm')
 		->name('email.confirmation');
 
-Route::post('/user/addComment', "FeedbackCommentsController@add");	
+Route::post('/feedback/addComment', "FeedbackCommentsController@add");
+Route::post('/feedback/switch', "FeedbackController@toggleStatus");
+Route::post('/feedback/delete', "FeedbackController@deleteFeedback");
+
+
+Route::get('/profile/{id}', "ProfileViewerController@profile");
 
 
 Route::name('welcome')->get('/', function () {

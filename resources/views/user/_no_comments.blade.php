@@ -1,3 +1,3 @@
-<p>
-	No comments. Be the first one!
+<p class="no-comments">
+	{{ trans('app.no_comments') }}
 </p>

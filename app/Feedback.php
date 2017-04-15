@@ -12,6 +12,9 @@ class Feedback extends Model {
 	 *
 	 * @var array
 	 */
+	const STATUS_PRIVATE = 0;
+	const STATUS_PUBLIC = 1;
+
 	public $table = 'feedbacks';
 
 	protected $fillable = [
@@ -51,5 +54,23 @@ class Feedback extends Model {
 			]);
 		}
 		return $comment;
+	}
+
+	public function toggleStatus()
+	{
+		if ($this->status == self::STATUS_PUBLIC) {
+			$this->status = self::STATUS_PRIVATE;
+		}
+		else
+		{
+			$this->status = self::STATUS_PUBLIC;	
+		}
+		return $this->save();
+	}
+
+	public function isPublic()
+	{
+
+		return $this->status == 0 ? true : false;
 	}
 }
