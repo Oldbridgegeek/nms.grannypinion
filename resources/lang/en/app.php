@@ -25,9 +25,12 @@ return [
 	'leave_feedback'			=>		'Leave Anonymous Feedback for: ',
 	'feedback_added'			=>		'Thank you! Your feedback has been added! Your feedback has been added!',
 	'feedback_title'			=>		'Anonymous feedback',
+	'feedback'					=>		'Feedback',
+	'anonymous_message'			=>		'Anonymous Message',
 	'reply'						=>		'Reply',
 	'make_public'				=>		'Make Public',
 	'make_private'				=>		'Make Private',
 	'no_comments'				=>		'No comments. Be the first one!',
-
+	'no_feedbacks'				=>		'No Feedbacks Left',
+	'not_authorized_to_see'		=>		'Please sign up to see the content'
 ];

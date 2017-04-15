@@ -71,6 +71,6 @@ class Feedback extends Model {
 	public function isPublic()
 	{
 
-		return $this->status == 0 ? true : false;
+		return $this->status == 1 ? true : false;
 	}
 }

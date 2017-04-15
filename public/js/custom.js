@@ -3,6 +3,7 @@
 //
 $(document).ready(function(){
 	var commentID = null;
+	var form = null;
 	$('a.reply').on('click', function(){
 		commentID = $(this).closest('.comment').data('comment-id');
 		commentNode = $(this).closest('.comment');
@@ -12,7 +13,7 @@ $(document).ready(function(){
 		form = comments.find('.form');
 		$('html, body').animate({
 	        scrollTop: $(form).offset().top - 100
-	    }, 2000);
+	    }, 500);
 	    author = $(this).closest('.content').children('.author').text();
 	    $(form).find('.comment-username').html(author + ' <i class="glyphicon glyphicon-remove"></i>');
 
@@ -27,7 +28,16 @@ $(document).ready(function(){
 	$('.add-reply').on('click', function(){
 		var feedbackID = $(this).closest('.feedbacks').data('id');
 		var text = $(this).closest('#comment-form').find('.form-control');
-		var lastElement = 	$(this).closest('.comments').children('.comment').last();
+		
+		var hasLastElement = 	$(this).closest('.comments').children('.comment').length;
+		if(hasLastElement > 0)
+		{
+			var lastElement = 	$(this).closest('.comments').children('.comment').last();
+		}
+		else
+		{
+			var lastElement = 	$(this).closest('.comments');
+		}
 		$.ajax({
 		  method: "POST",
 		  url: "/feedback/addComment",
@@ -41,7 +51,15 @@ $(document).ready(function(){
 		  .done(function( data ) {
 		  	if(commentID === null)
 		  	{
-			  	$(lastElement).after(data);
+			  	if(hasLastElement > 0)
+			  	{
+			  		$(lastElement).append(data);
+			  	}
+			  	else
+			  	{
+			  		$(lastElement).prepend(data);
+			  		$(lastElement).children('p.no-comments').remove();
+			  	}
 		  	}
 		  	else
 		  	{
@@ -64,7 +82,10 @@ $(document).ready(function(){
 
 		  	commentID = null;
 		  	$(text).val('');
-		  	$(form).find('.comment-username').html('');
+		  	if(form !== null)
+		  	{
+			  	$(form).find('.comment-username').html('');
+		  	}
 
 		  });
 
@@ -82,6 +103,15 @@ $(document).ready(function(){
 		})
 		  .done(function( data ) {
 		  	status.html(data);
+		  	feedbackClassSwitcher = $('.feedbacks[data-id='+feedback_id+']');
+		  	if(feedbackClassSwitcher.hasClass('hidden-feedback'))
+		  	{
+		  		feedbackClassSwitcher.removeClass('hidden-feedback');
+		  	}
+		  	else
+		  	{
+		  		feedbackClassSwitcher.addClass('hidden-feedback');
+		  	}
 		  });
 	});
 

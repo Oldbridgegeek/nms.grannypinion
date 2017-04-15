@@ -170,4 +170,17 @@ class User extends Authenticatable {
 	public function polls() {
 		return $this->hasMany(Poll::class,'user_id');
 	}
+
+	public function isAuthor()
+	{
+		if (Auth::check()) {
+			return $this->id == Auth::user()->id;
+		}
+		return false;
+	}
+
+	public function authorizedUser()
+	{
+		return Auth::check();
+	}
 }

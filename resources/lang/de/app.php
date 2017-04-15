@@ -29,5 +29,9 @@ return [
 	'make_public'				=>		'd Make Public',
 	'make_private'				=>		'd Make Private',
 	'no_comments'				=>		'd No comments. Be the first one!',
+	'feedback'					=>		'd Feedback',
+	'anonymous_message'			=>		'd Anonymous Message',
+	'no_feedbacks'				=>		'd No Feedbacks Left',
+	'not_authorized_to_see'		=>		'd Please sign up to see the content'
 
 ];

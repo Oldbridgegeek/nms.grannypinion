@@ -49,6 +49,7 @@ class UsersController extends Controller {
 
 		$user = User::where('id',$user_id)
 				->with(['feedbacks' => function($query){
+					$query->orderBy('created_at','desc');
 					$query->with(['comments' => function($query){
 						$query->where('parent_id',null);
 						$query->with('children');
@@ -56,9 +57,13 @@ class UsersController extends Controller {
 				}])
 				->first();
 
+		if ($user === null) {
+			abort(404);
+		}
+
+
 		return view('user.show', compact(
-			'user',
-			'feedbacks'
+			'user'
 		));
 	}
 

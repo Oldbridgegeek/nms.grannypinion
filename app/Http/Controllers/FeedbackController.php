@@ -17,7 +17,8 @@ class FeedbackController extends Controller {
 	{
 		$this->middleware('interactingWithYourselfNotAllowed',['except'=>[
 			'toggleStatus',
-			'deleteFeedback'
+			'deleteFeedback',
+			'success'
 		]]);
 	}
 	/**
