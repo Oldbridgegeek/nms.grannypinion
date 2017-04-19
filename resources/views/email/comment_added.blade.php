@@ -9,7 +9,7 @@ You have been received a new commentary from <a href="{{route('user.show', ['use
 
 	<a href="{{
 	route('check.comment',[
-		'user'=>$commentSender->id,
+		'user'=>$comment->feedback->user->id,
 		'comment'=>$comment->id
 	])
 }}">(reply)

@@ -69,7 +69,7 @@ class Feedback extends Model {
 	{
 		if ($feedback->user->isEmailConfirmed() && $feedback->user->canReceiveEmails()) {
 			if ($feedback->user->id != Auth::user()->id) {
-				\Mail::to($feedback->user)->send(new CommentAdded($feedback->user, $comment, Auth::user()));	
+				\Mail::to($feedback->user)->send(new CommentAdded($feedback->user, $comment, Auth::user()));
 			}
 			
 		}

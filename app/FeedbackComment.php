@@ -17,7 +17,7 @@ class FeedbackComment extends Model
         'parent_id'
     ];
 
-    public function getFedback()
+    public function feedback()
     {
     	return $this->belongsTo(Feedback::class);
     }
