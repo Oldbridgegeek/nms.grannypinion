@@ -11,7 +11,7 @@ class Reply extends Model
     	'poll_id','text', 'user_id',
     ];
 
-    public function poll() {
-    	return $this->belongsTo(Poll::class);
+    public function survey() {
+    	return $this->belongsTo(Survey::class);
     }
 }

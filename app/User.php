@@ -140,6 +140,13 @@ class User extends Authenticatable {
     	return $this->getFolder() . $this->avatar;
     }
 
+    public function deleteSurvey($id)
+    {
+    	$survey = $this->surveys()->where('id',$id)->first();
+    	
+    	return $survey->delete();
+    }
+
 	/**
 	 * Get the users feedbacks.
 	 *
@@ -167,8 +174,8 @@ class User extends Authenticatable {
 		return $this->hasMany(Conversation::class, 'sender_id');
 	}
 
-	public function polls() {
-		return $this->hasMany(Poll::class,'user_id');
+	public function surveys() {
+		return $this->hasMany(Survey::class,'user_id');
 	}
 
 	public function isAuthor()

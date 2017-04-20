@@ -4,14 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-md-offset-5">
-            <h3>{{$poll->name}}</h3>
+            <h3>{{$survey->name}}</h3>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <h4>
             Share the link with your friends so they can give you their anonymous opinion.
 
             <p>
-                <b style="color:blue;"> grannypinion.de/reply/{{$poll->id}} </b>
+                <b style="color:blue;"> {{env('APP_URL')}}/reply/{{$survey->id}} </b>
             </p>
             </h4>
             <div class="panel panel-default">
@@ -19,12 +19,12 @@
                     My message
                 </div>
                 <div class="panel-body">
-                    {!! $poll->text !!}
+                    {!! $survey->description !!}
                  </div>
             </div>
         </div>
-        @if(!empty( $poll->replies ))
-        @foreach( $poll->replies as $reply)
+        @if(!empty( $survey->replies ))
+        @foreach( $survey->replies as $reply)
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align: center;">Anonymous replies</div>

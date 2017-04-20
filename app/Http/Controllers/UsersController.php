@@ -17,7 +17,7 @@ class UsersController extends Controller {
 		$user = $this->getUser($user_id);
 
 		$feedbacksCount = $user->getFeedbacksCount();
-
+		
 
 		return view('user.show', compact(
 			'user',

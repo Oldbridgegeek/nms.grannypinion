@@ -33,5 +33,9 @@ return [
 	'no_comments'				=>		'No comments. Be the first one!',
 	'no_feedbacks'				=>		'No Feedbacks Left',
 	'not_authorized_to_see'		=>		'Please sign up to see the content',
-	'confirm_email'				=>		'Please confirm your email otherwise you will not get notifications'
+	'confirm_email'				=>		'Please confirm your email otherwise you will not get notifications',
+	'survey_default'		=>		'Select default',
+	'survey_star_rating'	=>		'Star Rating',
+	'survey_text_input'		=>		'Text Input',
+	'survey_textarea'		=>		'Textarea',
 ];

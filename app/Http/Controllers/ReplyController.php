@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reply;
-use App\Poll;
+use App\Survey;
 use Auth;
 use User;
 use Illuminate\Http\Request;
@@ -24,10 +24,10 @@ class ReplyController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create(Poll $poll) {
+	public function create(Survey $survey) {
 		//$link = (string)$link;
-		//$poll = DB::table('polls')->where('link','=',$link)->get();
-		return view('poll.reply',compact('poll'));
+		//$survey = DB::table('polls')->where('link','=',$link)->get();
+		return view('survey.reply',compact('survey'));
 		
 	}
 

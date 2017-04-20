@@ -33,6 +33,10 @@ return [
 	'anonymous_message'			=>		'd Anonymous Message',
 	'no_feedbacks'				=>		'd No Feedbacks Left',
 	'not_authorized_to_see'		=>		'd Please sign up to see the content',
-	'confirm_email'				=>		'd Please confirm your email'
+	'confirm_email'				=>		'd Please confirm your email',
+	'survey_default'			=>		'd Select default',
+	'survey_star_rating'		=>		'd Star Rating',
+	'survey_text_input'			=>		'd Text Input',
+	'survey_textarea'			=>		'd Textarea',
 
 ];

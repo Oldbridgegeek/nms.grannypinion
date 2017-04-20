@@ -45,3 +45,36 @@ p.no-comments
   font-size: 16px;
   font-style: italic;
 }
+ul.survey-actions{
+
+}
+
+ul.survey-actions li
+{
+    list-style: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+ul.survey-actions li a
+{
+    color: #303F9F;
+}
+
+ul.survey-actions button.empty-button
+{
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #303F9F;
+}
+
+ul.survey-actions button.empty-button:active,ul.survey-actions button.empty-button:focus
+{
+    outline: none;
+}
+
+div.survey-question-selector
+{
+  margin-bottom: 20px;
+}

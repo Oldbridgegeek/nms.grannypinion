@@ -8,7 +8,7 @@
                     A friend wants to know your anonymous opinion.
                 </div>
                 <div class="panel-body">
-                    {!! $poll->text !!}
+                    {!! $survey->description !!}
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 @else
                 <input type="hidden" name="user_id" id="user_id" value="0">
                 @endif
-                <input type="hidden" name="poll_id" id="poll_id" value="{{$poll->id}}">
+                <input type="hidden" name="poll_id" id="poll_id" value="{{$survey->id}}">
                 <div class="form-group">
                     <textarea class="form-control" rows="10" name="text" id="text" placeholder="Be honest. You'll stay anonymous"></textarea>
                 </div>

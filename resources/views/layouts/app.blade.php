@@ -29,8 +29,11 @@ use Carbon\Carbon;
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="js/custom.js"></script>
- 
+        <script src="/js/custom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="/js/survey-app.js"></script>
         <!-- Scripts -->
         <script>
         window.Laravel = {!! json_encode([
@@ -161,7 +164,7 @@ use Carbon\Carbon;
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}">{{ trans('app.my_surveys') }}</a>
+                                        <a href="{{ route('survey.index') }}">{{ trans('app.my_surveys') }}</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"

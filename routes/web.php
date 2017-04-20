@@ -15,7 +15,6 @@ use App\Feedback;
 
 Auth::routes();
 Route::get('test', function(){
-	dd(route('user.show',['user'=>3]) . '/#' . 'comment108');
 	// factory(App\FeedbackComment::class, 2)->create();
 });
 Route::get('/email/confirmation/{token}', 
@@ -29,6 +28,25 @@ Route::post('/feedback/delete', "FeedbackController@deleteFeedback");
 Route::get('{user}/#comment{comment_id}', 'UsersController@show')->name('check.comment');
 
 Route::get('/profile/{id}', "ProfileViewerController@profile");
+
+//surveys
+Route::get('/surveys', "SurveysController@index")->name('survey.index');
+Route::get('/survey/create', "SurveysController@create")->name('survey.create') ;
+Route::post('/survey/store', 'SurveysController@store')->name('survey.store');
+Route::delete('/survey/delete/{survey}', 'SurveysController@destroy')->name('survey.delete');
+Route::get('/surveys/{survey}','SurveysController@show')->name('survey.show');
+Route::get('/surveys/questions/list', function(){
+	$data = [
+		['type'=>0,'title'=>trans('app.survey_default')],
+		['type'=>1,'title'=>trans('app.survey_star_rating')],
+		['type'=>2,'title'=>trans('app.survey_text_input')],
+		['type'=>3,'title'=>trans('app.survey_textarea')],
+	];
+
+	return $data;
+});
+// Route::get('/reply/{survey}', 'ReplyController@create');
+// Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
 
 Route::name('welcome')->get('/', function () {
@@ -71,13 +89,6 @@ Route::post('/feedback', 'ReviewsController@store');
 // });
 
 
-//Polls
-Route::get('/{user}/polls', 'PollController@index')->name('poll.index');
-Route::get('/poll/create', function() { return view('poll.create') ;} )->name('poll.create') ;
-Route::post('/poll/store', 'PollController@store')->name('poll.store');
-Route::get('/polls/{poll}','PollController@show')->name('poll.show');
-Route::get('/reply/{poll}', 'ReplyController@create');
-Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
 //Subscriber
 Route::post('/subscribe', 'SubcribersController@store')->name('subscribe');
