@@ -33,4 +33,9 @@ class Survey extends Model
     {
       return $this->belongsTo(User::class);
     }
+
+    public function replies()
+    {
+      return $this->hasMany(SurveyQuestionValue::class,'survey_id','id');
+    }
 }

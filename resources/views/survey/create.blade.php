@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('custom-js')
+<script src="/js/survey-app.js"></script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

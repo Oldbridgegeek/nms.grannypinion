@@ -1,4 +1,10 @@
 @extends('layouts.app')
+
+@section('custom-js')
+<script src="/js/rating-app.js"></script>
+@endsection
+
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -12,19 +18,40 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2" style="margin-bottom:2em;">
-            <form class="form-horizontal" role="form" method="POST" action="{{route('reply.store')}}" style="margin-top:2em;">
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form-horizontal" role="form" method="POST" action="{{route('reply.store')}}">
                 {{ csrf_field() }}
-                @if(Auth::check())
-                <input type="hidden" name="user_id" id="user_id" value="{{Auth::user()->id}}">
-                @else
-                <input type="hidden" name="user_id" id="user_id" value="0">
-                @endif
-                <input type="hidden" name="poll_id" id="poll_id" value="{{$survey->id}}">
-                <div class="form-group">
-                    <textarea class="form-control" rows="10" name="text" id="text" placeholder="Be honest. You'll stay anonymous"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success btn-md" style="display: block; width: 100%;"> Reply anonymously </button>
+
+                @forelse($survey->questions as $question)
+                    @if($question->isStarRating())
+                        <div class="form-group">
+                            <label>Rate me:</label>
+                            <div id="rateYo"></div>
+                            <input type="hidden" name="{{$question->id}}">
+                            <input type="hidden" id="rating" value="0" name="{{$question->id}}">
+                        </div>
+                    @elseif($question->isTextInput())
+                        <div class="form-group">
+                            <label>Say something1:</label>
+                            <input type="hidden" name="{{$question->id}}">
+                            <input name="{{$question->id}}" type="text" class="form-control">
+                        </div>   
+                    @elseif($question->isTextArea())
+                        <div class="form-group">
+                            <label>Say something:</label>
+                            <input type="hidden" name="{{$question->id}}">
+                            <textarea class="form-control" name="{{$question->id}}"></textarea>
+                        </div>   
+                    @endif
+                     
+                @empty
+
+                @endforelse
+                
+
+                <button type="submit" class="btn btn-success btn-md"> Reply anonymously </button>
             </form>
         </div>
         

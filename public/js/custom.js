@@ -127,4 +127,18 @@ $(document).ready(function(){
 	  		$('.feedbacks[data-id='+feedback_id+']').fadeOut();
 		  });
 	});
+
+
+
+  $("#rateYo").rateYo({
+  	precision: 1,
+  	starWidth: "25px",
+  	spacing: "3px",
+  })
+  .on("rateyo.set", function (e, data) {
+  	$('#rating').val(data.rating);
+  });
+
+  
+ 
 });

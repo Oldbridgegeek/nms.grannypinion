@@ -16,29 +16,40 @@
             </h4>
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align:center;"> 
-                    My message
+                    {{$survey->title}}
                 </div>
                 <div class="panel-body">
-                    {!! $survey->description !!}
+                    {{ $survey->description }}
                  </div>
             </div>
         </div>
-        @if(!empty( $survey->replies ))
-        @foreach( $survey->replies as $reply)
+        @forelse($answers as $replies)
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">Anonymous replies</div>
+                <div class="panel-heading" style="text-align: center;">Anonymous replies ({{$replies[0]->created_at->diffForHumans()}})</div>
                 <div class="panel-body">
-                    <div class="col-md-10">
-                        {!!$reply->text!!}
-                    </div>
+                    @forelse($replies as $reply)
+                        <div class="col-md-10">
 
+                            @if($reply->question->isStarRating())
+                                @include('survey.replies.star')
+                            @elseif($reply->question->isTextInput())
+                                @include('survey.replies.textinput')
+                            @elseif($reply->question->isTextArea())
+                                @include('survey.replies.textarea')
+                            @endif
+                            
+                        </div>
+                    @empty
+
+                    @endforelse
+                    
                 </div>
-             
             </div>
-        </div>
-           @endforeach
-                @endif
+        </div> 
+        @empty
+
+        @endforelse
     </div>
 </div>
 @endif

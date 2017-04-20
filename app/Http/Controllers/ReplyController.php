@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Reply;
+use App\SurveyQuestionValue;
 use App\Survey;
 use Auth;
 use User;
@@ -25,7 +25,7 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create($survey_id) {
-		$survey = Survey::find($survey_id);
+		$survey = Survey::find($survey_id)->with('questions')->first();
 		return view('survey.reply',compact('survey'));
 		
 	}
@@ -37,30 +37,31 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-	 	$poll = Poll::find($request->poll_id);
-	 	$user = $poll->user;
-
-		$reply = new Reply([
-			'user_id' => $request->user_id,
-			'poll_id' => $request->poll_id,
-			'text' => $request->text,
+		$data = $request->except(['_token']);
+		
+		$this->populateQuestionValues($data);
+		
 	
-		]);
-		Mail::send('email.reply', ['poll' => $poll ,'user' =>  $user], function ($message) use ($user) {
-			$message->from('postmaster@grannypinion.de', 'Neue Antwort');
-			$message->to( $user->email );
-		});
+		return view('guest.thankyou');
 
+	}
 
-		$reply->save();
-
-		if(Auth::check()){
-			return redirect('/'+Auth::user()->id);
+	private function populateQuestionValues($data)
+	{
+		if(is_array($data) && !empty($data))
+		{
+			foreach($data as $key => $value)
+			{
+				// $model = new SurveyQuestionValue;
+				// $model->survey_question_id = $key;
+				// $model->title = $value;
+				// $model->save();
+				// SurveyQuestionValue::create([
+				// 	'survey_question_id' => $key,
+				// 	'title'	=> $value
+				// ]);
+			}
 		}
-		else {
-			return view('guest.thankyou');
-		}
-
 	}
 
 	/**

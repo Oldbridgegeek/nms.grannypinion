@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Survey;
 // use App\Reply;
+use DB;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -11,6 +12,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 class SurveysController extends Controller {
 	use ValidatesRequests;
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -45,6 +50,7 @@ class SurveysController extends Controller {
 			'title'=>'required',
 			'description'=>'required'
 		]);
+		dd($request->all());
 		$survey = $this->createSurvey($request);
 
 		$this->createSpecificQuestions($request, $survey);
@@ -77,8 +83,11 @@ class SurveysController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show(Survey $survey) {
-		return view('survey.details',compact('survey'));
+	public function show($id) {
+		$survey = $this->getUserSurvey($id);
+		$answers = $survey->replies()->get()->groupBy('link');
+
+		return view('survey.details',compact('survey','answers'));
 	}
 
 	/**
