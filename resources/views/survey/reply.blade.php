@@ -8,7 +8,7 @@
                     A friend wants to know your anonymous opinion.
                 </div>
                 <div class="panel-body">
-                    {!! $survey->description !!}
+                    {{$survey->description}}
                 </div>
             </div>
         </div>

@@ -126,4 +126,16 @@ class SurveysController extends Controller {
 		}
 		return $survey;
 	}
+
+	public function list()
+	{
+		$data = [
+			['type'=>0,'title'=>trans('app.survey_default')],
+			['type'=>1,'title'=>trans('app.survey_star_rating')],
+			['type'=>2,'title'=>trans('app.survey_text_input')],
+			['type'=>3,'title'=>trans('app.survey_textarea')],
+		];
+
+		return $data;
+	}
 }

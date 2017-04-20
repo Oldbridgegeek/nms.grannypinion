@@ -35,18 +35,9 @@ Route::get('/survey/create', "SurveysController@create")->name('survey.create') 
 Route::post('/survey/store', 'SurveysController@store')->name('survey.store');
 Route::delete('/survey/delete/{survey}', 'SurveysController@destroy')->name('survey.delete');
 Route::get('/surveys/{survey}','SurveysController@show')->name('survey.show');
-Route::get('/surveys/questions/list', function(){
-	$data = [
-		['type'=>0,'title'=>trans('app.survey_default')],
-		['type'=>1,'title'=>trans('app.survey_star_rating')],
-		['type'=>2,'title'=>trans('app.survey_text_input')],
-		['type'=>3,'title'=>trans('app.survey_textarea')],
-	];
-
-	return $data;
-});
-// Route::get('/reply/{survey}', 'ReplyController@create');
-// Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
+Route::get('/surveys/questions/list', "SurveysController@list");
+Route::get('/reply/{survey}', 'ReplyController@create');
+Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
 
 Route::name('welcome')->get('/', function () {

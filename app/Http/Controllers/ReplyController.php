@@ -24,9 +24,8 @@ class ReplyController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create(Survey $survey) {
-		//$link = (string)$link;
-		//$survey = DB::table('polls')->where('link','=',$link)->get();
+	public function create($survey_id) {
+		$survey = Survey::find($survey_id);
 		return view('survey.reply',compact('survey'));
 		
 	}
