@@ -8,8 +8,15 @@ use Auth;
 use User;
 use Illuminate\Http\Request;
 use Mail;
+use App\Mail\ReplyAdded;
+
 
 class ReplyController extends Controller {
+
+	public function __construct()
+	{
+		// $this->middleware('interactingWithYourselfNotAllowed');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -25,9 +32,19 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create($survey_id) {
-		$survey = Survey::find($survey_id)->with('questions')->first();
+		$survey = $this->getSurvey($survey_id);
+
+		if ($survey === null) {
+			abort(404);
+		}
+
 		return view('survey.reply',compact('survey'));
 		
+	}
+
+	private function getSurvey($survey_id)
+	{
+		return Survey::where('id',$survey_id)->with('questions')->first();
 	}
 
 	/**
@@ -38,28 +55,33 @@ class ReplyController extends Controller {
 	 */
 	public function store(Request $request) {
 		$data = $request->except(['_token']);
-		
-		$this->populateQuestionValues($data);
-		
+		$survey = $this->getSurvey($data['survey_id']);
+
+		$this->persistQuestionValues($data);
+
+		if ($survey->user->canReceiveEmails()) {
+			\Mail::to($survey->user)->send(new ReplyAdded($survey));
+		}
 	
 		return view('guest.thankyou');
-
 	}
 
-	private function populateQuestionValues($data)
+	private function persistQuestionValues($data)
 	{
 		if(is_array($data) && !empty($data))
 		{
+			$survey_id = array_get($data, 'survey_id');
+
+			array_forget($data,'survey_id');
+			$reply_identifier = str_random(10);
 			foreach($data as $key => $value)
 			{
-				// $model = new SurveyQuestionValue;
-				// $model->survey_question_id = $key;
-				// $model->title = $value;
-				// $model->save();
-				// SurveyQuestionValue::create([
-				// 	'survey_question_id' => $key,
-				// 	'title'	=> $value
-				// ]);
+				SurveyQuestionValue::create([
+					'survey_question_id' => $key,
+					'title'	=> $value,
+					'survey_id'=> $survey_id,
+					'reply_identifier' => $reply_identifier
+				]);
 			}
 		}
 	}

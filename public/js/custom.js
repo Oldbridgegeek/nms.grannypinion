@@ -6,6 +6,7 @@ $(document).ready(function(){
 	var form = null;
 	$('a.reply').on('click', function(){
 		commentID = $(this).closest('.comment').data('comment-id');
+		// console.log(commentID);return;
 		commentNode = $(this).closest('.comment');
 		hasCommentsDiv = $(commentNode).children('.comments').length;
 
@@ -134,6 +135,7 @@ $(document).ready(function(){
   	precision: 1,
   	starWidth: "25px",
   	spacing: "3px",
+  	halfStar: true
   })
   .on("rateyo.set", function (e, data) {
   	$('#rating').val(data.rating);

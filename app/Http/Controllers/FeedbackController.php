@@ -49,7 +49,9 @@ class FeedbackController extends Controller {
 
 		$feedback = new Feedback();
 		$feedback->assignToUser($request->get('text'), $user->id);
-		\Mail::to($user)->send(new FeedbackAdded($user));
+		if ($user->canReceiveEmails()) {
+			\Mail::to($user)->send(new FeedbackAdded($user));
+		}
 
 		return redirect('/feedback/success');
 

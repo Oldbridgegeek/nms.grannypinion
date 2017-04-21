@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading" style="text-align: center;">My surveys</div>
+                <div class="panel-heading" style="text-align: center;">{{ trans('app.my_surveys') }}</div>
                 @forelse($surveys as $survey)
                     <div class="panel-body">
                         <div class="col-md-5">
@@ -30,11 +30,11 @@
                     </div>
                     @empty
                     <br>
-                    <p class="alert alert-info">No surveys created</p>
+                    <p class="alert alert-info">{{ trans('app.no_surveys') }}</p>
                 @endforelse
             </div>
 
-            <a href="{{route('survey.create')}}" class="btn btn-success btn-md" style="display: block; width: 100%;"> Create survey </a>
+            <a href="{{route('survey.create')}}" class="btn btn-success btn-md" style="display: block; width: 100%;"> {{ trans('app.survey_create') }} </a>
         </div>
     </div>
 </div>

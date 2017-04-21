@@ -65,9 +65,10 @@ class Feedback extends Model {
 		return $data;
 	}
 
+	//regular comment notification
 	public static function sendCommentAddedMail($feedback, $comment)
 	{
-		if ($feedback->user->isEmailConfirmed() && $feedback->user->canReceiveEmails()) {
+		if ($feedback->user->canReceiveEmails()) {
 			if ($feedback->user->id != Auth::user()->id) {
 				\Mail::to($feedback->user)->send(new CommentAdded($feedback->user, $comment, Auth::user()));
 			}

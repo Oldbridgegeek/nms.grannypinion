@@ -2,6 +2,9 @@
 	<label>{{$reply->question->title}}</label>
 	<div id="rate{{$reply->id}}"></div>
 	<input type="hidden" data-value="{{$reply->title}}">
+	@if($reply->title == 0)
+	<i>(not specified)</i>
+	@endif
 </div>
 
 <script>

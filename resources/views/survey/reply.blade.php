@@ -21,38 +21,48 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <form class="form-horizontal" role="form" method="POST" action="{{route('reply.store')}}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Be honest, you'll stay anonymous.
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{route('reply.store')}}">
                 {{ csrf_field() }}
+                        <input type="hidden" value="{{$survey->id}}" name="survey_id">
+                        <div class="alert alert-info">You are free to leave any of the questions blank, so you answer will be - <i>not specified</i></div>
+                        <div class="alert">
+                        @forelse($survey->questions as $question)
+                            @if($question->isStarRating())
+                                <div class="form-group">
+                                    <label>{{$question->title}}</label>
+                                    <div id="rateYo"></div>
+                                    <input type="hidden" name="{{$question->id}}">
+                                    <input type="hidden" id="rating" value="0" name="{{$question->id}}">
+                                </div>
+                            @elseif($question->isTextInput())
+                                <div class="form-group">
+                                    <label>{{$question->title}}</label>
+                                    <input type="hidden" name="{{$question->id}}">
+                                    <input name="{{$question->id}}" type="text" class="form-control">
+                                </div>   
+                            @elseif($question->isTextArea())
+                                <div class="form-group">
+                                    <label>{{$question->title}}</label>
+                                    <input type="hidden" name="{{$question->id}}">
+                                    <textarea class="form-control" name="{{$question->id}}"></textarea>
+                                </div>   
+                            @endif
+                             
+                        @empty
 
-                @forelse($survey->questions as $question)
-                    @if($question->isStarRating())
-                        <div class="form-group">
-                            <label>Rate me:</label>
-                            <div id="rateYo"></div>
-                            <input type="hidden" name="{{$question->id}}">
-                            <input type="hidden" id="rating" value="0" name="{{$question->id}}">
+                        @endforelse
                         </div>
-                    @elseif($question->isTextInput())
-                        <div class="form-group">
-                            <label>Say something1:</label>
-                            <input type="hidden" name="{{$question->id}}">
-                            <input name="{{$question->id}}" type="text" class="form-control">
-                        </div>   
-                    @elseif($question->isTextArea())
-                        <div class="form-group">
-                            <label>Say something:</label>
-                            <input type="hidden" name="{{$question->id}}">
-                            <textarea class="form-control" name="{{$question->id}}"></textarea>
-                        </div>   
-                    @endif
-                     
-                @empty
 
-                @endforelse
-                
-
-                <button type="submit" class="btn btn-success btn-md"> Reply anonymously </button>
-            </form>
+                        <button type="submit" class="btn btn-success btn-md"> Reply anonymously </button>
+                    </form>
+                </div>
+            </div>
+            
         </div>
         
     </div>

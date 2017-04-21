@@ -210,6 +210,11 @@ class User extends Authenticatable {
 
 	public function canReceiveEmails()
 	{
-		return $this->email_notifications === 0 ? false : true;
+		if($this->isEmailConfirmed() && $this->email_notifications == 1)
+		{
+			return true;
+		}
+		
+		return false;
 	}
 }

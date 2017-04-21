@@ -35,7 +35,9 @@ class CreateSurveysTable extends Migration
         Schema::create('surveys_questions_values', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('survey_question_id')->unsigned();
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->string('reply_identifier');
+            $table->integer('survey_id');
             $table->foreign('survey_question_id')->references('id')->on('surveys_questions')->onDelete('cascade');
             $table->timestamps();
         });

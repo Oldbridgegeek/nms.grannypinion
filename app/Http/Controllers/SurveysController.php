@@ -28,7 +28,7 @@ class SurveysController extends Controller {
 
 	private function getUserSurveys()
 	{
-		return Auth::user()->surveys;
+		return Auth::user()->surveys()->latest()->get();
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -50,7 +50,6 @@ class SurveysController extends Controller {
 			'title'=>'required',
 			'description'=>'required'
 		]);
-		dd($request->all());
 		$survey = $this->createSurvey($request);
 
 		$this->createSpecificQuestions($request, $survey);
@@ -85,7 +84,7 @@ class SurveysController extends Controller {
 	 */
 	public function show($id) {
 		$survey = $this->getUserSurvey($id);
-		$answers = $survey->replies()->get()->groupBy('link');
+		$answers = $survey->replies()->latest()->get()->groupBy('reply_identifier');
 
 		return view('survey.details',compact('survey','answers'));
 	}
