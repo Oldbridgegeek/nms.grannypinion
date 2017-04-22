@@ -78,3 +78,35 @@ div.survey-question-selector
 {
   margin-bottom: 20px;
 }
+div.user-image img{
+  width: 100%;
+}
+body
+{
+  background: #e9ebee;
+}
+
+div.user-profile{
+  background: #fff;
+  padding: 25px 0;
+  overflow: hidden;
+}
+.navbar
+{
+  margin-bottom: 10px;
+}
+div.user-profile h2{
+  margin-top: 0px;
+}
+.user-stats li
+{
+  list-style-type: none;
+}
+.hidden-feedback
+{
+  background: #f3f3f3;
+}
+.feedbacks 
+{
+  overflow: hidden;
+}

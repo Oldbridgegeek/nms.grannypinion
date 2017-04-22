@@ -1,38 +1,8 @@
 @extends('layouts.app')
+@section('custom-js')
+<script src="/js/comment-app.js"></script>
+@endsection
 @section('content')
-@if(true)
-<style>
-  div.user-image img{
-    width: 100%;
-  }
-  body
-  {
-    background: #e9ebee;
-  }
-
-  div.user-profile{
-    background: #fff;
-    padding: 25px 0;
-    overflow: hidden;
-  }
-  .navbar
-  {
-    margin-bottom: 10px;
-  }
-  div.user-profile h2{
-    margin-top: 0px;
-  }
-  .user-stats li
-  {
-    list-style-type: none;
-  }
-  .hidden-feedback
-  {
-    background: #f3f3f3;
-  }
-  
-  
-</style>
 <div class="container">
   <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -62,43 +32,40 @@
 </div>
 
 @if(Auth::check())
-  <div class="container">
+  <div class="container" id="commentaries-app">
+  <feedback>  </feedback>
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
-          @forelse($user->feedbacks as $feedback)
 
-              @if($user->isAuthor())
                 {{-- FEEDBACK START --}}
-                <div data-id="{{$feedback->id}}" class="panel panel-default feedbacks <?= (!$feedback->isPublic()) ? "hidden-feedback" : "public-feedback";?>" style="overflow:hidden;">
-                  <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})
+                <div class="panel panel-default feedbacks" v-for="feedback in feedbacks">
+                  <div class="panel-heading">@{{feedback.title}} (@{{feedback.date}})
 
-                  @if(Auth::user()->id == $feedback->user->id)
                     <ul class="feedback-settings">
-                      <li class="toggle-status" data-feedback-id="{{$feedback->id}}">
-                        @if($feedback->isPublic())
-                            <i class="glyphicon glyphicon-eye-close"></i>
-                            {{ trans('app.make_private') }}
-                        @else
-                            <i class="glyphicon glyphicon-eye-open"></i>
-                            {{ trans('app.make_public') }}
-                        @endif
-                        
+                      <li class="toggle-status" v-if="feedback.isAuthor">
+                            <span v-if="feedback.isStatusPublic">
+                              <i class="glyphicon glyphicon-eye-close"></i>
+                              Make private
+                            </span>
+                            <span v-else>
+                              <i class="glyphicon glyphicon-eye-open"></i>
+                              Make public
+                            </span>
                       </li>
                       <li class="delete-feedback">
                         <i class="glyphicon glyphicon-remove"></i>
                       </li>
                     </ul>                
-                  @endif
 
                     {{-- <div class="clearfix"></div> --}}
                   </div>
                   <div class="panel-body">
                     <div class="feedback-content">
-                        {{$feedback->text}}
+                        @{{feedback.content}}
                     </div>
                     <hr>
                     <div class="ui comments">
-                      @each('user._comment', $feedback->comments, 'comment','user._no_comments')
+                      {{-- @each('user._comment', $feedback->comments, 'comment','user._no_comments') --}}
                       <br> 
                       <form class="ui reply form " id="comment-form">
                         <div class="field">
@@ -115,69 +82,17 @@
                     </div>
                   </div>
                 </div>
-                {{-- FEEDBACK END --}}
-              @elseif($user->authorizedUser())
-                @if($feedback->isPublic())
-                  {{-- FEEDBACK START --}}
-                  <div data-id="{{$feedback->id}}" class="panel panel-default feedbacks" style="overflow:hidden;">
-                  <div class="panel-heading">{{ trans('app.feedback_title') }} ({{$feedback->created_at->diffForHumans()}})
 
-                  @if(Auth::user()->id == $feedback->user->id)
-                    <ul class="feedback-settings">
-                      <li class="toggle-status" data-feedback-id="{{$feedback->id}}">
-                        @if($feedback->isPublic())
-                            <i class="glyphicon glyphicon-eye-close"></i>
-                            {{ trans('app.make_private') }}
-                        @else
-                            <i class="glyphicon glyphicon-eye-open"></i>
-                            {{ trans('app.make_public') }}
-                        @endif
-                        
-                      </li>
-                      <li class="delete-feedback">
-                        <i class="glyphicon glyphicon-remove"></i>
-                      </li>
-                    </ul>                
-                  @endif
 
-                    {{-- <div class="clearfix"></div> --}}
-                  </div>
-                  <div class="panel-body">
-                    <div class="feedback-content">
-                        {{$feedback->text}}
+              
+                <br><br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="alert alert-info">
+                      {{ trans('app.no_feedbacks') }}
                     </div>
-                    <hr>
-                    <div class="ui comments">
-                      @each('user._comment', $feedback->comments, 'comment','user._no_comments')
-                      <br> 
-                      <form class="ui reply form " id="comment-form">
-                        <div class="field">
-                          <textarea class="form-control"></textarea>
-                        </div>
-                        <br>
-                        <div class="btn btn-success add-reply">
-                          <i class="glyphicon glyphicon-comment"></i> Add Reply
-                        </div>
-                        <div class="btn cancel-reply">
-                          <a href="#"><span class="comment-username"></span> </a>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  </div>
-                  {{-- FEEDBACK END --}}
-                @endif
-              @endif
-          @empty
-          <br><br>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="alert alert-info">
-                    {{ trans('app.no_feedbacks') }}
                   </div>
                 </div>
-              </div>
-          @endforelse
               
           </div>
       </div>
@@ -194,8 +109,5 @@
     </div>
   </div>
 @endif
-
-@endif
-
 
 @endsection
