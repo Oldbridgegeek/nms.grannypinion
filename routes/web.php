@@ -21,9 +21,11 @@ Route::get('/email/confirmation/{token}',
 	'Auth\EmailConfirmationController@confirm')
 		->name('email.confirmation');
 
-Route::post('/feedback/addComment', "FeedbackCommentsController@add");
-Route::post('/feedback/switch', "FeedbackController@toggleStatus");
-Route::post('/feedback/delete', "FeedbackController@deleteFeedback");
+Route::post('/feedback/addComment', "FeedbackCommentsController@store");
+Route::post('/feedback/addReply', "FeedbackCommentsController@addReply");
+Route::post('/feedback/switch', "FeedbackAPIController@toggleStatus");
+Route::post('/feedback/delete', "FeedbackAPIController@deleteFeedback");
+Route::get('/feedback/getFeedbacks', 'FeedbackAPIController@getFeedbacks');
 
 Route::get('{user}/#comment{comment_id}', 'UsersController@show')->name('check.comment');
 

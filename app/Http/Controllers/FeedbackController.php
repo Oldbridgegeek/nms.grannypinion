@@ -18,7 +18,8 @@ class FeedbackController extends Controller {
 		$this->middleware('interactingWithYourselfNotAllowed',['except'=>[
 			'toggleStatus',
 			'deleteFeedback',
-			'success'
+			'success',
+			// 'getFeedbacks'
 		]]);
 	}
 	/**
@@ -62,26 +63,7 @@ class FeedbackController extends Controller {
 		return view('user.feedback.thanks');
 	}
 
-	public function toggleStatus(Request $request)
-	{
-		$feedback_id = $request->get('feedback_id');
+	
 
-		$feedback = Feedback::find($feedback_id);
-		if ($feedback->user_id != Auth::user()->id) {
-			return [false];
-		}
-		$feedback->toggleStatus();
-		return view('user.feedback.status',compact('feedback'));
-	}
-
-	public function deleteFeedback(Request $request)
-	{
-		$feedback_id = $request->get('feedback_id');
-
-		$feedback = Feedback::find($feedback_id);
-		if ($feedback->user_id != Auth::user()->id) {
-			return [false];
-		}
-		return ['status'=>$feedback->delete()];
-	}
+	
 }

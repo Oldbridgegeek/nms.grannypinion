@@ -104,7 +104,7 @@ div.user-profile h2{
 }
 .hidden-feedback
 {
-  background: #f3f3f3;
+  background: #f3f3f3 !important;
 }
 .feedbacks 
 {
