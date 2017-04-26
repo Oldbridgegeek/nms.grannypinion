@@ -29,4 +29,9 @@ class FeedbackComment extends Model
     {
     	return $this->hasMany(FeedbackComment::class, 'parent_id');
     }
+
+    // public function getCreatedAtAttribute($time)
+    // {
+    //     return Carbon::parse($time)->diffForHumans();
+    // }
 }

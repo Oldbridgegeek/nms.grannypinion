@@ -42,6 +42,7 @@ Vue.component('comment', {
 	`,
 
 	methods: {
+		
 
 		replyComment: function(comment)
 		{
@@ -56,8 +57,6 @@ Vue.component('comment', {
 			  .done(function( data ) {
 			  	// console.log(data);
 			  });
-
-			
 		},
 		addComment: function(feedback)
 		{
@@ -81,11 +80,20 @@ Vue.component('comment', {
 	},
 	
 });
+
+
+
 new Vue({
 	el: '#commentaries-app',
-	data: {
-		
-	},	
+	store,
+	// components: {
+	// 	comment
+	// },
+	methods:
+	{
+	},
+	mounted: function () {
+	    this.$store.dispatch('FETCH_DATA')
+	}
 });
-
 }

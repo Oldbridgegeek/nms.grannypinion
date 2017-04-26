@@ -1,4 +1,5 @@
 // window.onload = function () {
+	
 	let newComment = {
 		text: '',
 		isAnonymous: false
@@ -10,17 +11,29 @@
 				currentUser: '',
 				messages: [],
 				feedbacks: [],
-				comment: newComment,
+				comment: '',
 				replyTo: ''
 
 			}
 		},
-		created: function()
+		computed: function()
 		{
-			this.fetchData();
+			this.$store.dispatch('FETCH_DATA').then(function(data){
+				console.log(data);
+			});
+				// console.log(this.$store.state.currentUser);
+
+
+			// console.log(this.currentUser);
+			// this.fetchData();
+		},
+		mounted: function()
+		{
 		},
 		methods: 
 		{
+
+			
 			getUserId: function()
 			{
 				let first = $(location).attr('pathname');
@@ -105,7 +118,7 @@
 				  method: "POST",
 				  url: "/feedback/addComment",
 				  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-				  data: { feedback_id: feedback.id, comment: vm.comment.text} //then need to ANONYMOUS
+				  data: { feedback_id: feedback.id, comment: feedback.newComment} //then need to ANONYMOUS
 				})
 				  .done(function( data ) {
 				  	vm.add(feedback);
@@ -117,7 +130,7 @@
 				feedback.comments.push(
 				  	{
 				  		id: this.currentUser.id,
-				  		text: this.comment.text,
+				  		text: feedback.newComment,
 				  		action: this.messages.reply,
 				  		date: this.messages.justNow,
 				  		user: 
@@ -129,16 +142,8 @@
 				  		children: []
 				  	}
 			  	);
-			  	this.comment.text = '';
+			  	feedback.newComment = '';
 			},
-
-		    
-
-
-
-
-
-
 		},
 		template: `
 		<div>
@@ -182,7 +187,7 @@
 	          <br> 
 	          <form class="ui reply form " id="comment-form">
 	            <div class="field">
-	              <textarea class="form-control" v-model="comment.text"></textarea>
+	              <textarea class="form-control" v-model="feedback.newComment"></textarea>
 	            </div>
 	            <br>
 	            <div class="btn btn-success add-reply" @click="addComment(feedback)">

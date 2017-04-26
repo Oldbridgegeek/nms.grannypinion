@@ -110,3 +110,65 @@ div.user-profile h2{
 {
   overflow: hidden;
 }
+/**#####**/
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fbfbfb;
+    border: 0px solid #000;
+}
+body {
+    color: #292929;
+    font-family: "Roboto",serif;
+    background-color:white;
+    height:100%;
+}
+button {
+    box-shadow: 0.5px 0.5px grey;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fbfbfb !important;
+    background-color: #303F9F !important;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #fbfbfb;
+    
+}
+.btn-primary{
+    background-color: #3F51B5;
+    color: #fbfbfb;
+}
+
+.btn-primary:hover{
+    background-color: #0000cc;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #fbfbfb !important;
+    background-color: #303F9F !important;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #303F9F;
+}/*
+.glyphicon {
+    font-size: 22px;
+    color: #ff0000;
+}*/
+.form-horizontal .profile-inputs label
+{
+    text-align: left !important;
+    padding-left: 30px !important;
+}
+div.check-email
+{
+    background: #ec971f;
+    color: #fff;
+    padding:5px;
+    text-align: center;
+}

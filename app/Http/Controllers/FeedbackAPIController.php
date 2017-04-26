@@ -13,11 +13,14 @@ class FeedbackAPIController extends Controller
 	{
 		$user_id = $request->get('user_id');
 
-		$user = User::where('id',$user_id)->with(['feedbacks' => function($q){
-			$q->latest();
-			$q->with('comments.children');
-		}])->first();
-		dd($user);
+		$user = User::find($user_id);
+		$feedbacks = $user->feedbacks()
+						->latest()
+						->with(['comments' => function($q){
+							$q->where('parent_id',NULL);
+						}])
+						->get();
+
 		return response()->json([
 			'confirmationQuestion'	=>	trans('app.you_sure?'),
 			'messages'			=>	[
@@ -25,14 +28,15 @@ class FeedbackAPIController extends Controller
 				'makePrivate'			=>	trans('app.make_private'),
 				'addReply'				=>	trans('app.add_reply'),
 				'justNow'				=>  trans('app.just_now'),
-				'reply'					=> trans('app.reply')
+				'reply'					=> 	trans('app.reply'),
+				
 			],
 			'currentUser'	=>	[
 				'id'	=>	Auth::user()->id,
 				'fullName'	=>	Auth::user()->getFullName(),
 				'image'		=>	Auth::user()->getImage()
 			],
-			'feedbacks'	=>	$this->buildFeedbacks($user->feedbacks)
+			'feedbacks'	=>	$this->buildFeedbacks($feedbacks)
 		]);
 	}
 
@@ -48,7 +52,9 @@ class FeedbackAPIController extends Controller
 				'date'		=>	$feedback->created_at->diffForHumans(),
 				'isAuthor'	=>	Auth::user()->id == $feedback->user_id,
 				'isStatusPublic'	=>	$feedback->status == 1 ? true : false,
-				'comments'	=> $this->buildComments($feedback->comments)
+				'comments'	=> $this->buildComments($feedback->comments),
+				'newComment'=>	'',
+				'replyTo'	=>	''
 			];
 		}
 		return $data;
@@ -100,6 +106,5 @@ class FeedbackAPIController extends Controller
 		}
 		return ['status'=>$feedback->delete()];
 	}
-
 
 }

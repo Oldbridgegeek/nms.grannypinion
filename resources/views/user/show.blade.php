@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('custom-js')
+<script src="/js/store.js"></script>
 <script src="/js/feedbacks-app.js"></script>
 <script src="/js/comment-app.js"></script>
 @endsection
@@ -33,7 +34,7 @@
 </div>
 
 @if(Auth::check())
-  <div class="container" id="commentaries-app">
+  <div class="container" id="feedbacks-app">
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
 

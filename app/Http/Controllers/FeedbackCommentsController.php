@@ -28,6 +28,7 @@ class FeedbackCommentsController extends Controller
 
 	public function store(Request $request)
 	{
+		$replyTo = $request->get('replyTo');
 		$text = $request->get('comment');
 
 		if (empty($text) || $text == null) 
@@ -43,6 +44,7 @@ class FeedbackCommentsController extends Controller
 		$comment->text = $text;
 		$comment->user_id = Auth::user()->id;
 		$comment->feedback_id = $feedback->id;
+		$comment->parent_id = is_array($replyTo) ? $replyTo['id'] : NULL;
 		$comment->save();
 
 		return [$feedback->comments()->save($comment)];
