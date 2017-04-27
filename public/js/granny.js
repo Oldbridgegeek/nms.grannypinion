@@ -22980,14 +22980,14 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 41 */
@@ -22995,19 +22995,19 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /* styles */
-__webpack_require__(45)
+__webpack_require__(46)
 
 var Component = __webpack_require__(10)(
   /* script */
   __webpack_require__(36),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(44),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\OpenServer\\domains\\granny\\resources\\assets\\js\\feedbacks\\components\\Comment.vue"
+Component.options.__file = "C:\\OpenServer\\domains\\granny\\resources\\assets\\js\\components\\Comment.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Comment.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -23018,9 +23018,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-92eadc4e", Component.options)
+    hotAPI.createRecord("data-v-3ce61cb8", Component.options)
   } else {
-    hotAPI.reload("data-v-92eadc4e", Component.options)
+    hotAPI.reload("data-v-3ce61cb8", Component.options)
   }
 })()}
 
@@ -23033,19 +23033,19 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(46)
+__webpack_require__(45)
 
 var Component = __webpack_require__(10)(
   /* script */
   __webpack_require__(37),
   /* template */
-  __webpack_require__(44),
+  __webpack_require__(43),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\OpenServer\\domains\\granny\\resources\\assets\\js\\feedbacks\\containers\\feedbacks.vue"
+Component.options.__file = "C:\\OpenServer\\domains\\granny\\resources\\assets\\js\\containers\\feedbacks.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] feedbacks.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -23056,9 +23056,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-eb18ddb8", Component.options)
+    hotAPI.createRecord("data-v-2fd03f7a", Component.options)
   } else {
-    hotAPI.reload("data-v-eb18ddb8", Component.options)
+    hotAPI.reload("data-v-2fd03f7a", Component.options)
   }
 })()}
 
@@ -23067,59 +23067,6 @@ module.exports = Component.exports
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "comment"
-  }, [_c('a', {
-    staticClass: "avatar"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.comment.user.image
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_c('a', {
-    staticClass: "author"
-  }, [_vm._v(_vm._s(_vm.comment.user.fullName))]), _vm._v(" "), _c('div', {
-    staticClass: "metadata"
-  }, [_c('span', {
-    staticClass: "date"
-  }, [_vm._v(_vm._s(_vm.comment.date))])]), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("\n        " + _vm._s(_vm.comment.text) + "\n      ")]), _vm._v(" "), _c('div', {
-    staticClass: "actions"
-  }, [(_vm.currentUser.id != _vm.comment.user.id) ? _c('a', {
-    staticClass: "reply",
-    on: {
-      "click": function($event) {
-        _vm.replyComment(_vm.feedback, _vm.comment)
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.comment.action))]) : _vm._e()])]), _vm._v(" "), (_vm.comment.children && _vm.comment.children.length > 0) ? _c('div', [_c('div', {
-    staticClass: "comments"
-  }, _vm._l((_vm.comment.children), function(comment, index) {
-    return _c('comment', {
-      key: comment.id,
-      attrs: {
-        "comment": comment,
-        "index": index,
-        "feedback": _vm.feedback
-      }
-    })
-  }))]) : _vm._e()])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-92eadc4e", module.exports)
-  }
-}
-
-/***/ }),
-/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23256,7 +23203,60 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-eb18ddb8", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-2fd03f7a", module.exports)
+  }
+}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "comment"
+  }, [_c('a', {
+    staticClass: "avatar"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.comment.user.image
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_c('a', {
+    staticClass: "author"
+  }, [_vm._v(_vm._s(_vm.comment.user.fullName))]), _vm._v(" "), _c('div', {
+    staticClass: "metadata"
+  }, [_c('span', {
+    staticClass: "date"
+  }, [_vm._v(_vm._s(_vm.comment.date))])]), _vm._v(" "), _c('div', {
+    staticClass: "text"
+  }, [_vm._v("\n        " + _vm._s(_vm.comment.text) + "\n      ")]), _vm._v(" "), _c('div', {
+    staticClass: "actions"
+  }, [(_vm.currentUser.id != _vm.comment.user.id) ? _c('a', {
+    staticClass: "reply",
+    on: {
+      "click": function($event) {
+        _vm.replyComment(_vm.feedback, _vm.comment)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.comment.action))]) : _vm._e()])]), _vm._v(" "), (_vm.comment.children && _vm.comment.children.length > 0) ? _c('div', [_c('div', {
+    staticClass: "comments"
+  }, _vm._l((_vm.comment.children), function(comment, index) {
+    return _c('comment', {
+      key: comment.id,
+      attrs: {
+        "comment": comment,
+        "index": index,
+        "feedback": _vm.feedback
+      }
+    })
+  }))]) : _vm._e()])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3ce61cb8", module.exports)
   }
 }
 
@@ -23271,13 +23271,13 @@ var content = __webpack_require__(39);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(11)("661306bc", content, false);
+var update = __webpack_require__(11)("0b003740", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-92eadc4e!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Comment.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-92eadc4e!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Comment.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-2fd03f7a!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./feedbacks.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-2fd03f7a!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./feedbacks.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -23297,13 +23297,13 @@ var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(11)("0a763ec2", content, false);
+var update = __webpack_require__(11)("d7eaa7fa", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-eb18ddb8!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./feedbacks.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-eb18ddb8!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./feedbacks.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-3ce61cb8!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Comment.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-3ce61cb8!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Comment.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });

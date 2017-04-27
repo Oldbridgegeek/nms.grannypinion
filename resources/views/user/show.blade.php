@@ -69,3 +69,7 @@
 @endif
 </div>
 @endsection
+
+@section('customJS')
+  <script src="/js/feedbacks-app.js"></script>
+@endsection

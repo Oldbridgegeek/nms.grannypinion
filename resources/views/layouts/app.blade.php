@@ -161,6 +161,7 @@ use Carbon\Carbon;
     </footer>
 
     <script src="/js/app.js"></script>
+    @yield('customJS')
     <!-- Latest compiled and minified JavaScript -->
         
 </html>
