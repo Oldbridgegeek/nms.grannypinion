@@ -42,11 +42,9 @@
                 {{-- FEEDBACK START --}}
                 <feedbacks>
                 </feedbacks>
-
-
               
                 <br><br>
-                <div class="row">
+                <div class="row" v-if="feedbacksCount == 0">
                   <div class="col-md-12">
                     <div class="alert alert-info">
                       {{ trans('app.no_feedbacks') }}
