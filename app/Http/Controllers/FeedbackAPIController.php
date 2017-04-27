@@ -39,7 +39,8 @@ class FeedbackAPIController extends Controller
 				'fullName'	=>	Auth::user()->getFullName(),
 				'image'		=>	Auth::user()->getImage()
 			],
-			'feedbacks'	=>	$this->buildFeedbacks($feedbacks)
+			'feedbacks'	=>	$this->buildFeedbacks($feedbacks),
+			'feedbacksCount' => count($feedbacks)
 		]);
 	}
 

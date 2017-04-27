@@ -5,6 +5,7 @@
 <script src="/js/comment-app.js"></script>
 @endsection
 @section('content')
+<div id="feedbacks-app">
 <div class="container">
   <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -17,7 +18,7 @@
                 <div class="user-stats">
                   <ul>
                     <li><i class="glyphicon glyphicon-comment"></i> 
-                    Feedbacks: {{$feedbacksCount}}</li>
+                    Feedbacks: @{{feedbacksCount}}</li>
                   </ul>
                 </div>
                 @if($user->isAuthor())
@@ -34,7 +35,7 @@
 </div>
 
 @if(Auth::check())
-  <div class="container" id="feedbacks-app">
+  <div class="container" >
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
 
@@ -68,5 +69,5 @@
     </div>
   </div>
 @endif
-
+</div>
 @endsection

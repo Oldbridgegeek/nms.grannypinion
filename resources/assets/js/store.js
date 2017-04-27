@@ -15,6 +15,7 @@ const store = new Vuex.Store({
 		messages: [],
 		feedbacks: [],
 		comment: '',
+		feedbacksCount: ''
 	},
 	actions: {
 		LOAD_FEEDBACKS_LIST: function ({ commit }) {
@@ -104,6 +105,7 @@ const store = new Vuex.Store({
 		  	state.currentUser = data.currentUser;
 		  	state.feedbacks = data.feedbacks;
 		  	state.messages = data.messages;
+		  	state.feedbacksCount = data.feedbacksCount;
 		},
 		switchStatus: (state, data) => {
      		data.feedback.isStatusPublic = data.status;

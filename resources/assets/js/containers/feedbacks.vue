@@ -76,7 +76,7 @@
 		},
 		created()
 		{
-			this.$store.dispatch('LOAD_FEEDBACKS_LIST');
+			// this.$store.dispatch('LOAD_FEEDBACKS_LIST');
 		},
 		methods: {
 			addComment: function(feedback)
