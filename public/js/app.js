@@ -25927,15 +25927,25 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 		},
 
 		addComment: function addComment(state, feedback) {
+			if (feedback.anonymousReply == true) {
+				var user = {
+					id: state.currentUser.id,
+					fullName: state.messages.anonymousName,
+					image: state.messages.defaultImage
+				};
+			} else {
+				var user = {
+					id: state.currentUser.id,
+					fullName: state.currentUser.fullName,
+					image: state.currentUser.image
+				};
+			}
 			var comment = {
 				id: state.currentUser.id,
 				text: feedback.newComment,
 				action: state.messages.reply,
 				date: state.messages.justNow,
-				user: { id: state.currentUser.id,
-					fullName: state.currentUser.fullName,
-					image: state.currentUser.image
-				},
+				user: user,
 				hasChildren: false,
 				children: []
 			};

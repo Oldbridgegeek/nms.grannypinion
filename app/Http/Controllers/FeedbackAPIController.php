@@ -29,7 +29,9 @@ class FeedbackAPIController extends Controller
 				'addReply'				=>	trans('app.add_reply'),
 				'justNow'				=>  trans('app.just_now'),
 				'reply'					=> 	trans('app.reply'),
-				'reply_anonymously'		=>	trans('app.reply_anonymously')
+				'reply_anonymously'		=>	trans('app.reply_anonymously'),
+				'anonymousName'			=>	trans("app.anonymous_reply"),
+				'defaultImage'			=>	'/uploads/avatars/default/default.jpg'
 				
 			],
 			'currentUser'	=>	[

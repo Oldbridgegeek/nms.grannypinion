@@ -114,16 +114,28 @@ const store = new Vuex.Store({
 		},
 
 		addComment: (state, feedback) => {
+			if(feedback.anonymousReply == true)
+			{
+				var user = {
+					id: state.currentUser.id,
+		  			fullName: state.messages.anonymousName,
+		  			image: state.messages.defaultImage
+				};
+			}
+			else
+			{
+				var user = {	
+					id: state.currentUser.id,
+		  			fullName: state.currentUser.fullName,
+		  			image: state.currentUser.image
+		  		};
+			}
 			let comment = {
 				  		id: state.currentUser.id,
 				  		text: feedback.newComment,
 				  		action: state.messages.reply,
 				  		date: state.messages.justNow,
-				  		user: 
-					  		{	id: state.currentUser.id,
-					  			fullName: state.currentUser.fullName,
-					  			image: state.currentUser.image
-					  		},
+				  		user: user, 
 				  		hasChildren: false,
 				  		children: []
 				  	};
