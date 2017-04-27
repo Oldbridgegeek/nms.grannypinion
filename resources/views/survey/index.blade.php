@@ -11,8 +11,11 @@
                         <div class="col-md-5">
                             {{$survey->title}}
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             {{$survey->created_at->diffForHumans()}}
+                        </div>
+                        <div class="col-md-2">
+                            {{count($survey->answers())}} total answers
                         </div>
                         <div class="col-md-2">
                             <ul class="survey-actions">

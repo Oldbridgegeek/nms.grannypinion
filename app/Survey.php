@@ -38,4 +38,9 @@ class Survey extends Model
     {
       return $this->hasMany(SurveyQuestionValue::class,'survey_id','id');
     }
+
+    public function answers()
+    {
+      return $this->replies()->latest()->get()->groupBy('reply_identifier');
+    }
 }

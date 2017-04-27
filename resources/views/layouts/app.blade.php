@@ -31,17 +31,14 @@ use Carbon\Carbon;
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script> --}}
         <!-- Scripts -->
+        <script
+          src="https://code.jquery.com/jquery-1.12.4.min.js"
+          integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+          crossorigin="anonymous"></script>
+        <script src="/js/rate.js"></script>
         
         <script src="/js/custom.js"></script>
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script> --}}
-        {{-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.3.1/vuex.js"></script> --}}
-        {{-- <script src="https://unpkg.com/vue"></script> --}}
-        {{-- @yield('custom-js') --}}
-
 
         <script>
         window.Laravel = {!! json_encode([

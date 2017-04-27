@@ -30,11 +30,13 @@ class SurveysController extends Controller {
 	{
 		return Auth::user()->surveys()->latest()->get();
 	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
+
 	public function create() {
 		return view('survey.create');
 	}
@@ -45,6 +47,7 @@ class SurveysController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
+
 	public function store(Request $request) {
 		$this->validate($request,[
 			'title'=>'required',
@@ -84,7 +87,8 @@ class SurveysController extends Controller {
 	 */
 	public function show($id) {
 		$survey = $this->getUserSurvey($id);
-		$answers = $survey->replies()->latest()->get()->groupBy('reply_identifier');
+
+		$answers = $survey->answers();
 
 		return view('survey.details',compact('survey','answers'));
 	}

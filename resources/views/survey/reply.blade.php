@@ -1,8 +1,8 @@
 @extends('layouts.app')
-
+{{-- 
 @section('custom-js')
 <script src="/js/rating-app.js"></script>
-@endsection
+@endsection --}}
 
 
 @section('content')
@@ -35,7 +35,7 @@
                             @if($question->isStarRating())
                                 <div class="form-group">
                                     <label>{{$question->title}}</label>
-                                    <div id="rateYo"></div>
+                                    <div class="rateYo"></div>
                                     <input type="hidden" name="{{$question->id}}">
                                     <input type="hidden" id="rating" value="0" name="{{$question->id}}">
                                 </div>
@@ -67,4 +67,20 @@
         
     </div>
 </div>
+@endsection
+
+@section('customJS')
+<script>
+    $(document).ready(function(){
+      $(".rateYo").rateYo({
+         precision: 1,
+         starWidth: "25px",
+         spacing: "3px",
+         halfStar: true
+      })
+      .on("rateyo.set", function (e, data) {
+         $('#rating').val(data.rating);
+      });
+    })
+</script>
 @endsection
