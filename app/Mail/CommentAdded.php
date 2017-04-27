@@ -21,7 +21,7 @@ class CommentAdded extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user, FeedbackComment $comment, User $commentSender)
+    public function __construct(User $user, FeedbackComment $comment, $commentSender )
     {
         $this->user = $user;
         $this->comment = $comment;

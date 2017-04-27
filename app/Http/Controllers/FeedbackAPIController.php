@@ -95,7 +95,7 @@ class FeedbackAPIController extends Controller
 
 		$feedback = Feedback::find($feedback_id);
 		if ($feedback->user_id != Auth::user()->id) {
-			return [false];
+			return response([false],401);;
 		}
 		$feedback->toggleStatus();
 		return [true];
@@ -108,7 +108,7 @@ class FeedbackAPIController extends Controller
 
 		$feedback = Feedback::find($feedback_id);
 		if ($feedback->user_id != Auth::user()->id) {
-			return [false];
+			return response([false],401);;
 		}
 		return ['status'=>$feedback->delete()];
 	}

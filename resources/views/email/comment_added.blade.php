@@ -3,7 +3,7 @@
 
 
 <p>
-You have been received a new commentary from <a href="{{route('user.show', ['user'=>$commentSender])}}">{{$commentSender->getFullName()}}</a> is saying:
+You have been received a new commentary from {{$commentSender}}</a> is saying:
 <p>
 	"{{$comment->text}}"
 

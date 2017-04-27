@@ -49,4 +49,5 @@ return [
 	'survey_textarea'		=>		'Textarea',
 	'reply_anonymously'		=>		'Reply anonymously',
 	'anonymous_reply'		=>		'Anonymous Reply',
+	'anonymous_user'		=>		'Anonymous User',
 ];

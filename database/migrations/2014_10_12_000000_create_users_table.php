@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('token')->nullable();
 			$table->string('password');
 			$table->string('avatar')->nullable();
-			$table->boolean('email_notifications')->default(0);
+			$table->boolean('email_notifications')->default(1);
 			$table->rememberToken();
 			$table->timestamps();
 		});

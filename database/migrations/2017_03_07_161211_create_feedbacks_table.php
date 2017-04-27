@@ -26,6 +26,7 @@ class CreateFeedbacksTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->integer('anonymous')->default(0);
 			$table->text('text');
+            $table->foreign('feedback_id')->references('id')->on('feedbacks')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -36,7 +37,7 @@ class CreateFeedbacksTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('feedbacks');
 		Schema::dropIfExists('feedbacks_comments');
+		Schema::dropIfExists('feedbacks');
 	}
 }
