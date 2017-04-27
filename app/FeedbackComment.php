@@ -12,9 +12,7 @@ class FeedbackComment extends Model
     public $table = 'feedbacks_comments';
     public $fillable = [
         'feedback_id',
-        'user_id',
         'text',
-        'parent_id'
     ];
 
     public function feedback()
@@ -31,4 +29,6 @@ class FeedbackComment extends Model
     {
     	return $this->hasMany(FeedbackComment::class, 'parent_id');
     }
+
+    
 }

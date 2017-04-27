@@ -20,27 +20,28 @@ use Carbon\Carbon;
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script> --}}
 
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script> --}}
         <!-- Scripts -->
         
         <script src="/js/custom.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/vue"></script>
-        @yield('custom-js')
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script> --}}
+        {{-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.3.1/vuex.js"></script> --}}
+        {{-- <script src="https://unpkg.com/vue"></script> --}}
+        {{-- @yield('custom-js') --}}
+
 
         <script>
         window.Laravel = {!! json_encode([
@@ -48,74 +49,9 @@ use Carbon\Carbon;
         ]) !!};
         </script>
 
-        {{-- <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script> --}}
-        <script>//tinymce.init({ selector:'textarea' });</script>
-
-        <style>
-            .list-group-item:first-child {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-            .list-group-item {
-                position: relative;
-                display: block;
-                padding: 10px 15px;
-                margin-bottom: -1px;
-                background-color: #fbfbfb;
-                border: 0px solid #000;
-            }
-            body {
-                color: #292929;
-                font-family: "Roboto",serif;
-                background-color:white;
-                height:100%;
-            }
-            button {
-                box-shadow: 0.5px 0.5px grey;
-            }
-            .navbar-default .navbar-nav>li>a {
-                color: #fbfbfb;
-                background-color: #303F9F;
-            }
-            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-                color: #fbfbfb;
-                
-            }
-            .btn-primary{
-                background-color: #3F51B5;
-                color: #fbfbfb;
-            }
-
-            .btn-primary:hover{
-                background-color: #0000cc;
-            }
-            .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-                color: #fbfbfb;
-                background-color: #303F9F;
-            }
-
-            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-                background-color: #303F9F;
-            }/*
-            .glyphicon {
-                font-size: 22px;
-                color: #ff0000;
-            }*/
-            .form-horizontal .profile-inputs label
-            {
-                text-align: left !important;
-                padding-left: 30px !important;
-            }
-            div.check-email
-            {
-                background: #ec971f;
-                color: #fff;
-                padding:5px;
-                text-align: center;
-            }
-        </style>
     </head>
     <body>
+
         @if(Auth::check() && !Auth::user()->isEmailConfirmed())
             <div class="check-email">
                 {{ trans('app.confirm_email') }}
@@ -203,8 +139,6 @@ use Carbon\Carbon;
             </div>
             @yield('content')
         </div>
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}"></script>
         
     </body>
     <footer>
@@ -225,4 +159,8 @@ use Carbon\Carbon;
         </div>
         </div>
     </footer>
+
+    <script src="/js/app.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+        
 </html>

@@ -24,6 +24,7 @@ class CreateFeedbacksTable extends Migration {
 			$table->integer('feedback_id')->unsigned();
 			$table->integer('parent_id')->nullable();
 			$table->integer('user_id')->unsigned();
+			$table->integer('anonymous')->default(0);
 			$table->text('text');
 			$table->timestamps();
 		});
