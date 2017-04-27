@@ -27,8 +27,7 @@ use Carbon\Carbon;
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
-        <!-- Latest compiled and minified JavaScript -->
-        {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
+        
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
@@ -162,4 +161,6 @@ use Carbon\Carbon;
     </footer>
 
     <script src="/js/app.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+        
 </html>

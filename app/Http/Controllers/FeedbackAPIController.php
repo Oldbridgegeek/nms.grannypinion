@@ -29,6 +29,7 @@ class FeedbackAPIController extends Controller
 				'addReply'				=>	trans('app.add_reply'),
 				'justNow'				=>  trans('app.just_now'),
 				'reply'					=> 	trans('app.reply'),
+				'reply_anonymously'		=>	trans('app.reply_anonymously')
 				
 			],
 			'currentUser'	=>	[
@@ -54,7 +55,8 @@ class FeedbackAPIController extends Controller
 				'isStatusPublic'	=>	$feedback->status == 1 ? true : false,
 				'comments'	=> $this->buildComments($feedback->comments),
 				'newComment'=>	'',
-				'replyTo'	=>	''
+				'replyTo'	=>	'',
+				'anonymousReply' => false
 			];
 		}
 		return $data;
@@ -70,11 +72,12 @@ class FeedbackAPIController extends Controller
 				'text'	=>	$item->text,
 				'action'	=>	trans('app.reply'),
 				'feedback'	=>	$item->feedback,
+				'anonymous'	=>	$item->anonymous,
 				'date'		=>	$item->created_at->diffForHumans(),
 				'user'		=>	[
 					'id'	=>	$item->user->id,
-					'fullName'	=>	$item->user->getFullName(),
-					'image'		=>	$item->user->getImage()
+					'fullName'	=>	$item->anonymous ? trans("app.anonymous_reply") : $item->user->getFullName(),
+					'image'		=>	$item->anonymous ? '/uploads/avatars/default/default.jpg' :$item->user->getImage()
 				],
 				'children'		=>	$this->buildComments($item->children)
 			];

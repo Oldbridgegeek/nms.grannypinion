@@ -84,7 +84,11 @@ const store = new Vuex.Store({
 
 	    addComment: (context, feedback) => {
 			axios.post('/feedback/addComment', {
-			    feedback_id: feedback.id, comment: feedback.newComment, replyTo: feedback.replyTo.comment//then need to ANONYMOUS
+			    feedback_id: feedback.id, 
+			    comment: feedback.newComment, 
+			    replyTo: feedback.replyTo.comment,
+			    anonymous: feedback.anonymousReply
+			    //then need to ANONYMOUS
 			})
 			.then(function (response) {
 			    context.commit('addComment',feedback);

@@ -47,4 +47,6 @@ return [
 	'survey_star_rating'	=>		'Star Rating',
 	'survey_text_input'		=>		'Text Input',
 	'survey_textarea'		=>		'Textarea',
+	'reply_anonymously'		=>		'Reply anonymously',
+	'anonymous_reply'		=>		'Anonymous Reply',
 ];

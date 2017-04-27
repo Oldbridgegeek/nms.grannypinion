@@ -14,4 +14,6 @@ const { mix } = require('laravel-mix');
 mix.js([
 	'resources/assets/js/app.js',
 	'resources/assets/js/granny.js',
+	'resources/assets/js/plugins/jquery.min.js',
+	'resources/assets/js/plugins/bootstrap.min.js'
 	], 'public/js')

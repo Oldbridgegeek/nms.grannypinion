@@ -30,10 +30,11 @@ class FeedbackCommentsController extends Controller
 	{
 		$replyTo = $request->get('replyTo');
 		$text = $request->get('comment');
+		$anonymous = (int) $request->get('anonymous');
 
 		if (empty($text) || $text == null) 
 		{
-			return [false];
+			return response([false],401);
 		}
 
 		$feedback_id = $request->get('feedback_id');
@@ -45,6 +46,7 @@ class FeedbackCommentsController extends Controller
 		$comment->user_id = Auth::user()->id;
 		$comment->feedback_id = $feedback->id;
 		$comment->parent_id = is_array($replyTo) ? $replyTo['id'] : NULL;
+		$comment->anonymous = (int) $anonymous;
 		$comment->save();
 
 		return [$feedback->comments()->save($comment)];

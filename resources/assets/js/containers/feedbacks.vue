@@ -45,6 +45,9 @@
 	            <div class="btn btn-success add-reply" @click="addComment(feedback)">
 	              <i class="glyphicon glyphicon-comment"></i> {{messages.addReply}}
 	            </div>
+	            <div class="cancel-reply pull-right" >
+	              <span class="comment-username"><input type="checkbox" v-model="feedback.anonymousReply"> {{messages.reply_anonymously}}</span>
+	            </div>
 	            <div class="btn cancel-reply" v-if="feedback.replyTo != ''" @click.prevent="cancelReply(feedback)">
 	              <a href="#" ><span class="comment-username">{{feedback.replyTo.username}} <i class="glyphicon glyphicon-remove"></i></span> </a>
 	            </div>
