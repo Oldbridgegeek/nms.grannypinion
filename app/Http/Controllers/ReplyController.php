@@ -56,7 +56,7 @@ class ReplyController extends Controller {
 	public function store(Request $request) {
 		$data = $request->except(['_token']);
 		$survey = $this->getSurvey($data['survey_id']);
-
+		// dd($request->all());
 		$this->persistQuestionValues($data);
 
 		if ($survey->user->canReceiveEmails()) {

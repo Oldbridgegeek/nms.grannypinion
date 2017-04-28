@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('custom-js')
-<script src="/js/survey-app.js"></script>
-@endsection
+
 
 @section('content')
 <div class="container">
@@ -50,13 +48,14 @@
                         </div>
                         <div class="col-md-10 col-md-offset-1">
                         
-                            <survey-question-selector 
-                                v-for="(survey, index) in surveys" 
+                            <questions v-for="( survey, index ) in surveys"
+                                :key="index"
                                 :survey="survey"
                                 :survey-type-list="surveyQuestionsList"
-                                v-on:remove="surveys.splice(index, 1)">
+                                v-on:remove="surveys.splice(index, 1)"
+                                >
                                 
-                            </survey-question-selector >
+                            </questions >
                         </div>
                     
 
@@ -73,4 +72,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('customJS')
+<script src="/js/surveys-app.js"></script>
 @endsection

@@ -144,3 +144,16 @@
   
  
 // });
+$(document).ready(function(){
+		$('a.reply').on('click', function(){
+		commentID = $(this).closest('.comment').data('comment-id');
+		commentNode = $(this).closest('.comment');
+
+		comments = $(this).closest('.ui');
+		form = comments.find('.form');
+		$('html, body').animate({
+	        scrollTop: $(form).offset().top - 100
+	    }, 500);
+
+	});
+})
