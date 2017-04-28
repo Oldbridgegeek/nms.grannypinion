@@ -11,25 +11,12 @@ class Message extends Model {
 	 * @var [type]
 	 */
 	protected $fillable = [
-		'body', 'conservation_id',
+		'message','room_id','user_id'
 	];
 
-	/**
-	 * Get the conversation this message belongs to.
-	 *
-	 * @return [type] [description]
-	 */
-	public function conversation() {
-		return $this->belongsTo(Conversation::class);
+	public function user()
+	{
+		return $this->belongsTo(User::class);
 	}
 
-	/**
-	 * Link message with a conversation.
-	 *
-	 * @param  Conversation $conversation [description]
-	 * @return [type]                     [description]
-	 */
-	public function linkToConversation(Conversation $conversation) {
-		return $this->conversation()->associate($conversation);
-	}
 }

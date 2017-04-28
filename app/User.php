@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Auth;
 use Hash;
 use Image;
 use Mail;
-use App\Mail\EmailConfirmation;
 use App\Feedback;
+use App\Mail\EmailConfirmation;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
 class User extends Authenticatable {
@@ -216,5 +216,22 @@ class User extends Authenticatable {
 		}
 		
 		return false;
+	}
+
+	public function rooms()
+	{
+		return $this->hasMany(RoomsUsers::class);
+	}
+
+	//user whom I am in one chat room
+	public function myPal($id)
+	{
+		$userID = $this->rooms()->where('room_id',$id)->first()->pal_id;
+		return User::find($userID);
+	}
+
+	public function hasRoom($roomID)
+	{
+		return $this->rooms()->where('room_id',$roomID)->count();
 	}
 }

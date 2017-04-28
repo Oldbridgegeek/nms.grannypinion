@@ -41,6 +41,15 @@ Route::get('/surveys/questions/list', "SurveysController@list");
 Route::get('/reply/{survey}', 'ReplyController@create');
 Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
+//CHAT
+Route::get('/messages', 'MessagesController@index');
+Route::get('/room/{id}', 'MessagesController@room');
+Route::get('/room/create/{id}', 'MessagesController@create')->name('chatRoom');
+
+//main call
+Route::get('/room/{id}/getData', 'MessagesController@getData');
+Route::post('/room/{id}/sendMessage', 'MessagesController@sendMessage');
+
 
 Route::name('welcome')->get('/', function () {
 	return view('landing');

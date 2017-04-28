@@ -5,6 +5,7 @@ return [
 	'my_profile'				=>		'd My profile',
 	'profile_updated'			=>		'd Your profile has been updated',
 	'my_surveys'				=>		'd My surveys',
+	'my_messages'				=>		'd My messages',
 	'survey_create'				=>		'd Create survey',
 	'no_surveys'				=>		'd No surveys created',
 	'survey_create_anon'		=>		'd Create anonymous survey',
@@ -50,4 +51,7 @@ return [
 	'reply_anonymously'			=>		'd Reply anonymously',
 	'anonymous_reply'			=>		'd Anonymous Reply',
 	'anonymous_user'			=>		'd Anonymous User',
+	'type_message_here'			=>		'd Type your message here...',
+	'send'						=>		'd Send',
+	'chat_with'					=>		'd Chat with ',
 ];
