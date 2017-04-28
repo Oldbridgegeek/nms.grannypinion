@@ -37,7 +37,7 @@
                                     <label>{{$question->title}}</label>
                                     <div class="rateYo"></div>
                                     <input type="hidden" name="{{$question->id}}">
-                                    <input type="hidden" id="rating" value="0" name="{{$question->id}}">
+                                    <input type="hidden" class="my-rating" value="0" name="{{$question->id}}">
                                 </div>
                             @elseif($question->isTextInput())
                                 <div class="form-group">
@@ -79,7 +79,10 @@
          halfStar: true
       })
       .on("rateyo.set", function (e, data) {
-         $('#rating').val(data.rating);
+        // var formGroup = ;
+        // console.log(formGroup.val);return;
+        $(this).closest('.form-group').children('.my-rating').val(data.rating);
+         // $('.my-rating').val();
       });
     })
 </script>
