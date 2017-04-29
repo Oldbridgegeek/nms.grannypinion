@@ -22,4 +22,9 @@ class RoomsUsers extends Model
     {
     	return self::where('room_id',$roomID)->where('created_id','!=',NULL)->first()->created_id;
     }
+
+    public function anonymousChat()
+    {
+        return $this->created_id == $this->user_id;
+    }
 }

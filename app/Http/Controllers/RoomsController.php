@@ -11,6 +11,7 @@ class RoomsController extends Controller
     public function index()
     {
     	$rooms = Auth::user()->rooms;
+        
     	return view('chat.index', compact('rooms'));
     }
 
