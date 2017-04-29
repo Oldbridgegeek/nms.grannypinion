@@ -1,5 +1,6 @@
 {
   "/js/feedbacks-app.js": "/js/feedbacks-app.js",
+  "/js/chatbox-app.js": "/js/chatbox-app.js",
   "/js/surveys-app.js": "/js/surveys-app.js",
   "/js/app.js": "/js/app.js"
 }
