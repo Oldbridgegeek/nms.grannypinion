@@ -172,3 +172,15 @@ div.check-email
     padding:5px;
     text-align: center;
 }
+#main-nav a,#main-nav button {
+  color: #fff !important;
+}
+#main-nav button > span
+{
+  background: #fff !important;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+{
+  background: #252480 !important;
+}

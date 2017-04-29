@@ -4,7 +4,7 @@
 	      :class="['panel', 'panel-default', 'feedbacks', feedback.isStatusPublic ? 'public-feedback' : 'hidden-feedback']" 
 	      v-for="(feedback, index) in feedbacks" v-if="isUserAllowedToView(feedback)">
 
-	      <div class="panel-heading">{{feedback.title}} ({{feedback.date}})
+	      <div class="panel-heading"><span class="hidden-xs">{{feedback.title}}</span> ({{feedback.date}})
 
 	        <ul class="feedback-settings">
 	          <li class="toggle-status" v-if="feedback.isAuthor" @click="switchStatus(feedback)">

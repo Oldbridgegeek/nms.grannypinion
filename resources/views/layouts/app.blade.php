@@ -37,7 +37,7 @@ use Carbon\Carbon;
           integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
           crossorigin="anonymous"></script>
         <script src="/js/rate.js"></script>
-        
+        {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
         <script src="/js/custom.js"></script>
 
         <script>
@@ -56,10 +56,16 @@ use Carbon\Carbon;
             @else
         @endif
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
+            <nav id="main-nav" class="navbar navbar-default navbar-static-top" style="background-color:#4527a0;">
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb; font-family: 'Dancing Script', cursive; font-size:2em;">
                             {{ config('app.name', 'Laravel') }}
@@ -67,7 +73,7 @@ use Carbon\Carbon;
                     </div>
                     </div>
                     @if(!Auth::guest())
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3 hidden-xs">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="{{ trans('app.search') }}" name="name" id="name" style="text-align:center;border-radius:15px;">
@@ -75,18 +81,19 @@ use Carbon\Carbon;
                         </form>
                     </div>
                     @endif
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    {{-- <div class="collapse navbar-collapse" id="app-navbar-collapse"> --}}
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
-                            &nbsp;
-                        </ul>
-                        <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
                             @if(App::getLocale() == 'en')
                                 <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
                             @else
                                 <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
                             @endif
+                        </ul>
+                        <!-- Right Side Of Navbar -->
+                        <ul class="nav navbar-nav navbar-right">
+                            
                             
                             
                             <!-- Authentication Links -->
@@ -108,6 +115,9 @@ use Carbon\Carbon;
                                     </li>
                                     <li>
                                         <a href="/messages">{{ trans('app.my_messages') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('user.setting')}}">{{ trans('app.settings') }}</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -142,7 +152,7 @@ use Carbon\Carbon;
         </div>
             @yield('content')
         
-    <footer>
+    {{-- <footer>
     <div class="container">
         <div class="row" style="margin-top:4em;">
           <div class="col-sm-8">
@@ -159,7 +169,105 @@ use Carbon\Carbon;
           </div>
         </div>
         </div>
-    </footer>
+    </footer> --}}
+    <style>
+        #footer.subsection {
+            /*position: absolute;*/
+            /*bottom: 0px;*/
+            width: 100%;
+            opacity: .6;
+            padding-top:2rem;
+            padding-bottom:0.9rem;
+            background: #eee;
+            color: #000;
+            text-align: center;
+            height: 150px;
+        }
+
+        #footer small {
+            font-weight: 300
+        }
+
+        #footer p {
+            font-weight: 300;
+            font-size: 1.5rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.72rem;
+            margin: 0px 0px 1.72rem 0px
+        }
+        .social_icons ul, .social_icons ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            height: 2rem;
+        }
+
+        .social_icon{
+            font-size:1rem;
+            line-height:1rem;
+            opacity:0.5;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .social_icon:hover {
+            cursor:pointer;
+            opacity:1;
+        }
+
+        .social_icons ul, .social_icons ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            height:2rem;
+        }
+
+        .social_icons ul li {
+            margin-right: 0.7rem;
+            margin-left: 0.7rem;
+        }
+
+        .social_icons ul li:first-child {
+            margin-left:0;
+        }
+
+        .social_icons ul li:last-child {
+            margin-right:0;
+        }
+
+        .social_icons ul li {
+            float:left;
+        }
+
+        .social_icons_container {
+            position: relative;
+            width:100%;
+            z-index: 10;
+        }
+    </style>
+    <section id="footer" class="subsection">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
+                
+                    <!-- Social Icons -->
+                    <div class="social_icons_container align-center">
+                        <div class="social_icons">
+                            <ul>
+                                <li><div data-icon="&#xe282;" class="social_icon twitter_icon" onclick="location.href='#'"></div></li>
+                                <li><div data-icon="&#xe281;" class="social_icon facebook_icon" onclick="location.href='#'"></div></li>
+                            </ul>
+                        </div>
+                    </div>  
+                    <!-- //Social Icons -->
+
+                <p><small>Copyright © {{date('Y')}} Grannypinion, Made with ❤ by Enes Witwit</small></p> 
+                </div>
+            </div>              
+        </div>
+    </section><!-- //More info -->
 
     <script src="/js/app.js"></script>
     @yield('customJS')

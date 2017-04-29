@@ -3,6 +3,7 @@
 <script src="/js/store.js"></script>
 <script src="/js/feedbacks-app.js"></script>
 <script src="/js/comment-app.js"></script>
+
 @endsection
 @section('content')
 <div id="feedbacks-app">
@@ -10,7 +11,7 @@
   <div class="row">
       <div class="col-md-10 col-md-offset-1">
           <div class="user-profile">
-            <div class="col-md-3 user-image">
+            <div class="col-md-3 col-sm-3 col-xs-12 user-image">
               <img src="{{$user->getImage()}}" class="img-rounded"/>
             </div>
             <div class="col-md-7">

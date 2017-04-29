@@ -23,7 +23,7 @@ return [
 	'make_private'				=>		'Make Private',
 	'new_password'				=>		'New Password',
 	'settings'					=>		'Settings',
-	'ask_facebook'				=>		'Ask on Facebook for Feedback',
+	'ask_facebook'				=>		'Facebook',
 	'share_facebook'			=>		'Share the link with your friends, so you get Feedback',
 	'upload_picture'			=>		'Upload new profile picture.',
 	'submit'					=>		'Submit',
@@ -54,5 +54,6 @@ return [
 	'type_message_here'		=>		'Type your message here...',
 	'send'					=>		'Send',
 	'chat_with'				=>		'Chat with ',
+	'twitter'				=>		'Grannypinion.de - anonymous feedback. My Profile: '
 
 ];

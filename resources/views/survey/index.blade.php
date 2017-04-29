@@ -9,16 +9,16 @@
                 @forelse($surveys as $survey)
                     <div class="panel-body">
                         <div class="col-md-5">
-                            {{$survey->title}}
+                            <h4>{{$survey->title}}</h4>
                         </div>
-                        <div class="col-md-3">
-                            {{$survey->created_at->diffForHumans()}}
+                        <div class="col-md-3 col-sm-6 col-xs-5">
+                            <i>{{$survey->created_at->diffForHumans()}}</i>
                         </div>
-                        <div class="col-md-2">
-                            {{count($survey->answers())}} total answers
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            {{count($survey->answers())}} answers
                         </div>
-                        <div class="col-md-2">
-                            <ul class="survey-actions">
+                        <div class="col-md-2 col-sm-2 col-xs-3">
+                            <ul class="survey-actions" style="padding-left:0px;">
                                 <li>
                                     <a title="Details" href="{{route('survey.show', ['survey' => $survey] )}}"> <i class="glyphicon glyphicon-eye-open"></i> </a>
                                 </li>

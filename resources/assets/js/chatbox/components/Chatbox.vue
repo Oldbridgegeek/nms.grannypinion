@@ -63,8 +63,11 @@
 
 			addMessage()
 			{
-				this.$emit('messagesent', this.newMessage);
-				this.newMessage = '';
+				if (this.newMessage != '') {
+					this.$emit('messagesent', this.newMessage);
+					this.newMessage = '';	
+				}
+				
 			},
 
 		    chatWithAnonymous: function()
