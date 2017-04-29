@@ -31,7 +31,7 @@
     <!-- Modernizer and IE specyfic files -->  
     <script src="/landing/js/modernizr.custom.js"></script>  
        
-  </head>
+</head>
   
   <body>
   
@@ -39,13 +39,9 @@
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
         <div class="mobile_nav_close_button"><a href="#" id="hideRight"><div data-icon="&#xe13f;" class="button_icon close_icon"></div></a></div>
         <nav id="mobile_menu_content">
-            <a href="#more_info" >Log In</a>
-            <a href="#features" >Sign Up</a>
-            <!-- @if(App::getLocale() == 'en') -->
-            <a href="#"><img src="/landing/images/de.svg" width="20"></a>
-                            <!-- @else -->
-                                <!-- <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li> -->
-                            <!-- @endif -->
+            <a href="/login" >{{ trans('landing.log_in') }}</a>
+            <a href="#" >{{ trans('landing.sign_up') }}</a>
+            @include('landing.lang')
         </nav>
     </div>
     <!-- //Mobile nav -->
@@ -76,15 +72,11 @@
                     <img src="/landing/images/logo2.png" alt="logo" class="logo" width="100" />
                     <nav class="navigation_desktop">
                         <ul>
-                        <li>
-                                <!-- @if(App::getLocale() == 'en') -->
-                                <a href="#"><img src="/landing/images/de.svg" width="20"></a>
-                            <!-- @else -->
-                                <!-- <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li> -->
-                            <!-- @endif -->
+                            <li>
+                                @include('landing.lang')
                             </li>
-                            <li><a href="#more_info" class="visible-lg visible-md go_to_overview">Log In</a></li>
-                            <li><a href="#features" class="visible-lg visible-md">Sign Up</a></li>
+                            <li><a href="/login" class="visible-lg visible-md go_to_overview">{{ trans('landing.log_in') }}</a></li>
+                            <li><a href="#features" class="visible-lg visible-md">{{ trans('landing.sign_up') }}</a></li>
                             
                             <li><div class="mobile_nav_open_button hidden-lg hidden-md"  ><a href="#" id="showRight_1" ><div data-icon="&#xe2f3;" class="button_icon close_icon"></div></a></div></li>
                         </ul>
@@ -99,13 +91,13 @@
             <div class="container align-left" id="main_content">
                 <div class="content_container row" >
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_content">
-                        <h2 class="slogan">Get anonymous and honest feedback about yourself!</h2>
-                        <h6>It`s a web app designed to help you get honest feedbacks.</h6>
+                        <h2 class="slogan">{{ trans('landing.slogan') }}</h2>
+                        <h6>{{ trans('landing.sub_slogan') }}</h6>
                         
                         <!-- CTA Buttons-->
                         <div class="cta_button_area">
-                            <div><button class="btn waves-effect waves-light subscribe-submit">Sign Up!</button></div>
-                            <a href="#more_info"><small>Not sure? Learn more.</small></a> 
+                            <div><button class="btn waves-effect waves-light subscribe-submit">{{ trans('landing.sign_up') }}</button></div>
+                            <a href="#more_info"><small>{{ trans('landing.not_sure') }}</small></a> 
                         </div>
                         <!-- //CTA Buttons-->
                                     
@@ -137,14 +129,15 @@
                     </style>
                     <!-- Mockups-->
                     <div class="hidden-xs hidden-sm col-md-6 col-lg-6 home_mockup signup_form">
-                        <h5>20 second sign up</h5>
-                        <form>
+                        <h5>{{ trans('landing.10_sec_reg') }}</h5>
+                        <form action="/landing/register" method="POST">
+                        {{csrf_field()}}
                           <div class="form-group">
                             <!-- <label for="exampleInputEmail1">Email address</label> -->
                             <div class="input-field">
                                 <div data-icon="&#xe563;" class="prefix"></div>
                                 <input id="email" type="email" name="email" class="validate">
-                                <label for="email">Email address</label>    
+                                <label for="email">{{ trans('landing.email') }}</label>    
                             </div>
                           </div>
                           <div class="form-group">
@@ -153,14 +146,13 @@
                                 <!-- <i class="prefix glyphicon glyphicon-eye-close"></i> -->
                                 <div data-icon="&#xe562;" class="prefix"></div>
                                 <input id="password" type="password" name="password" class="validate">
-                                <label for="password">Password</label>  
+                                <label for="password">{{ trans('landing.password') }}</label>  
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-default">Submit</button>
+                          <button type="submit" class="btn btn-default">{{ trans('landing.sign_up') }}</button>
                         </form>
                     </div>
                     <!-- //Mockups-->
-                    
                 </div>          
             </div>  
             <!-- //Main content -->
@@ -185,14 +177,10 @@
                 <nav class="menu_bar_navigation">
                     <ul>
                         <li>
-                                <!-- @if(App::getLocale() == 'en') -->
-            <a href="#"><img src="/landing/images/de.svg" width="20"></a>
-                            <!-- @else -->
-                                <!-- <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li> -->
-                            <!-- @endif -->
-                            </li>
-                        <li class="visible-lg visible-md"><a href="#more_info" class="go_to_overview" >Log In</a></li>
-                        <li class="visible-lg visible-md"><a href="#features" >Sign Up</a></li>
+                          @include('landing.lang')
+                        </li>
+                        <li class="visible-lg visible-md"><a href="/login" class="go_to_overview" >{{ trans('landing.log_in') }}</a></li>
+                        <li class="visible-lg visible-md"><a href="#features" >{{ trans('landing.sign_up') }}</a></li>
                         <li class="hidden-lg hidden-md"><div class="mobile_nav_open_button "><a href="#" id="showRight_2"><div data-icon="&#xe2f3;" class="button_icon close_icon"></div></a></div></li>
                     </ul>
                 </nav>
@@ -206,8 +194,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 align-center content_anim1 intro">
-                        <h3>Grannypinion.de - the best way to collect anonymous opinions</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  
+                        <h3>{{ trans('landing.slogan2') }}</h3>
+                        <p></p>  
                     </div>
                 </div>              
             </div>
@@ -217,8 +205,8 @@
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                         <div class="iconbox content_anim3">
                             <div class="iconbox_content">
-                                <h5>Create your personal feedback URL</h5>
-                                <p>People will write anonymous and honest opinions about you on that URL.</p>
+                                <h5>{{ trans('landing.step1') }}</h5>
+                                <p>{{ trans('landing.step1_desc') }}</p>
                             </div>
                         </div>  
                     </div>
@@ -226,8 +214,8 @@
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                         <div class="iconbox content_anim4">
                             <div class="iconbox_content">
-                                <h5>Spread the world</h5>
-                                <p>Spread the URL through Twitter, Facebook, Skype, etc.</p>
+                                <h5>{{ trans('landing.step2') }}</h5>
+                                <p>{{ trans('landing.step2_desc') }}</p>
                             </div>
                         </div>  
                     </div>
@@ -235,8 +223,8 @@
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                         <div class="iconbox content_anim5">
                             <div class="iconbox_content">
-                                <h5>Read what people think about you.</h5>
-                                <p>The feedback you receive is private - only you can see it.</p>
+                                <h5>{{ trans('landing.step3') }}</h5>
+                                <p>{{ trans('landing.step3_desc') }}</p>
                             </div>
                         </div>  
                     </div>
@@ -245,8 +233,8 @@
                         <div class="iconbox content_anim5">
                         <i class="fa fa-pen"></i>
                             <div class="iconbox_content">
-                                <h5>Publish your favorite feedbacks.</h5>
-                                <p>Decide, which feedback to publish, and let your friends post public comments on those feedback items.</p>
+                                <h5>{{ trans('landing.step4') }}</h5>
+                                <p>{{ trans('landing.step4_desc') }}</p>
                             </div>
                         </div>  
                     </div>
@@ -255,13 +243,6 @@
             </div>
             
         </section><!-- //More info -->
-        
-        
-        
-    
-        
-        
-        
         
         <!-- Reviews #################### -->
         
@@ -274,32 +255,32 @@
                             <div class="single_review">
                                 <img src="/landing/images/review_01.jpg" alt="" class="img-circle">
                                 <div class="review_content">
-                                    <h6>"I am super excited! Thank you Enes, now I know much more than ever before! Anonymously asking question - is great!”</h6>
-                                    <p>- Rahim Muratov, Kazakhstan, Almaty</p>
+                                    <h6>{{ trans('landing.review_text_1') }}</h6>
+                                    <p>- {{ trans('landing.review_author_1') }}</p>
                                 </div>
                             </div>
                             
                             <div class="single_review">
                                 <img src="/landing/images/review_02.jpg" alt="" class="img-circle">
                                 <div class="review_content">
-                                    <h6>I was feeling pretty creaky after hearing the TV reporter say, "To contact me, go to my Facebook page, follow me on Twitter, or try me the old-fashioned way-e-mail.</h6>
-                                    <p>- Jane Kovalsky, Apple</p>
+                                    <h6>{{ trans('landing.review_text_2') }}</h6>
+                                    <p>- {{ trans('landing.review_author_2') }}</p>
                                 </div>
                             </div>
                             
                             <div class="single_review">
                                 <img src="/landing/images/review_03.jpg" alt="" class="img-circle">
                                 <div class="review_content">
-                                    <h6>A Sergeant was addressing a squad of 25 and said: "I have a nice easy job for the laziest man here.  Put up your hand if you are the laziest."  24 men raised their hands, and the sergeant asked the other man "why didn't you raise your hand?"  The man replied: "Too much trouble raising the hand, Sarge."</h6>
-                                    <p>- Mat Patterson, Google</p>
+                                    <h6>{{ trans('landing.review_text_3') }}</h6>
+                                    <p>- {{ trans('landing.review_author_3') }}</p>
                                 </div>
                             </div>
                             
                             <div class="single_review">
                                 <img src="/landing/images/review_04.jpg" alt="" class="img-circle">
                                 <div class="review_content">
-                                    <h6>The 21st century: Deleting history is more important than making it.</h6>
-                                    <p>- Billy </p>
+                                    <h6>{{ trans('landing.review_text_4') }}</h6>
+                                    <p>- {{ trans('landing.review_author_4') }} </p>
                                 </div>
                             </div>
                             
@@ -313,23 +294,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 content_anim29">
-                    <h3>Contact Info</h3>
-                    <p>James is a responsive "under construction" page. It will fit perfectly as a placeholder for your website or landing page.</p>
-                    <p>It comes with several content and background variants. James is also equiped with some cool devices mockups for app version.</p>
+                    <h3>{{ trans('landing.contact_info') }}</h3>
+                    {!! trans('landing.contact_desc') !!}
                     
                     <ul class="icon_list">
-                        <li><div data-icon="&#xe1b4;" class="icon_small float-left"></div><h6>1234 Street Name, City Name,<br>United States</h6></li>
-                        <li><div data-icon="&#xe23a;" class="icon_small float-left"></div><h6>(123) 456-7890</h6></li>
-                        <li><div data-icon="&#xe242;" class="icon_small float-left"></div><h6><a href="mailto:webdesign@shegy.pl">webdesign@shegy.pl</a></h6></li>
+                        <li><div data-icon="&#xe1b4;" class="icon_small float-left"></div><h6>{{ trans('landing.address') }}</h6></li>
+                        <li><div data-icon="&#xe23a;" class="icon_small float-left"></div><h6>{{ trans('landing.phone') }}</h6></li>
+                        <li><div data-icon="&#xe242;" class="icon_small float-left"></div><h6><a href="mailto:info@grannypinion.de">info@grannypinion.de</a></h6></li>
                     </ul>
                     
-                    <p>James has of corse well formated and commented code and comes with in depth documentation.</p>   
+                    <p>{{ trans('landing.author') }}</p>   
                     </div>
                     
                     
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 content_anim30">
-                        <h3>Contact Us</h3>
-                        <p>Contact Us using contact form below. Form is fully working and very easy to customise. </p>
+                        <h3>{{ trans('landing.contact_us') }}</h3>
+                        <p>{{ trans('landing.contact_us_desc') }} </p>
                     
                     
                         <!-- Contact Form -->
@@ -337,18 +317,18 @@
                             <div class="contact_form">
                                 <div class="input-field">
                                     <input id="first_name" type="email" name="contact-name">
-                                    <label for="first_name">Your Name</label>
+                                    <label for="first_name">{{ trans('landing.your_name') }}</label>
                                 </div>
                                 <div class="input-field">
                                     <input id="contact_email" type="email" name="contact-email">
-                                    <label for="contact_email">Email Address</label>
+                                    <label for="contact_email">{{ trans('landing.email') }}</label>
                                 </div>
                                 <div class="input-field">
                                     <textarea class="materialize-textarea" name="contact-message"></textarea>
-                                    <label>Message</label>
+                                    <label>{{ trans('landing.message') }}</label>
                                 </div>
                             </div>  
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Send</button>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">{{ trans('landing.send') }}</button>
                         </form>
                         <!-- //Contact Form -->
                     
@@ -374,14 +354,12 @@
                                 <ul>
                                     <li><div data-icon="&#xe282;" class="social_icon twitter_icon" onclick="location.href='#'"></div></li>
                                     <li><div data-icon="&#xe281;" class="social_icon facebook_icon" onclick="location.href='#'"></div></li>
-                                    <li><div data-icon="&#xe279;" class="social_icon linkdin_icon" onclick="location.href='#'"></div></li>
-                                    <li><div data-icon="&#xe27f;" class="social_icon dribbble_icon" onclick="location.href='#'"></div></li>
                                 </ul>
                             </div>
                         </div>  
                         <!-- //Social Icons -->
 
-                    <p><small>Copyright © 2015 James, Made with ❤ by Mat Przegietka</small></p> 
+                    <p><small>Copyright © {{date('Y')}} Grannypinion, Made with ❤ by Enes Witwit</small></p> 
                     </div>
                 </div>              
             </div>

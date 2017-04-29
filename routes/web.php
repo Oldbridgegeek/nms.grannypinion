@@ -48,8 +48,9 @@ Route::get('/room/{id}/getData', 'MessagesController@getData');
 Route::post('/room/{id}/sendMessage', 'MessagesController@sendMessage');
 
 Route::name('welcome')->get('/', function () {
-	return view('landing');
+	return view('landing.home');
 });
+Route::post('landing/register', 'LandingRegisterController@register');
 
 // Route::middleware('auth')->group(function () {
 // Logged-In and Dashboard
