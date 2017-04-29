@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class RoomsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
     	$rooms = Auth::user()->rooms;
@@ -17,6 +22,10 @@ class RoomsController extends Controller
 
     public function room($id)
     {
+        if(!Auth::user()->hasRoom($id))
+        {
+            abort(404);
+        }
     	return view('chat.room');
     }
 

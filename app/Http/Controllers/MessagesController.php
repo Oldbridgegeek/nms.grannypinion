@@ -9,9 +9,16 @@ use App\Message;
 use App\RoomsUsers;
 use App\Events\MessageSent;
 use Illuminate\Http\Request;
+use App\Notifications\ChatStarted;
+use Illuminate\Support\Facades\Notification;
 
 class MessagesController extends Controller
 {
+
+    public function index()
+    {
+        
+    }
 	public function __construct()
 	{
 		$this->middleware('auth');
@@ -34,6 +41,7 @@ class MessagesController extends Controller
                 'pal_id'    =>  $user_id,
                 'room_id'   =>  $room_id
             ]);
+            Notification::send($pal,new ChatStarted($room_id,trans('app.anonymous_user')));       
         }
     }
 
@@ -50,7 +58,6 @@ class MessagesController extends Controller
 
         $user = Auth::user();
     	broadcast(new MessageSent($message, $user, $room_id))->toOthers();
-
     }
 
     public function getData($roomID)

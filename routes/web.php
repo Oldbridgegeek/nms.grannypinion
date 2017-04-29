@@ -14,9 +14,6 @@ use Illuminate\Http\Request;
 use App\Feedback;
 
 Auth::routes();
-Route::get('test', function(){
-	// factory(App\FeedbackComment::class, 2)->create();
-});
 Route::get('/email/confirmation/{token}', 
 	'Auth\EmailConfirmationController@confirm')
 		->name('email.confirmation');
@@ -42,6 +39,7 @@ Route::get('/reply/{survey}', 'ReplyController@create');
 Route::post('/reply/store', 'ReplyController@store')->name('reply.store');
 
 //CHAT
+Route::get('/test','MessagesController@index');
 Route::get('/messages', 'RoomsController@index');
 Route::get('/room/{id}', 'RoomsController@room');
 Route::get('/room/create/{id}', 'RoomsController@create')->name('chatRoom');
