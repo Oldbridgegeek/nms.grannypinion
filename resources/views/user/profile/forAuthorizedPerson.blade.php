@@ -1,5 +1,5 @@
-<a href="/{{$user->id}}/message">
-    <button class="btn btn-primary btn-md disabled">
+<a href="{{route('chatRoom',['id'=>$user->id])}}">
+    <button class="btn btn-primary btn-md">
     {{ trans('app.anonymous_message') }}
     </button>
 </a>

@@ -59,7 +59,7 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex';
+	// import { mapGetters } from 'vuex';
 	import Comment from '../components/Comment';
 
 	export default {

@@ -107,6 +107,9 @@ use Carbon\Carbon;
                                         <a href="{{ route('survey.index') }}">{{ trans('app.my_surveys') }}</a>
                                     </li>
                                     <li>
+                                        <a href="/messages">{{ trans('app.my_messages') }}</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -123,21 +126,22 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+            @if (session('status'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
                         </div>
-                        @endif
                     </div>
                 </div>
-            </div>
-            @yield('content')
+            @endif
+            
         </div>
+            @yield('content')
         
-    </body>
     <footer>
     <div class="container">
         <div class="row" style="margin-top:4em;">
@@ -160,5 +164,5 @@ use Carbon\Carbon;
     <script src="/js/app.js"></script>
     @yield('customJS')
     <!-- Latest compiled and minified JavaScript -->
-        
+    </body>
 </html>

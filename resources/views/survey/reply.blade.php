@@ -79,10 +79,7 @@
          halfStar: true
       })
       .on("rateyo.set", function (e, data) {
-        // var formGroup = ;
-        // console.log(formGroup.val);return;
         $(this).closest('.form-group').children('.my-rating').val(data.rating);
-         // $('.my-rating').val();
       });
     })
 </script>
