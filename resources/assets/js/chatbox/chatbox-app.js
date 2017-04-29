@@ -1,6 +1,15 @@
 import Vue from 'vue';
 import Chatbox from './components/Chatbox.vue';
 import axios from 'axios';
+import Echo from "laravel-echo"
+import Pusher from 'pusher-js';
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'c65bada3da1ff86a3b28',
+    cluster: 'eu',
+});
+
 
 new Vue({
 	el: '#chatbox',
