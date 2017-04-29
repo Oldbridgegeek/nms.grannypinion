@@ -18,16 +18,7 @@ class MessagesController extends Controller
 	}
 	private $image = '/uploads/avatars/default/default.jpg';
 
-    public function index()
-    {
-    	$rooms = Auth::user()->rooms;
-    	return view('chat.index', compact('rooms'));
-    }
-
-    public function room($id)
-    {
-    	return view('chat.room');
-    }
+    
 
     public function getPal($roomID)
     {
@@ -35,52 +26,30 @@ class MessagesController extends Controller
     	return $pal;
     }
 
-    public function create($id)
+    private function openRoomFor($pal_id, $room_id, $user_id)
     {
-    	$existingRoom = Auth::user()->rooms()->where('pal_id',$id)->first();
-    	if ($existingRoom != null) {
-    		return redirect()->action(
-			    'MessagesController@room', ['id' => $existingRoom->id]
-			);
-    	}
-
-    	//create a room and then redirect
-    	$newRoom = Room::create();
-    	$newRoomID = $this->makeRoom($id, $newRoom->id);
-    	
-
-    	return redirect()->action(
-		    'MessagesController@room', ['id' => $newRoomID]
-		);
-    }
-
-    private function makeRoom($id, $newRoomID)
-    {
-    	return Auth::user()->rooms()->create([
-    		'pal_id'	=>	$id,
-    		'room_id'	=>	$newRoomID,
-    		'created_id'	=>	Auth::user()->id
-    	])->id;
+        $pal = User::find($pal_id);
+        if (!$pal->hasRoom($room_id)) {
+            $pal->rooms()->create([
+                'pal_id'    =>  $user_id,
+                'room_id'   =>  $room_id
+            ]);
+        }
     }
 
     public function sendMessage(Request $request)
     {
     	extract($request->all());
-    	$pal = User::find($pal_id);
-    	if (!$pal->hasRoom($room_id)) {
-    		$pal->rooms()->create([
-    			'pal_id'	=>	$user_id,
-    			'room_id'	=>	$room_id
-    		]);
-    	}
+    	$pal = $this->openRoomFor($pal_id, $room_id, $user_id);
 
     	$message = Message::create([
     		'user_id' => $user_id,
     		'message'	=>	$message,
     		'room_id'	=>	$room_id
     	]);
+
         $user = Auth::user();
-    	broadcast(new MessageSent($message, $user))->toOthers();
+    	broadcast(new MessageSent($message, $user, $room_id))->toOthers();
 
     }
 
@@ -101,8 +70,7 @@ class MessagesController extends Controller
 				'image'		=>	Auth::user()->getImage()
 			],
 			'additionalInfo'	=>	[
-				// 'default_image'	=>	$this->image,
-				'created_id'	=> $created_id,
+				'created_id'	   => $created_id,
 				'chatWith'			=>	trans('app.chat_with'),
 				'typeMessageHere'	=>	trans('app.type_message_here'),
 				'send'				=>	trans('app.send'),

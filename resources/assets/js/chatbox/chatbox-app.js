@@ -14,10 +14,14 @@ new Vue({
 	
 	created: function() {
 		this.loadData();
-
+		let roomID = this.getRoomID();
 		window.Echo.join('chatbox')
 	    .listen('MessageSent', (e) => {
-	    	if (e.user.id != this.currentUser.id) {
+	    	//only for Others and only in this!(roomID) room.
+	    	if (e.user.id != this.currentUser.id && e.roomID == roomID) {
+	    		if (e.user.avatar == null) {
+	    			e.user.avatar = '/default/default.jpg';
+	    		}
 	    		let el = {
 					text: e.message.message,
 					user: {
@@ -26,7 +30,7 @@ new Vue({
 					}
 				};
 				this.messages.push(el);
-				this.scrollToEnd(1000000000000);	
+				this.scrollToEnd(1000000000000);
 	    	}
 	        
 	    });

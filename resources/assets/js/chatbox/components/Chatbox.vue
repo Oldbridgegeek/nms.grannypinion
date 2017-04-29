@@ -27,7 +27,7 @@
 			</ul>
 			<div class="bottom_wrapper clearfix">
 				<div class="message_input_wrapper">
-					<input v-model="newMessage" class="message_input" :placeholder="additionalInfo.typeMessageHere" @keyup.enter="addMessage">
+					<input v-model="newMessage" class="message_input" :placeholder="additionalInfo.typeMessageHere" @keyup.enter="addMessage" autofocus>
 				</div>
 				<div class="send_message" @click="addMessage">
 					<div class="icon"></div>
