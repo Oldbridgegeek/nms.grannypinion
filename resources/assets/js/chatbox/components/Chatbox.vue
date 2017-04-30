@@ -16,6 +16,8 @@
 					<div class="avatar">
 						<img :src="message.user.image" v-if="currentUserImage(message)">
 
+						<img src="/uploads/avatars/default/default.jpg" v-if="!currentUserImage(message) && chatWithAnonymous()">
+
 						<img :src="message.user.image" v-if="!currentUserImage(message) && !chatWithAnonymous()">
 					</div>
 					<div class="text_wrapper">
@@ -153,38 +155,39 @@
 	  opacity: 0;
 	}
 	.messages .message.left .avatar {
-	  background-color: #f5886e;
+	  /*background-color: #f5886e;*/
 	  float: left;
 	}
 	.messages .message.left .avatar img, .messages .message.right .avatar img {
 		width: 100%;
+		border-radius: 100px;
 	}
 	.messages .message.left .text_wrapper {
-	  background-color: #ffe6cb;
+	  background-color: #fff;
 	  margin-left: 20px;
 	}
 	.messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
 	  right: 100%;
-	  border-right-color: #ffe6cb;
+	  border-right-color: #fff;
 	}
 	.messages .message.left .text {
-	  color: #c48843;
+	  color: #000;
 	}
 	.messages .message.right .avatar {
-	  background-color: #fdbf68;
+	  /*background-color: #fdbf68;*/
 	  float: right;
 	}
 	.messages .message.right .text_wrapper {
-	  background-color: #c7eafc;
+	  background-color: #fff;
 	  margin-right: 20px;
 	  float: right;
 	}
 	.messages .message.right .text_wrapper::after, .messages .message.right .text_wrapper::before {
 	  left: 100%;
-	  border-left-color: #c7eafc;
+	  border-left-color: #fff;
 	}
 	.messages .message.right .text {
-	  color: #45829b;
+	  color: #000;
 	}
 	.messages .message.appeared {
 	  opacity: 1;

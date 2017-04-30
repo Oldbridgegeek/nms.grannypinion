@@ -88,7 +88,7 @@ body
 
 div.user-profile{
   background: #fff;
-  padding: 25px 0;
+  /*padding: 25px 0;*/
   overflow: hidden;
 }
 .navbar
@@ -134,7 +134,7 @@ button {
 }
 .navbar-default .navbar-nav>li>a {
     color: #fbfbfb !important;
-    background-color: #303F9F !important;
+    background-color: #4527a0 !important;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: #fbfbfb;
@@ -150,7 +150,7 @@ button {
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color: #fbfbfb !important;
-    background-color: #303F9F !important;
+    background-color: #4527a0 !important;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
@@ -263,4 +263,13 @@ color: #999;
   {
     color: #fff !important;
   }  
+}
+
+.well
+{
+  padding: 0px !important;
+}
+.well-sm
+{
+  padding: 0px !important;
 }

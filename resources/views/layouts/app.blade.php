@@ -11,6 +11,9 @@ use Carbon\Carbon;
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Styles -->
+        <meta property="og:title" content="Grannypinion.de">
+        <meta property="og:description" content="Get anonymous feedback from your friends">
+        <meta property="og:image" content="http://www.yoursite.com/landing/images/logo2-black.png">
         
           {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <link rel="stylesheet" href="/css/custom.css">

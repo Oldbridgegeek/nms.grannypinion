@@ -24,7 +24,7 @@
                             <i class="glyphicon glyphicon-question-sign"></i>
                               {{ trans('app.surveys') }}: {{$user->surveys()->count()}}
                             <br />
-                            <i class="glyphicon glyphicon-gift"></i>{{ trans('app.registered') }}: {{$user->created_at->diffForHumans() }}</p>
+                            {{-- <i class="glyphicon glyphicon-gift"></i>{{ trans('app.registered') }}: {{$user->created_at->diffForHumans() }}</p> --}}
                             @if($user->isAuthor())
                               @include('user.profile.forAuthor')
                             @elseif($user->authorizedUser())

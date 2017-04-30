@@ -10,9 +10,23 @@
             <h3>
             {{ trans('app.share_the_link') }}
             <br><br>
-            <p>
-                <input type="text" class="form-control" value="{{env('APP_URL')}}/reply/{{$survey->id}}" disabled>
-            </p>
+            <div>
+                <input type="text" class="form-control" value="{{env('APP_URL')}}/reply/{{$survey->id}}" disabled style="width: 50%; float:left;">
+
+                <div class="btn-group" style="margin-left: 15px;">
+                    <button type="button" class="btn btn-primary">
+                        {{ trans('app.share') }}!</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span><span class="sr-only">Social</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="https://twitter.com/intent/tweet?text={{trans('app.twitter')}} {{env('APP_URL')}}/{{Auth::user()->id}}/reply/{{$survey->id}}">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{env('APP_URL')}}/reply/{{$survey->id}}&display=popup">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
             </h3>
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align:center;"> 
