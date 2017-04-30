@@ -6,6 +6,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align: center;">{{ trans('app.my_surveys') }}</div>
+                @if(count($surveys))
                 <div class="span5">
                     <table class="table table-striped table-condensed">
                     <thead>
@@ -17,37 +18,41 @@
                           <th>{{ trans('app.actions') }}</th>                                         
                       </tr>
                   </thead>   
-                  <tbody>
-                @forelse($surveys as $survey)
-                    {{-- <div class="panel-body"> --}}
-                        <tr>
-                            <td>{{$survey->id}}</td>
-                            <td>{{$survey->title}}</td>
-                            <td>{{$survey->created_at->diffForHumans()}}</td>
-                            <td>{{count($survey->answers())}}</td>
-                            <td>
-                                <ul class="survey-actions" style="padding-left:0px;">
-                                    <li>
-                                        <a title="Details" href="{{route('survey.show', ['survey' => $survey] )}}"> <i class="glyphicon glyphicon-eye-open"></i> </a>
-                                    </li>
-                                    <li>
-                                        {{ Form::open(['method' => 'DELETE', 'route' => ['survey.delete', $survey->id]]) }}
-                                        <button onclick="return confirm('Are you sure?')"  class="empty-button" type="submit"><i class="glyphicon glyphicon-remove"></i></button>
-                                        {{ Form::close() }}
-                                    </form>
-                                    </li>
-                                </ul>
-                            </td>                                       
-                        </tr>
-                    {{-- </div> --}}
-                    @empty
-                    <br>
-                    <p class="alert alert-info">{{ trans('app.no_surveys') }}</p>
-                @endforelse
+                    <tbody>
+                      @foreach($surveys as $survey)
+                          {{-- <div class="panel-body"> --}}
+                              <tr>
+                                  <td>{{$survey->id}}</td>
+                                  <td>{{$survey->title}}</td>
+                                  <td>{{$survey->created_at->diffForHumans()}}</td>
+                                  <td>{{count($survey->answers())}}</td>
+                                  <td>
+                                      <ul class="survey-actions" style="padding-left:0px;">
+                                          <li>
+                                              <a title="Details" href="{{route('survey.show', ['survey' => $survey] )}}"> <i class="glyphicon glyphicon-eye-open"></i> </a>
+                                          </li>
+                                          <li>
+                                              {{ Form::open(['method' => 'DELETE', 'route' => ['survey.delete', $survey->id]]) }}
+                                              <button onclick="return confirm('Are you sure?')"  class="empty-button" type="submit"><i class="glyphicon glyphicon-remove"></i></button>
+                                              {{ Form::close() }}
+                                          </form>
+                                          </li>
+                                      </ul>
+                                  </td>                                       
+                              </tr>
+                          {{-- </div> --}}
+                          
+                          
+                      @endforeach
                     </tbody>
                 </table>
               </div>
+              @else
+                <br>
+                    <p class="alert alert-info">{{ trans('app.no_surveys') }}</p>
+              @endif
             </div>
+
 
             <a href="{{route('survey.create')}}" class="btn btn-success btn-md" style="display: block; width: 100%;"> {{ trans('app.survey_create') }} </a>
         </div>

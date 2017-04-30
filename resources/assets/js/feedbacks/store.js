@@ -48,7 +48,7 @@ const store = new Vuex.Store({
 	    },
 
 	    removeFeedback: (context, feedback) => {
-	    	if (confirm(context.state.confirmationQuestion)) {
+	    	// if (confirm(context.state.confirmationQuestion)) {
 				axios.post('/feedback/delete', {
 				    feedback_id: feedback.id
 				})
@@ -61,7 +61,7 @@ const store = new Vuex.Store({
 				.catch(function (error) {
 				    console.log(error);
 				});
-			}
+			// }
 	    },
 
 	    switchStatus: (context, feedback) => {
@@ -92,7 +92,7 @@ const store = new Vuex.Store({
 			    //then need to ANONYMOUS
 			})
 			.then(function (response) {
-			    context.commit('addComment',feedback);
+			    // context.commit('addComment',feedback);
 			})
 			.catch(function (error) {
 			    console.log(error);

@@ -20,6 +20,10 @@ class FeedbackAPIController extends Controller
 							$q->where('parent_id',NULL);
 						}])
 						->get();
+		// $currentGuestData = [
+		// 	'id'
+		// ];
+		// $currentUser = Auth::check() ? Auth::user() : '';
 
 		return response()->json([
 			'confirmationQuestion'	=>	trans('app.you_sure?'),
@@ -35,9 +39,9 @@ class FeedbackAPIController extends Controller
 				
 			],
 			'currentUser'	=>	[
-				'id'	=>	Auth::user()->id,
-				'fullName'	=>	Auth::user()->getFullName(),
-				'image'		=>	Auth::user()->getImage()
+				'id'	=>	Auth::check() ? Auth::user()->id : '0',
+				'fullName'	=>	Auth::check() ? Auth::user()->getFullName() : '',
+				'image'		=>	Auth::check() ? Auth::user()->getImage() : ''
 			],
 			'feedbacks'	=>	$this->buildFeedbacks($feedbacks),
 			'feedbacksCount' => count($feedbacks)
@@ -47,14 +51,14 @@ class FeedbackAPIController extends Controller
 	private function buildFeedbacks($feedbacks)
 	{
 		$data = [];
-
+		$currentUser_id = Auth::check() ? Auth::user()->id : 0;
 		foreach ($feedbacks as $feedback) {
 			$data[] = [
 				'id'		=>	$feedback->id,
 				'title'		=>	trans('app.feedback_title'),
 				'content'	=>	$feedback->text,
 				'date'		=>	$feedback->created_at->diffForHumans(),
-				'isAuthor'	=>	Auth::user()->id == $feedback->user_id,
+				'isAuthor'	=>	$currentUser_id == $feedback->user_id,
 				'isStatusPublic'	=>	$feedback->status == 1 ? true : false,
 				'comments'	=> $this->buildComments($feedback->comments),
 				'newComment'=>	'',

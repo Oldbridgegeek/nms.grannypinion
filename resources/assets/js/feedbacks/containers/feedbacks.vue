@@ -72,6 +72,10 @@
 
 			messages(){
 				return this.$store.getters.messages;
+			},
+			currentUser()
+			{
+				return this.$store.getters.currentUser;	
 			}
 		},
 		created()
@@ -82,6 +86,47 @@
 			addComment: function(feedback)
 			{
 				this.$store.dispatch('addComment', feedback);
+				this.addMessage(feedback);
+			},
+
+			addMessage: function(feedback)
+			{
+				if(feedback.anonymousReply == true)
+				{
+					var user = {
+						id: this.currentUser.id,
+			  			fullName: this.messages.anonymousName,
+			  			image: this.messages.defaultImage
+					};
+				}
+				else
+				{
+					var user = {	
+						id: this.currentUser.id,
+			  			fullName: this.currentUser.fullName,
+			  			image: this.currentUser.image
+			  		};
+				}
+				let comment = {
+					  		id: this.currentUser.id,
+					  		text: feedback.newComment,
+					  		action: this.messages.reply,
+					  		date: this.messages.justNow,
+					  		user: user, 
+					  		hasChildren: false,
+					  		children: []
+					  	};
+
+				if (feedback.replyTo == '') {
+					feedback.comments.push(comment);
+				}
+				else
+				{
+					feedback.replyTo.comment.children.push(comment);
+				}
+				
+			  	feedback.newComment = '';
+			  	feedback.replyTo = '';
 			},
 
 			cancelReply: function(feedback)
@@ -104,13 +149,14 @@
 
 			removeFeedback: function(index,feedback)
 			{
-				this.$store.dispatch('removeFeedback',{
-					id: feedback.id,
-					index: index
-				});
+				if (confirm(this.$store.state.confirmationQuestion)) {
+					this.$store.dispatch('removeFeedback',{
+						id: feedback.id,
+						index: index
+					});
 
-				this.feedbacks.splice(index,1);
-
+					this.feedbacks.splice(index,1);
+				}
 			},
 		}
 	}
