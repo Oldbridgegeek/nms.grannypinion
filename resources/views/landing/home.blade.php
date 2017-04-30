@@ -313,18 +313,19 @@
                     
                     
                         <!-- Contact Form -->
-                        <form action="http://www.shegy.nazwa.pl/themeforest/JamesLP/app/html/php/contactform.php" id="contact-form" method="post">
+                        <form action="/contact"  method="post">
+                        {{csrf_field()}}
                             <div class="contact_form">
                                 <div class="input-field">
-                                    <input id="first_name" type="email" name="contact-name">
+                                    <input id="first_name" type="text" name="name">
                                     <label for="first_name">{{ trans('landing.your_name') }}</label>
                                 </div>
                                 <div class="input-field">
-                                    <input id="contact_email" type="email" name="contact-email">
+                                    <input id="contact_email" type="email" name="email">
                                     <label for="contact_email">{{ trans('landing.email') }}</label>
                                 </div>
                                 <div class="input-field">
-                                    <textarea class="materialize-textarea" name="contact-message"></textarea>
+                                    <textarea class="materialize-textarea" name="message"></textarea>
                                     <label>{{ trans('landing.message') }}</label>
                                 </div>
                             </div>  

@@ -12,6 +12,8 @@
  */
 use Illuminate\Http\Request;
 use App\Feedback;
+use App\Mail\ContactMail;
+
 
 Auth::routes();
 Route::get('/email/confirmation/{token}', 
@@ -52,6 +54,11 @@ Route::name('welcome')->get('/', function () {
 });
 Route::post('landing/register', 'LandingRegisterController@register');
 
+
+Route::post('/contact', function(Request $request){
+	// \Mail::to('forbdruid@gmail.com')->send(new ContactMail($request->all()));
+	return view('thanks');
+});
 // Route::middleware('auth')->group(function () {
 // Logged-In and Dashboard
 Route::get('/home', 'HomeController@index');

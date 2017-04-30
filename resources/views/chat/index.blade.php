@@ -134,7 +134,9 @@ ul.c-controls li a:hover {
 	                    </li>
 					@endif
 				@empty
-					You have no chats
+					<p class="alert">
+                        {{ trans('app.no_chats') }}
+                    </p>
 				@endforelse
                     
                 </ul>

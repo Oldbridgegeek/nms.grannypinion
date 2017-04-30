@@ -172,16 +172,17 @@ use Carbon\Carbon;
     </footer> --}}
     <style>
         #footer.subsection {
-            /*position: absolute;*/
-            /*bottom: 0px;*/
+            position: fixed;
+            bottom: 0px;
             width: 100%;
+            text-align: center;
             opacity: .6;
-            padding-top:2rem;
-            padding-bottom:0.9rem;
+            padding-top:1rem;
+            /*padding-bottom:0.9rem;*/
             background: #eee;
             color: #000;
             text-align: center;
-            height: 150px;
+            height: 30px;
         }
 
         #footer small {
@@ -190,7 +191,7 @@ use Carbon\Carbon;
 
         #footer p {
             font-weight: 300;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             letter-spacing: 0.02rem;
             line-height: 1.72rem;
             margin: 0px 0px 1.72rem 0px
@@ -251,19 +252,8 @@ use Carbon\Carbon;
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
-                
-                    <!-- Social Icons -->
-                    <div class="social_icons_container align-center">
-                        <div class="social_icons">
-                            <ul>
-                                <li><div data-icon="&#xe282;" class="social_icon twitter_icon" onclick="location.href='#'"></div></li>
-                                <li><div data-icon="&#xe281;" class="social_icon facebook_icon" onclick="location.href='#'"></div></li>
-                            </ul>
-                        </div>
-                    </div>  
-                    <!-- //Social Icons -->
-
-                <p><small>Copyright © {{date('Y')}} Grannypinion, Made with ❤ by Enes Witwit</small></p> 
+                <p><small>Copyright © {{date('Y')}} Grannypinion, Made with <span style="color: red;">❤</span> by 
+                <a href="http://eneswitwit.com">Enes Witwit</a></small></p> 
                 </div>
             </div>              
         </div>

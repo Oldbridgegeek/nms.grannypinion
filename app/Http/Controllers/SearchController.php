@@ -20,7 +20,7 @@ class SearchController extends Controller {
 		$users = $this->filterThroughUserNamesExtended($request);
 
 		if ($users->count() == 0) {
-			return "Kein Treffer für Name: $request->name";
+			return view('user.search', ['request'=>$request->get('name')]);
 		}
 
 		return view('user.search', compact('users'));

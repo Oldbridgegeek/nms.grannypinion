@@ -91,42 +91,44 @@
 
 			addMessage: function(feedback)
 			{
-				if(feedback.anonymousReply == true)
-				{
-					var user = {
-						id: this.currentUser.id,
-			  			fullName: this.messages.anonymousName,
-			  			image: this.messages.defaultImage
-					};
-				}
-				else
-				{
-					var user = {	
-						id: this.currentUser.id,
-			  			fullName: this.currentUser.fullName,
-			  			image: this.currentUser.image
-			  		};
-				}
-				let comment = {
-					  		id: this.currentUser.id,
-					  		text: feedback.newComment,
-					  		action: this.messages.reply,
-					  		date: this.messages.justNow,
-					  		user: user, 
-					  		hasChildren: false,
-					  		children: []
-					  	};
+				if (feedback.newComment != '') {
+					if(feedback.anonymousReply == true)
+					{
+						var user = {
+							id: this.currentUser.id,
+				  			fullName: this.messages.anonymousName,
+				  			image: this.messages.defaultImage
+						};
+					}
+					else
+					{
+						var user = {	
+							id: this.currentUser.id,
+				  			fullName: this.currentUser.fullName,
+				  			image: this.currentUser.image
+				  		};
+					}
+					let comment = {
+						  		id: this.currentUser.id,
+						  		text: feedback.newComment,
+						  		action: this.messages.reply,
+						  		date: this.messages.justNow,
+						  		user: user, 
+						  		hasChildren: false,
+						  		children: []
+						  	};
 
-				if (feedback.replyTo == '') {
-					feedback.comments.push(comment);
+					if (feedback.replyTo == '') {
+						feedback.comments.push(comment);
+					}
+					else
+					{
+						feedback.replyTo.comment.children.push(comment);
+					}
+					
+				  	feedback.newComment = '';
+				  	feedback.replyTo = '';
 				}
-				else
-				{
-					feedback.replyTo.comment.children.push(comment);
-				}
-				
-			  	feedback.newComment = '';
-			  	feedback.replyTo = '';
 			},
 
 			cancelReply: function(feedback)

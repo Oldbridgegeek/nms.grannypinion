@@ -33,7 +33,8 @@ return [
 	'copyright'					=>		'd Copyright ©' . date('Y') . ' All rights reserved',
 	'created_by'				=>		'd Created by',
 	'leave_feedback'			=>		'd Leave Anonymous Feedback for: ',
-	'feedback_added'			=>		'd Thank you! Your feedback has been added! Your feedback has been added!',
+	'feedback_added'			=>		'd Thank you! Your feedback has been added! The receiver will get an email notification.',
+	'have_fun'					=>		'd Have fun on our platform!',
 	'you_sure?'					=>		'd Are you sure?',
 	'feedback_title'			=>		'd Anonymous feedback',
 	'reply'						=>		'd Reply',
@@ -64,4 +65,8 @@ return [
 	'created'					=>		'd Created',
 	'answers'					=>		'd Answers',
 	'actions'					=>		'd Actions',
+	'no_chats'					=>		'd You have no chats',
+	'continue'					=>		'd Continue to homepage',
+	'success'					=>		'd Success',
+	'survey_added'				=>		'd Your reply has been added! The receiver will get an email notification.'
 ];

@@ -42,5 +42,7 @@ class LandingRegisterController extends Controller {
 		$data['lastname'] = 'Lastname';
 		$data['email'] = $data['email'];
 		$data['password'] = $data['password'];
+		
+		return $data;
 	}
 }
