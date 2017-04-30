@@ -7,6 +7,7 @@ use Hash;
 use Image;
 use Mail;
 use App\Feedback;
+use Carbon\Carbon;
 use App\Mail\EmailConfirmation;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -234,4 +235,5 @@ class User extends Authenticatable {
 	{
 		return $this->rooms()->where('room_id',$roomID)->count();
 	}
+	
 }

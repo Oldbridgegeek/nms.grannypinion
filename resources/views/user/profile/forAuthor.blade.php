@@ -1,12 +1,15 @@
-{{-- settings page --}}
-{{-- <a href="{{route('user.setting')}}" >
-  <button class="btn btn-primary btn-md">{{ trans('app.settings') }}</button>
-</a> --}}
-{{-- share buttons --}}
-<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup"> 
-  <button class="btn btn-primary btn-md" style="background: #3b5998;"> {{ trans('app.ask_facebook') }} </button>
-</a>
-<a class="twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text={{trans('app.twitter')}} {{env('APP_URL')}}/{{Auth::user()->id}}/feedback/create"> 
-  <button class="btn  btn-md" style="background: #3cf; color:#fff"> Twitter</button>
-</a>
-<p style="margin-top:1em;">{{ trans('app.share_facebook') }}: <b style="color:blue;"> {{env('APP_URL')}}/{{Auth::user()->id}}/feedback/create </b></p>
+<!-- Split button -->
+<div class="btn-group">
+	<a href="/settings" class="btn btn-primary">{{ trans('app.settings') }}</a>
+</div>
+<div class="btn-group">
+    <button type="button" class="btn btn-primary">
+        {{ trans('app.share') }}!</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span><span class="sr-only">Social</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="https://twitter.com/intent/tweet?text={{trans('app.twitter')}} {{env('APP_URL')}}/{{Auth::user()->id}}/feedback/create">Twitter</a></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=grannypinion.de/{{Auth::user()->id}}/feedback/create&display=popup">Facebook</a></li>
+    </ul>
+</div>

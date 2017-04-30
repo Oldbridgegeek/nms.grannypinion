@@ -53,10 +53,10 @@ const store = new Vuex.Store({
 				    feedback_id: feedback.id
 				})
 				.then(function (response) {
-				    context.commit({
-				    	type: 'removeFeedback',
-				    	index: feedback.index
-				    })
+				    // context.commit({
+				    // 	type: 'removeFeedback',
+				    // 	index: feedback.index
+				    // })
 				})
 				.catch(function (error) {
 				    console.log(error);

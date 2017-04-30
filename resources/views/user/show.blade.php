@@ -8,32 +8,38 @@
 @section('content')
 <div id="feedbacks-app">
 <div class="container">
-  <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-          <div class="user-profile">
-            <div class="col-md-3 col-sm-3 col-xs-12 user-image">
-              <img src="{{$user->getImage()}}" class="img-rounded"/>
-            </div>
-            <div class="col-md-7">
-              <h2> {{$user->firstname}} {{$user->lastname}} </h2>
-                <div class="user-stats">
-                  <ul>
-                    <li><i class="glyphicon glyphicon-comment"></i> 
-                    Feedbacks: @{{feedbacksCount}}</li>
-                  </ul>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-md-offset-2">
+            <div class="well well-sm user-profile">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="{{$user->getImage()}}"  alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            {{$user->getFullName()}} </h4>
+                        <p>
+                            <i class="glyphicon glyphicon-comment"></i> {{ trans('app.feedbacks') }}: @{{feedbacksCount}}
+                            <br />
+                            <i class="glyphicon glyphicon-question-sign"></i>
+                              {{ trans('app.surveys') }}: {{$user->surveys()->count()}}
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>{{ trans('app.registered') }}: {{$user->created_at->diffForHumans() }}</p>
+                            @if($user->isAuthor())
+                              @include('user.profile.forAuthor')
+                            @elseif($user->authorizedUser())
+                                @include('user.profile.forAuthorizedPerson')
+                             @else
+                                @include('user.profile.forGuest')    
+                            @endif
+                        
+                    </div>
                 </div>
-                @if($user->isAuthor())
-                  @include('user.profile.forAuthor')
-                @elseif($user->authorizedUser())
-                    @include('user.profile.forAuthorizedPerson')
-                 @else
-                    @include('user.profile.forGuest')    
-                @endif
-            </div> 
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 @if(Auth::check())
   <div class="container" >

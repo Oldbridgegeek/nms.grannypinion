@@ -85,15 +85,15 @@ use Carbon\Carbon;
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
+                            
+                        </ul>
+                        <!-- Right Side Of Navbar -->
+                        <ul class="nav navbar-nav navbar-right">
                             @if(App::getLocale() == 'en')
                                 <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
                             @else
                                 <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
                             @endif
-                        </ul>
-                        <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
-                            
                             
                             
                             <!-- Authentication Links -->

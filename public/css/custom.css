@@ -171,7 +171,7 @@ div.check-email
     color: #fff;
     padding:5px;
     text-align: center;
-}
+}/*
 #main-nav a,#main-nav button {
   color: #fff !important;
 }
@@ -183,4 +183,15 @@ div.check-email
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
 {
   background: #252480 !important;
+}*/
+
+div.user-profile .glyphicon
+{
+  margin-bottom: 10px;margin-right: 10px;
+}
+
+div.user-profile small {
+display: block;
+line-height: 1.428571429;
+color: #999;
 }

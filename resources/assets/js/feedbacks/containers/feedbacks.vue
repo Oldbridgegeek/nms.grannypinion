@@ -108,6 +108,9 @@
 					id: feedback.id,
 					index: index
 				});
+
+				this.feedbacks.splice(index,1);
+
 			},
 		}
 	}

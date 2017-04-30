@@ -43,3 +43,11 @@ $factory->define(App\FeedbackComment::class, function (Faker\Generator $faker) {
 
     ];
 });
+
+$factory->define(App\Feedback::class, function (Faker\Generator $faker) {
+    return [
+        'user_id'=>1,
+        'text' => $faker->paragraph,
+        'status' => 0,
+    ];
+});

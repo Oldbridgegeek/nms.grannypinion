@@ -24,6 +24,7 @@ return [
 	'new_password'				=>		'New Password',
 	'settings'					=>		'Settings',
 	'ask_facebook'				=>		'Facebook',
+	'share'						=>		'Share',
 	'share_facebook'			=>		'Share the link with your friends, so you get Feedback',
 	'upload_picture'			=>		'Upload new profile picture.',
 	'submit'					=>		'Submit',
@@ -54,6 +55,15 @@ return [
 	'type_message_here'		=>		'Type your message here...',
 	'send'					=>		'Send',
 	'chat_with'				=>		'Chat with ',
-	'twitter'				=>		'Grannypinion.de - anonymous feedback. My Profile: '
+	'twitter'				=>		'Grannypinion.de - anonymous feedback. My Profile: ',
+	'profile'				=>		'Profile',
+	'registered'			=>		'Registered',
+	'feedbacks'				=>		'Feedbacks',
+	'surveys'				=>		'Surveys',
+	'started'				=>		'started ',
+	'survey_title'			=>		'Survey\'s title',
+	'created'				=>		'Created',
+	'answers'				=>		'Answers',
+	'actions'				=>		'Actions',
 
 ];
