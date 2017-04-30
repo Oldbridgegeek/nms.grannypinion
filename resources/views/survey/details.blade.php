@@ -7,13 +7,13 @@
             <h3>{{$survey->name}}</h3>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            <h4>
+            <h3>
             {{ trans('app.share_the_link') }}
-
+            <br><br>
             <p>
-                <b style="color:blue;"> {{env('APP_URL')}}/reply/{{$survey->id}} </b>
+                <input type="text" class="form-control" value="{{env('APP_URL')}}/reply/{{$survey->id}}" disabled>
             </p>
-            </h4>
+            </h3>
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align:center;"> 
                     {{$survey->title}}

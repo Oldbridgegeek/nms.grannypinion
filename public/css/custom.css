@@ -256,3 +256,11 @@ color: #999;
     .snip1578 .icons a:hover {
       color: #2980b9;
     }
+
+@media(max-width: 767px)
+{
+  li.open ul li a
+  {
+    color: #fff !important;
+  }  
+}

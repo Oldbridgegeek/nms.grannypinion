@@ -107,22 +107,24 @@ use Carbon\Carbon;
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}">{{ trans('app.my_profile') }}
+                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"><i class="glyphicon glyphicon-user"></i> {{ trans('app.my_profile') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('survey.index') }}">{{ trans('app.my_surveys') }}</a>
+
+                                        <a href="{{ route('survey.index') }}"><i class="glyphicon glyphicon-question-sign"></i> {{ trans('app.my_surveys') }}</a>
                                     </li>
                                     <li>
-                                        <a href="/messages">{{ trans('app.my_messages') }}</a>
+                                        <a href="/messages"><i class="glyphicon glyphicon-comment"></i> {{ trans('app.my_messages') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('user.setting')}}">{{ trans('app.settings') }}</a>
+                                        <a href="{{route('user.setting')}}"><i class="glyphicon glyphicon-tasks"></i> {{ trans('app.settings') }}</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
+                                            <i class="glyphicon glyphicon-off"></i> 
                                             {{ trans('auth.log_out') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
