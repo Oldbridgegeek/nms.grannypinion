@@ -67,18 +67,6 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', '207.154.215.246'),
-            'port' => env('DB_PORT', '22'),
-            'database' => env('DB_DATABASE', 'grannypinion'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
 
     ],
 
