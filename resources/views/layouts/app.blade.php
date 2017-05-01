@@ -1,3 +1,6 @@
+<?php
+use Carbon\Carbon;
+?>
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
@@ -8,97 +11,64 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Styles -->
+        <meta property="og:title" content="Grannypinion.de">
+        <meta property="og:description" content="Get anonymous feedback from your friends">
+        <meta property="og:image" content="http://www.yoursite.com/landing/images/logo2-black.png">
         
-          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+          {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+        <link rel="stylesheet" href="/css/custom.css">
+        <link rel="stylesheet" href="/css/comment.css">
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script> --}}
 
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
 
- 
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
         <!-- Scripts -->
+        <script
+          src="https://code.jquery.com/jquery-1.12.4.min.js"
+          integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+          crossorigin="anonymous"></script>
+        <script src="/js/rate.js"></script>
+        {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+        <script src="/js/custom.js"></script>
+
         <script>
         window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
         ]) !!};
         </script>
 
-        <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zr13yl8gm0jjb9426uqwokjxizk4m0pbypiw35td6b2st7y8"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>
-
-        <style>
-            .list-group-item:first-child {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-            .list-group-item {
-                position: relative;
-                display: block;
-                padding: 10px 15px;
-                margin-bottom: -1px;
-                background-color: #fbfbfb;
-                border: 0px solid #000;
-            }
-            body {
-                color: #292929;
-                font-family: "Roboto",serif;
-                background-color:white;
-                height:100%;
-            }
-            button {
-                box-shadow: 0.5px 0.5px grey;
-            }
-            .navbar-default .navbar-nav>li>a {
-                color: #fbfbfb;
-                background-color: #303F9F;
-            }
-            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-                color: #fbfbfb;
-                
-            }
-            .btn-primary{
-                background-color: #3F51B5;
-                color: #fbfbfb;
-            }
-
-            .btn-primary:hover{
-                background-color: #0000cc;
-            }
-            .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-                color: #fbfbfb;
-                background-color: #303F9F;
-            }
-
-            .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-                background-color: #303F9F;
-            }
-            .glyphicon {
-                font-size: 22px;
-                color: #ff0000;
-            }
-
-
-
-        </style>
     </head>
     <body>
+
+        @if(Auth::check() && !Auth::user()->isEmailConfirmed())
+            <div class="check-email">
+                {{ trans('app.confirm_email') }}
+            </div>
+            @else
+        @endif
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top" style="background-color:#303F9F;">
+            <nav id="main-nav" class="navbar navbar-default navbar-static-top" style="background-color:#4527a0;">
                 <div class="container">
                 <div class="col-md-5">
                     <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}" style="color:#fbfbfb; font-family: 'Dancing Script', cursive; font-size:2em;">
                             {{ config('app.name', 'Laravel') }}
@@ -106,25 +76,33 @@
                     </div>
                     </div>
                     @if(!Auth::guest())
-                    <div class="col-md-5">
+                    <div class="col-md-3 col-sm-3 hidden-xs">
                         <form class="navbar-form" role="search" method="GET" action="{{ route('user.search') }} " >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="name" id="name" style="text-align:center;border-radius:15px;">
+                                <input type="text" class="form-control" placeholder="{{ trans('app.search') }}" name="name" id="name" style="text-align:center;border-radius:15px;">
                             </div>
                         </form>
                     </div>
                     @endif
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    {{-- <div class="collapse navbar-collapse" id="app-navbar-collapse"> --}}
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
-                            &nbsp;
+                            
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
+                            @if(App::getLocale() == 'en')
+                                <li><a href="{{ url('lang/de') }}"><img src="/img/de.svg" width="20"></a></li>
+                            @else
+                                <li><a href="{{ url('lang/en') }}"><img src="/img/gb.png" width="20"></a></li>
+                            @endif
+                            
+                            
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Log In</a></li>
-                            <li><a href="{{ route('register') }}">Sign Up</a></li>
+                            <li><a href="{{ route('login') }}">{{ trans('auth.log_in') }}</a></li>
+                            <li><a href="{{ route('register') }}">{{ trans('auth.sign_up') }}</a></li>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
@@ -132,17 +110,25 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"> My Profile
+                                        <a href="{{ route('user.show' , ['user' => Auth::user()])}}"><i class="glyphicon glyphicon-user"></i> {{ trans('app.my_profile') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('poll.index' ,['user' => Auth::user()])}}"> My Surveys </a>
+
+                                        <a href="{{ route('survey.index') }}"><i class="glyphicon glyphicon-question-sign"></i> {{ trans('app.my_surveys') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/messages"><i class="glyphicon glyphicon-comment"></i> {{ trans('app.my_messages') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('user.setting')}}"><i class="glyphicon glyphicon-tasks"></i> {{ trans('app.settings') }}</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            Log Out
+                                            <i class="glyphicon glyphicon-off"></i> 
+                                            {{ trans('auth.log_out') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -155,28 +141,131 @@
                     </div>
                 </div>
             </nav>
-            @yield('content')
+            @if (session('status'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            
         </div>
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}"></script>
+            @yield('content')
         
-    </body>
-    <footer>
+    {{-- <footer>
     <div class="container">
         <div class="row" style="margin-top:4em;">
           <div class="col-sm-8">
             <ul class="list-inline social">
-              <li>Together we are strong <3 </li>
+              <li>{{ trans('app.we_are_strong') }}</li>
               <li><a href="https://www.facebook.com/Grannypinion-284201705342315/"><i class="fa fa-facebook"></i></a></li>
               <li><a href="https://www.instagram.com/grannypinion/"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
           
           <div class="col-sm-4 text-right">
-            <p><small>Copyright &copy; 2017. All rights reserved. <br>
-                Created by <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
+            <p><small>{{ trans('app.copyright') }}<br>
+                {{ trans('app.created_by') }} <a href="http://eneswitwit.com">Enes Witwit</a></small></p>
           </div>
         </div>
         </div>
-    </footer>
+    </footer> --}}
+    <style>
+        #footer.subsection {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+            opacity: .6;
+            padding-top:1rem;
+            /*padding-bottom:0.9rem;*/
+            background: #eee;
+            color: #000;
+            text-align: center;
+            height: 30px;
+        }
+
+        #footer small {
+            font-weight: 300
+        }
+
+        #footer p {
+            font-weight: 300;
+            font-size: 1.2rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.72rem;
+            margin: 0px 0px 1.72rem 0px
+        }
+        .social_icons ul, .social_icons ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            height: 2rem;
+        }
+
+        .social_icon{
+            font-size:1rem;
+            line-height:1rem;
+            opacity:0.5;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .social_icon:hover {
+            cursor:pointer;
+            opacity:1;
+        }
+
+        .social_icons ul, .social_icons ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            height:2rem;
+        }
+
+        .social_icons ul li {
+            margin-right: 0.7rem;
+            margin-left: 0.7rem;
+        }
+
+        .social_icons ul li:first-child {
+            margin-left:0;
+        }
+
+        .social_icons ul li:last-child {
+            margin-right:0;
+        }
+
+        .social_icons ul li {
+            float:left;
+        }
+
+        .social_icons_container {
+            position: relative;
+            width:100%;
+            z-index: 10;
+        }
+    </style>
+    <section id="footer" class="subsection">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
+                <p><small>Copyright © {{date('Y')}} Grannypinion, Made with <span style="color: red;">❤</span> by 
+                <a href="http://eneswitwit.com">Enes Witwit</a></small></p> 
+                </div>
+            </div>              
+        </div>
+    </section><!-- //More info -->
+
+    <script src="/js/app.js"></script>
+    @yield('customJS')
+    <!-- Latest compiled and minified JavaScript -->
+    </body>
 </html>

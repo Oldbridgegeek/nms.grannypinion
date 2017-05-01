@@ -2,8 +2,26 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Mail;
+use App\Mail\FeedbackAdded;
+use App\Feedback;
+use Auth;
 
 class FeedbackController extends Controller {
+
+	use ValidatesRequests;
+
+	public function __construct()
+	{
+		$this->middleware('interactingWithYourselfNotAllowed',['except'=>[
+			'toggleStatus',
+			'deleteFeedback',
+			'success',
+			// 'getFeedbacks'
+		]]);
+	}
 	/**
 	 * Display all feedback of a user.
 	 *
@@ -23,4 +41,29 @@ class FeedbackController extends Controller {
 	public function create(User $user) {
 		return view('user.feedback.create', compact('user'));
 	}
+
+	public function leave(User $user, Request $request)
+	{
+		$this->validate($request, [
+			'text'=>'required'
+		]);
+
+		$feedback = new Feedback();
+		$feedback->assignToUser($request->get('text'), $user->id);
+		if ($user->canReceiveEmails()) {
+			\Mail::to($user)->send(new FeedbackAdded($user));
+		}
+
+		return redirect('/feedback/success');
+
+	}
+
+	public function success()
+	{
+		return view('user.feedback.thanks');
+	}
+
+	
+
+	
 }

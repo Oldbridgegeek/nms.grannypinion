@@ -5,6 +5,11 @@ use App\User;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	/**
 	 * Search for users.
 	 *
@@ -15,7 +20,7 @@ class SearchController extends Controller {
 		$users = $this->filterThroughUserNamesExtended($request);
 
 		if ($users->count() == 0) {
-			return "Kein Treffer für Name: $request->name";
+			return view('user.search', ['request'=>$request->get('name')]);
 		}
 
 		return view('user.search', compact('users'));

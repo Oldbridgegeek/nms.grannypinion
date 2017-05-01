@@ -30,8 +30,8 @@ class Handler extends ExceptionHandler {
 	 * @return void
 	 */
 	public function report(Exception $exception) {
-		//parent::report($exception);
-		return view('error.error');
+		parent::report($exception);
+		// return view('error.error');
 	}
 
 	/**
@@ -42,8 +42,8 @@ class Handler extends ExceptionHandler {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function render($request, Exception $exception) {
-		return view('error.error');
-		//return parent::render($request, $exception);
+		// return view('error.error');
+		return parent::render($request, $exception);
 	}
 
 	/**

@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -23,12 +23,32 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'verified' => $faker->boolean,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'created_at'    =>  Carbon::now()
     ];
 });
 
-$factory->define(App\Message::class, function (Faker\Generator $faker) {
+$factory->define(App\Feedback::class, function (Faker\Generator $faker) {
     return [
-    	'conversation_id' => 1,
-        'body' => $faker->paragraph,
+        'user_id'=>3,
+    	'text' => $faker->paragraph,
+        'status' => 0,
+    ];
+});
+
+$factory->define(App\FeedbackComment::class, function (Faker\Generator $faker) {
+    return [
+        'feedback_id' => factory(App\Feedback::class)->create()->id,
+        'parent_id' => null,
+        'user_id'   =>  factory(App\User::class)->create()->id,
+        'text'=>    $faker->sentence
+
+    ];
+});
+
+$factory->define(App\Feedback::class, function (Faker\Generator $faker) {
+    return [
+        'user_id'=>1,
+        'text' => $faker->paragraph,
+        'status' => 0,
     ];
 });

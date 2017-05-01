@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Reply;
-use App\Poll;
+use App\SurveyQuestionValue;
+use App\Survey;
 use Auth;
 use User;
 use Illuminate\Http\Request;
 use Mail;
+use App\Mail\ReplyAdded;
+
 
 class ReplyController extends Controller {
+
+	public function __construct()
+	{
+		// $this->middleware('interactingWithYourselfNotAllowed');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -24,11 +31,20 @@ class ReplyController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function create(Poll $poll) {
-		//$link = (string)$link;
-		//$poll = DB::table('polls')->where('link','=',$link)->get();
-		return view('poll.reply',compact('poll'));
+	public function create($survey_id) {
+		$survey = $this->getSurvey($survey_id);
+
+		if ($survey === null) {
+			abort(404);
+		}
+
+		return view('survey.reply',compact('survey'));
 		
+	}
+
+	private function getSurvey($survey_id)
+	{
+		return Survey::where('id',$survey_id)->with('questions')->first();
 	}
 
 	/**
@@ -38,30 +54,36 @@ class ReplyController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-	 	$poll = Poll::find($request->poll_id);
-	 	$user = $poll->user;
+		$data = $request->except(['_token']);
+		$survey = $this->getSurvey($data['survey_id']);
+		// dd($request->all());
+		$this->persistQuestionValues($data);
 
-		$reply = new Reply([
-			'user_id' => $request->user_id,
-			'poll_id' => $request->poll_id,
-			'text' => $request->text,
+		if ($survey->user->canReceiveEmails()) {
+			\Mail::to($survey->user)->send(new ReplyAdded($survey));
+		}
 	
-		]);
-		Mail::send('email.reply', ['poll' => $poll ,'user' =>  $user], function ($message) use ($user) {
-			$message->from('postmaster@grannypinion.de', 'Neue Antwort');
-			$message->to( $user->email );
-		});
+		return view('guest.thankyou');
+	}
 
+	private function persistQuestionValues($data)
+	{
+		if(is_array($data) && !empty($data))
+		{
+			$survey_id = array_get($data, 'survey_id');
 
-		$reply->save();
-
-		if(Auth::check()){
-			return redirect('/'+Auth::user()->id);
+			array_forget($data,'survey_id');
+			$reply_identifier = str_random(10);
+			foreach($data as $key => $value)
+			{
+				SurveyQuestionValue::create([
+					'survey_question_id' => $key,
+					'title'	=> $value,
+					'survey_id'=> $survey_id,
+					'reply_identifier' => $reply_identifier
+				]);
+			}
 		}
-		else {
-			return view('guest.thankyou');
-		}
-
 	}
 
 	/**
