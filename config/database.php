@@ -12,6 +12,10 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
+    
+    'options'   => array(
+                PDO::ATTR_EMULATE_PREPARES => true
+            ),
 
     'default' => env('DB_CONNECTION', 'sqlite'),
 
